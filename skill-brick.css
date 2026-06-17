@@ -599,10 +599,6 @@ a.brick-card:focus-visible {
   outline: none;
 }
 
-.brick-card.is-planned {
-  cursor: default;
-}
-
 .brick-card-visual {
   height: 72px;
   border-bottom: 1px solid var(--line);

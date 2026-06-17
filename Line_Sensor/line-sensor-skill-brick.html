@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Line Sensor Skill Brick</title>
+  <link rel="stylesheet" href="../skill-brick.css" />
+</head>
+<body class="theme-blue">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>Line Sensor</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Detect</span>
+          <span class="tag">Line</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>A line sensor helps your project notice dark and light marks underneath it.</p>
+        <p>It shines infrared light down and checks how much bounces back from the surface.</p>
+        <p>Your projects can use line sensors for robots, edge finding, counters, and secret floor maps.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for line-following robot illustration">
+              <strong>Placeholder</strong>
+              <span>Line-following robot scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Line-following robot</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Sensor sees line</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Line is under robot</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Steer robot</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for secret floor rune illustration">
+              <strong>Placeholder</strong>
+              <span>Secret floor rune scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Secret floor rune</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Dark mark appears</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Mark has been found</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Unlock secret route</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <div class="placeholder" role="img" aria-label="Placeholder for line sensor component image">
+          <strong>Placeholder</strong>
+          <span>Main line sensor product image or rendered component photo</span>
+        </div>
+      </div>
+
+      <div class="part-strip" aria-label="Line Sensor parts">
+        <div class="part"><strong>VCC</strong><span>Power</span></div>
+        <div class="part"><strong>OUT</strong><span>Signal</span></div>
+        <div class="part"><strong>GND</strong><span>Ground</span></div>
+        <div class="part"><strong>LED</strong><span>Looks down</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>Raspberry Pi</h2>
+        <pre><code>from gpiozero import LineSensor
+
+sensor = LineSensor(17)
+
+line_value = sensor.value</code></pre>
+      </section>
+
+      <section class="code-block">
+        <h2>Raspberry Pi Pico</h2>
+        <pre><code>from picozero import DigitalInputDevice
+
+sensor = DigitalInputDevice(2)
+
+line_seen = sensor.is_active</code></pre>
+      </section>
+
+      <div class="note">Use <code class="inline-code">line_value</code> or <code class="inline-code">line_seen</code> later in your Decide code.</div>
+    </main>
+
+    <aside class="panel wiring-panel">
+      <h1>Wiring</h1>
+
+      <div class="wiring-grid">
+        <section class="wiring-card">
+          <div class="wiring-label">Raspberry Pi</div>
+          <div class="image-box wiring-image">
+            <div class="placeholder" role="img" aria-label="Placeholder for Raspberry Pi line sensor wiring diagram">
+              <strong>Placeholder</strong>
+              <span>Raspberry Pi line sensor wiring diagram</span>
+            </div>
+          </div>
+          <div class="pin-note">VCC -&gt; 3V3 | OUT -&gt; GPIO 17 | GND -&gt; GND</div>
+        </section>
+
+        <section class="wiring-card">
+          <div class="wiring-label">Pico</div>
+          <div class="image-box wiring-image">
+            <div class="placeholder" role="img" aria-label="Placeholder for Raspberry Pi Pico line sensor wiring diagram">
+              <strong>Placeholder</strong>
+              <span>Raspberry Pi Pico line sensor wiring diagram</span>
+            </div>
+          </div>
+          <div class="pin-note">VCC -&gt; 3V3 | OUT -&gt; GP2 | GND -&gt; GND</div>
+        </section>
+      </div>
+    </aside>
+  </section>
+</body>
+</html>

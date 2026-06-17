@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PIR Skill Brick</title>
+  <link rel="stylesheet" href="../skill-brick.css" />
+</head>
+<body class="theme-blue">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>PIR</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Detect</span>
+          <span class="tag">Motion</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>A PIR sensor helps your project notice movement from people or warm things nearby.</p>
+        <p>PIR stands for passive infrared. It watches for changes in heat moving across its view.</p>
+        <p>Your projects can use PIR sensors for lights, alarms, counters, and dramatic entrances.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for room light illustration">
+              <strong>Placeholder</strong>
+              <span>Room light scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Room light</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Someone walks in</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Room is occupied</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Turn light on</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for sneaky snack guard illustration">
+              <strong>Placeholder</strong>
+              <span>Sneaky snack guard scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Sneaky snack guard</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Hand approaches biscuits</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Snack raid detected</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Sound alarm</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <div class="placeholder" role="img" aria-label="Placeholder for pir component image">
+          <strong>Placeholder</strong>
+          <span>Main pir product image or rendered component photo</span>
+        </div>
+      </div>
+
+      <div class="part-strip" aria-label="PIR parts">
+        <div class="part"><strong>VCC</strong><span>Power</span></div>
+        <div class="part"><strong>OUT</strong><span>Motion signal</span></div>
+        <div class="part"><strong>GND</strong><span>Ground</span></div>
+        <div class="part"><strong>Lens</strong><span>Wide view</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>Raspberry Pi</h2>
+        <pre><code>from gpiozero import MotionSensor
+
+pir = MotionSensor(17)
+
+motion = pir.motion_detected</code></pre>
+      </section>
+
+      <section class="code-block">
+        <h2>Raspberry Pi Pico</h2>
+        <pre><code>from picozero import MotionSensor
+
+pir = MotionSensor(2)
+
+motion = pir.motion_detected</code></pre>
+      </section>
+
+      <div class="note">Use <code class="inline-code">motion</code> later in your Decide code.</div>
+    </main>
+
+    <aside class="panel wiring-panel">
+      <h1>Wiring</h1>
+
+      <div class="wiring-grid">
+        <section class="wiring-card">
+          <div class="wiring-label">Raspberry Pi</div>
+          <div class="image-box wiring-image">
+            <div class="placeholder" role="img" aria-label="Placeholder for Raspberry Pi pir wiring diagram">
+              <strong>Placeholder</strong>
+              <span>Raspberry Pi pir wiring diagram</span>
+            </div>
+          </div>
+          <div class="pin-note">VCC -&gt; 5V | OUT -&gt; GPIO 17 | GND -&gt; GND</div>
+        </section>
+
+        <section class="wiring-card">
+          <div class="wiring-label">Pico</div>
+          <div class="image-box wiring-image">
+            <div class="placeholder" role="img" aria-label="Placeholder for Raspberry Pi Pico pir wiring diagram">
+              <strong>Placeholder</strong>
+              <span>Raspberry Pi Pico pir wiring diagram</span>
+            </div>
+          </div>
+          <div class="pin-note">VCC -&gt; 3V3 or 5V module supply | OUT -&gt; GP2 | GND -&gt; GND</div>
+        </section>
+      </div>
+    </aside>
+  </section>
+</body>
+</html>

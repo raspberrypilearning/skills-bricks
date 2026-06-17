@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Temp Sensor Skill Brick</title>
+  <link rel="stylesheet" href="../skill-brick.css" />
+</head>
+<body class="theme-blue">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>Temp Sensor</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Detect</span>
+          <span class="tag">Heat</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>A temperature sensor helps your project notice how warm or cold something is.</p>
+        <p>Many temperature sensors send a changing voltage or digital reading that code can turn into a temperature.</p>
+        <p>Your projects can use temperature to warn, log, cool, heat, or complain about soup.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for plant propagator illustration">
+              <strong>Placeholder</strong>
+              <span>Plant propagator scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Plant propagator</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Air gets too cold</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Seedlings need warmth</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Turn heater on</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for soup drama meter illustration">
+              <strong>Placeholder</strong>
+              <span>Soup drama meter scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Soup drama meter</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Soup is too hot</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Tongue danger detected</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Flash panic light</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <div class="placeholder" role="img" aria-label="Placeholder for temp sensor component image">
+          <strong>Placeholder</strong>
+          <span>Main temp sensor product image or rendered component photo</span>
+        </div>
+      </div>
+
+      <div class="part-strip" aria-label="Temp Sensor parts">
+        <div class="part"><strong>VCC</strong><span>Power</span></div>
+        <div class="part"><strong>OUT</strong><span>Reading</span></div>
+        <div class="part"><strong>GND</strong><span>Ground</span></div>
+        <div class="part"><strong>Case</strong><span>Sensing end</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>Raspberry Pi</h2>
+        <pre><code>from gpiozero import MCP3008
+
+sensor = MCP3008(channel=0)
+
+reading = sensor.value</code></pre>
+      </section>
+
+      <section class="code-block">
+        <h2>Raspberry Pi Pico</h2>
+        <pre><code>from picozero import TemperatureSensor
+
+def tmp36(voltage):
+    return (voltage - 0.5) * 100
+
+sensor = TemperatureSensor(26, conversion=tmp36)
+
+temp = sensor.temp</code></pre>
+      </section>
+
+      <div class="note">Use <code class="inline-code">reading</code> or <code class="inline-code">temp</code> later in your Decide code.</div>
+    </main>
+
+    <aside class="panel wiring-panel">
+      <h1>Wiring</h1>
+
+      <div class="wiring-grid">
+        <section class="wiring-card">
+          <div class="wiring-label">Raspberry Pi</div>
+          <div class="image-box wiring-image">
+            <div class="placeholder" role="img" aria-label="Placeholder for Raspberry Pi temp sensor wiring diagram">
+              <strong>Placeholder</strong>
+              <span>Raspberry Pi temp sensor wiring diagram</span>
+            </div>
+          </div>
+          <div class="pin-note">Sensor OUT -&gt; ADC channel 0 | sensor VCC -&gt; 3V3 | sensor GND -&gt; GND</div>
+        </section>
+
+        <section class="wiring-card">
+          <div class="wiring-label">Pico</div>
+          <div class="image-box wiring-image">
+            <div class="placeholder" role="img" aria-label="Placeholder for Raspberry Pi Pico temp sensor wiring diagram">
+              <strong>Placeholder</strong>
+              <span>Raspberry Pi Pico temp sensor wiring diagram</span>
+            </div>
+          </div>
+          <div class="pin-note">Sensor OUT -&gt; ADC GP26 | sensor VCC -&gt; 3V3 | sensor GND -&gt; GND</div>
+        </section>
+      </div>
+    </aside>
+  </section>
+</body>
+</html>

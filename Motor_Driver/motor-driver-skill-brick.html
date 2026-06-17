@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Motor/Driver Skill Brick</title>
+  <link rel="stylesheet" href="../skill-brick.css" />
+</head>
+<body class="theme-orange">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>Motor/Driver</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Do</span>
+          <span class="tag">Move</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>A motor driver lets your code safely control a motor.</p>
+        <p>The driver handles the bigger motor power, while the computer sends small control signals.</p>
+        <p>Your projects can use motors to move wheels, fans, arms, signs, and tiny machines.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for robot wheel illustration">
+              <strong>Placeholder</strong>
+              <span>Robot wheel scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Robot wheel</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Go command received</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Path is clear</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Drive motor forward</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for tiny flag waver illustration">
+              <strong>Placeholder</strong>
+              <span>Tiny flag waver scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Tiny flag waver</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Celebration starts</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Victory is official</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Wave flag wildly</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <div class="placeholder" role="img" aria-label="Placeholder for motor/driver component image">
+          <strong>Placeholder</strong>
+          <span>Main motor/driver product image or rendered component photo</span>
+        </div>
+      </div>
+
+      <div class="part-strip" aria-label="Motor/Driver parts">
+        <div class="part"><strong>IN1</strong><span>Forward</span></div>
+        <div class="part"><strong>IN2</strong><span>Backward</span></div>
+        <div class="part"><strong>Motor</strong><span>Power out</span></div>
+        <div class="part"><strong>VM</strong><span>Motor power</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>Raspberry Pi</h2>
+        <pre><code>from gpiozero import Motor
+
+motor = Motor(forward=17, backward=18)
+
+motor.forward()</code></pre>
+      </section>
+
+      <section class="code-block">
+        <h2>Raspberry Pi Pico</h2>
+        <pre><code>from picozero import Motor
+
+motor = Motor(forward=2, backward=3)
+
+motor.forward()</code></pre>
+      </section>
+
+      <div class="note">Use <code class="inline-code">motor.forward()</code>, <code class="inline-code">motor.backward()</code>, or <code class="inline-code">motor.stop()</code> in your Do code.</div>
+    </main>
+
+    <aside class="panel wiring-panel">
+      <h1>Wiring</h1>
+
+      <div class="wiring-grid">
+        <section class="wiring-card">
+          <div class="wiring-label">Raspberry Pi</div>
+          <div class="image-box wiring-image">
+            <div class="placeholder" role="img" aria-label="Placeholder for Raspberry Pi motor/driver wiring diagram">
+              <strong>Placeholder</strong>
+              <span>Raspberry Pi motor/driver wiring diagram</span>
+            </div>
+          </div>
+          <div class="pin-note">IN1 -&gt; GPIO 17 | IN2 -&gt; GPIO 18 | motor power -&gt; driver VM/GND</div>
+        </section>
+
+        <section class="wiring-card">
+          <div class="wiring-label">Pico</div>
+          <div class="image-box wiring-image">
+            <div class="placeholder" role="img" aria-label="Placeholder for Raspberry Pi Pico motor/driver wiring diagram">
+              <strong>Placeholder</strong>
+              <span>Raspberry Pi Pico motor/driver wiring diagram</span>
+            </div>
+          </div>
+          <div class="pin-note">IN1 -&gt; GP2 | IN2 -&gt; GP3 | motor power -&gt; driver VM/GND</div>
+        </section>
+      </div>
+    </aside>
+  </section>
+</body>
+</html>

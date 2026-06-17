@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stepper Skill Brick</title>
+  <link rel="stylesheet" href="../skill-brick.css" />
+</head>
+<body class="theme-orange">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>Stepper</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Do</span>
+          <span class="tag">Steps</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>A stepper motor moves in small controlled steps.</p>
+        <p>A driver board switches its coils in order, so code can choose direction and position more carefully.</p>
+        <p>Your projects can use steppers for dials, pointers, lifts, tiny plotters, and slow dramatic reveals.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for pointer dial illustration">
+              <strong>Placeholder</strong>
+              <span>Pointer dial scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Pointer dial</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>New value appears</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Pointer must move</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Step to angle</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for snack lift illustration">
+              <strong>Placeholder</strong>
+              <span>Snack lift scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Snack lift</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Treat is requested</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Snack platform ready</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Raise tiny elevator</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <div class="placeholder" role="img" aria-label="Placeholder for stepper component image">
+          <strong>Placeholder</strong>
+          <span>Main stepper product image or rendered component photo</span>
+        </div>
+      </div>
+
+      <div class="part-strip" aria-label="Stepper parts">
+        <div class="part"><strong>IN1</strong><span>Coil A</span></div>
+        <div class="part"><strong>IN2</strong><span>Coil B</span></div>
+        <div class="part"><strong>IN3</strong><span>Coil C</span></div>
+        <div class="part"><strong>IN4</strong><span>Coil D</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>Raspberry Pi</h2>
+        <pre><code>from gpiozero import OutputDevice
+
+coils = [OutputDevice(pin) for pin in (17, 18, 27, 22)]
+
+coils[0].on()</code></pre>
+      </section>
+
+      <section class="code-block">
+        <h2>Raspberry Pi Pico</h2>
+        <pre><code>from picozero import Stepper
+
+stepper = Stepper((2, 3, 4, 5))
+
+stepper.step(100)</code></pre>
+      </section>
+
+      <div class="note">Use step commands later in your Do code.</div>
+    </main>
+
+    <aside class="panel wiring-panel">
+      <h1>Wiring</h1>
+
+      <div class="wiring-grid">
+        <section class="wiring-card">
+          <div class="wiring-label">Raspberry Pi</div>
+          <div class="image-box wiring-image">
+            <div class="placeholder" role="img" aria-label="Placeholder for Raspberry Pi stepper wiring diagram">
+              <strong>Placeholder</strong>
+              <span>Raspberry Pi stepper wiring diagram</span>
+            </div>
+          </div>
+          <div class="pin-note">IN1-IN4 -&gt; GPIO 17, 18, 27, 22 | driver power -&gt; motor supply and GND</div>
+        </section>
+
+        <section class="wiring-card">
+          <div class="wiring-label">Pico</div>
+          <div class="image-box wiring-image">
+            <div class="placeholder" role="img" aria-label="Placeholder for Raspberry Pi Pico stepper wiring diagram">
+              <strong>Placeholder</strong>
+              <span>Raspberry Pi Pico stepper wiring diagram</span>
+            </div>
+          </div>
+          <div class="pin-note">IN1-IN4 -&gt; GP2, GP3, GP4, GP5 | driver power -&gt; motor supply and GND</div>
+        </section>
+      </div>
+    </aside>
+  </section>
+</body>
+</html>

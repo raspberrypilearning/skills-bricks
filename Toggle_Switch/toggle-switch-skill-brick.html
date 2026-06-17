@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toggle Switch Skill Brick</title>
+  <link rel="stylesheet" href="../skill-brick.css" />
+</head>
+<body class="theme-green">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>Toggle Switch</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Detect</span>
+          <span class="tag">Switch</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>A toggle switch stays in one position until someone flips it back.</p>
+        <p>That makes it useful for modes, power choices, and settings that should not disappear when you let go.</p>
+        <p>Your projects can use toggle switches for arming, choosing, locking, and secret control panels.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for mode selector illustration">
+              <strong>Placeholder</strong>
+              <span>Mode selector scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Mode selector</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Switch is flipped</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>New mode selected</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Change behaviour</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for serious business lever illustration">
+              <strong>Placeholder</strong>
+              <span>Serious business lever scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Serious business lever</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Lever flips up</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Important mode begins</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Play dramatic sound</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <div class="placeholder" role="img" aria-label="Placeholder for toggle switch component image">
+          <strong>Placeholder</strong>
+          <span>Main toggle switch product image or rendered component photo</span>
+        </div>
+      </div>
+
+      <div class="part-strip" aria-label="Toggle Switch parts">
+        <div class="part"><strong>COM</strong><span>Common</span></div>
+        <div class="part"><strong>NO</strong><span>On side</span></div>
+        <div class="part"><strong>NC</strong><span>Off side</span></div>
+        <div class="part"><strong>Lever</strong><span>Flip here</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>Raspberry Pi</h2>
+        <pre><code>from gpiozero import Button
+
+switch = Button(17)
+
+on = switch.is_pressed</code></pre>
+      </section>
+
+      <section class="code-block">
+        <h2>Raspberry Pi Pico</h2>
+        <pre><code>from picozero import Switch
+
+switch = Switch(2)
+
+on = switch.is_closed</code></pre>
+      </section>
+
+      <div class="note">Use <code class="inline-code">on</code> later in your Decide code.</div>
+    </main>
+
+    <aside class="panel wiring-panel">
+      <h1>Wiring</h1>
+
+      <div class="wiring-grid">
+        <section class="wiring-card">
+          <div class="wiring-label">Raspberry Pi</div>
+          <div class="image-box wiring-image">
+            <div class="placeholder" role="img" aria-label="Placeholder for Raspberry Pi toggle switch wiring diagram">
+              <strong>Placeholder</strong>
+              <span>Raspberry Pi toggle switch wiring diagram</span>
+            </div>
+          </div>
+          <div class="pin-note">COM -&gt; GND | NO -&gt; GPIO 17</div>
+        </section>
+
+        <section class="wiring-card">
+          <div class="wiring-label">Pico</div>
+          <div class="image-box wiring-image">
+            <div class="placeholder" role="img" aria-label="Placeholder for Raspberry Pi Pico toggle switch wiring diagram">
+              <strong>Placeholder</strong>
+              <span>Raspberry Pi Pico toggle switch wiring diagram</span>
+            </div>
+          </div>
+          <div class="pin-note">COM -&gt; GND | NO -&gt; GP2</div>
+        </section>
+      </div>
+    </aside>
+  </section>
+</body>
+</html>

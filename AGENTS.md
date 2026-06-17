@@ -3,6 +3,7 @@
 Use these notes when creating or updating skill brick HTML files in this repo.
 
 - Keep each brick consistent with `skill_brick_template.html`: two A5 landscape sides, a Discover side, and a Build side.
+- Put each brick in its own top-level folder, using Title_Case_With_Underscores for multi-word component names.
 - Use the shared `skill-brick.css` stylesheet for layout, print sizing, cards, placeholders, code blocks, and wiring sections.
 - Link component-folder HTML files to `../skill-brick.css`; link root-level files to `skill-brick.css`.
 - Use body theme classes such as `theme-blue`, `theme-orange`, `theme-green`, or `theme-sky` for per-brick colour changes.

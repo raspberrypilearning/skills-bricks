@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LDR Skill Brick</title>
+  <link rel="stylesheet" href="../skill-brick.css" />
+</head>
+<body class="theme-blue">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>LDR</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Detect</span>
+          <span class="tag">Light</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>An LDR helps your project notice light and dark.</p>
+        <p>LDR stands for light-dependent resistor. Its reading changes when more or less light hits it.</p>
+        <p>Your projects can use an LDR to react to shadows, lamps, daylight, or secret hand waves.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for night light illustration">
+              <strong>Placeholder</strong>
+              <span>Night light scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Night light</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Room gets dark</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Light level is low</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Turn lamp on</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for shadow snack machine illustration">
+              <strong>Placeholder</strong>
+              <span>Shadow snack machine scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Shadow snack machine</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Hand shadow appears</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Snack time is fake</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Make crunch sound</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <div class="placeholder" role="img" aria-label="Placeholder for ldr component image">
+          <strong>Placeholder</strong>
+          <span>Main ldr product image or rendered component photo</span>
+        </div>
+      </div>
+
+      <div class="part-strip" aria-label="LDR parts">
+        <div class="part"><strong>LDR</strong><span>Light reader</span></div>
+        <div class="part"><strong>Resistor</strong><span>Divider</span></div>
+        <div class="part"><strong>Signal</strong><span>Reading</span></div>
+        <div class="part"><strong>GND</strong><span>Ground</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>Raspberry Pi</h2>
+        <pre><code>from gpiozero import LightSensor
+
+ldr = LightSensor(17)
+
+light = ldr.light_detected</code></pre>
+      </section>
+
+      <section class="code-block">
+        <h2>Raspberry Pi Pico</h2>
+        <pre><code>from machine import ADC
+
+ldr = ADC(26)
+
+light_level = ldr.read_u16()</code></pre>
+      </section>
+
+      <div class="note">Use <code class="inline-code">light</code> or <code class="inline-code">light_level</code> later in your Decide code.</div>
+    </main>
+
+    <aside class="panel wiring-panel">
+      <h1>Wiring</h1>
+
+      <div class="wiring-grid">
+        <section class="wiring-card">
+          <div class="wiring-label">Raspberry Pi</div>
+          <div class="image-box wiring-image">
+            <div class="placeholder" role="img" aria-label="Placeholder for Raspberry Pi ldr wiring diagram">
+              <strong>Placeholder</strong>
+              <span>Raspberry Pi ldr wiring diagram</span>
+            </div>
+          </div>
+          <div class="pin-note">LDR and capacitor/resistor circuit -&gt; GPIO 17 | other side -&gt; 3V3/GND as drawn</div>
+        </section>
+
+        <section class="wiring-card">
+          <div class="wiring-label">Pico</div>
+          <div class="image-box wiring-image">
+            <div class="placeholder" role="img" aria-label="Placeholder for Raspberry Pi Pico ldr wiring diagram">
+              <strong>Placeholder</strong>
+              <span>Raspberry Pi Pico ldr wiring diagram</span>
+            </div>
+          </div>
+          <div class="pin-note">Voltage divider signal -&gt; ADC GP26 | ends -&gt; 3V3 and GND</div>
+        </section>
+      </div>
+    </aside>
+  </section>
+</body>
+</html>
