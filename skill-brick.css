@@ -661,7 +661,7 @@ code {
 .brick-card-footer {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 10px;
   padding: 0 16px 16px;
 }
@@ -670,10 +670,4 @@ code {
   font-size: 7.5pt;
   text-transform: none;
   letter-spacing: 0;
-}
-
-.brick-card-link {
-  color: var(--accent);
-  font-size: 9.5pt;
-  font-weight: 800;
 }
