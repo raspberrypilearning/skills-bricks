@@ -11,6 +11,7 @@ Use these notes when creating or updating skill brick HTML files in this repo.
 - Make the second use more creative, wacky, fun, silly, or deliberately pointless so it inspires kids to imagine their own projects.
 - Keep each use in the Detect -> Decide -> Do pattern.
 - Keep visible wording maker-led and playful. Avoid introducing bricks with formal curriculum language such as "review", "learning objective", "lesson", or "activity".
+- In code notes, avoid phrases like "Do code" or "Decide code". For Do bricks, it is fine to say the command can be used "after a Detect brick spots something".
 - Do not create final images for the use examples at this stage. Placeholder boxes are fine.
 - Do not worry about final Fritzing-style wiring diagrams at this stage. Placeholder boxes are fine.
 - Keep wording short, concrete, and friendly for young learners.
