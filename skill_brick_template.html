@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skill Brick Template</title>
+  <style>
+    :root {
+      --ink: #172033;
+      --muted: #526070;
+      --line: #d7e0ea;
+      --soft: #f6f8fb;
+      --tag-bg: #eaf1ff;
+      --tag-ink: #2563eb;
+      --code-bg: #111827;
+      --code-ink: #f9fafb;
+      --accent: #2563eb;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: #e9e9e9;
+    }
+
+    body {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .page {
+      width: 210mm;
+      height: 148mm;
+      margin: 10mm auto;
+      background: #ffffff;
+      overflow: hidden;
+      page-break-after: always;
+    }
+
+    .side-1 {
+      display: grid;
+      grid-template-columns: 60% 40%;
+    }
+
+    .side-2 {
+      display: grid;
+      grid-template-columns: 46% 54%;
+    }
+
+    .panel {
+      min-width: 0;
+      min-height: 0;
+      padding: 9mm;
+      display: flex;
+      flex-direction: column;
+      gap: 4mm;
+    }
+
+    .panel + .panel {
+      border-left: 1px dashed var(--line);
+    }
+
+    h1,
+    h2,
+    h3,
+    p,
+    ul,
+    pre {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 2mm;
+      font-size: 24pt;
+      line-height: 0.98;
+      letter-spacing: -0.045em;
+    }
+
+    h2 {
+      margin-bottom: 1.8mm;
+      font-size: 13pt;
+      line-height: 1.08;
+    }
+
+    h3 {
+      margin-bottom: 1.5mm;
+      font-size: 10.5pt;
+      line-height: 1.1;
+    }
+
+    p {
+      margin-bottom: 2.6mm;
+      font-size: 10.1pt;
+      line-height: 1.28;
+    }
+
+    ul {
+      margin-bottom: 0;
+      padding-left: 5mm;
+      font-size: 9.5pt;
+      line-height: 1.28;
+    }
+
+    .tags {
+      display: flex;
+      gap: 2mm;
+      flex-wrap: wrap;
+      margin-bottom: 2mm;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5mm 3.4mm;
+      border-radius: 999px;
+      background: var(--tag-bg);
+      color: var(--tag-ink);
+      font-size: 8.5pt;
+      line-height: 1;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.025em;
+    }
+
+    .image-box {
+      border: 1px solid var(--line);
+      border-radius: 5mm;
+      background: var(--soft);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .description {
+      flex: 0 0 auto;
+    }
+
+    .uses-section {
+      margin-top: auto;
+      display: grid;
+      gap: 2.8mm;
+    }
+
+    .uses-section h2 {
+      margin-bottom: 0;
+    }
+
+    .use-card {
+      border: 1px solid var(--line);
+      border-radius: 5mm;
+      background: #fbfdff;
+      padding: 2.6mm;
+      display: grid;
+      grid-template-columns: 27mm 1fr;
+      gap: 3mm;
+      align-items: center;
+      min-height: 30mm;
+    }
+
+    .use-image {
+      height: 22mm;
+      border: 1px solid var(--line);
+      border-radius: 3.5mm;
+      background: #ffffff;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .use-content {
+      min-width: 0;
+    }
+
+    .use-title {
+      margin-bottom: 1.8mm;
+      font-size: 9.8pt;
+      font-weight: 800;
+      line-height: 1.1;
+    }
+
+    .flow-line {
+      display: flex;
+      align-items: center;
+      gap: 0.8mm;
+    }
+
+    .flow-step {
+      flex: 0 0 auto;
+      min-width: 0;
+      background: var(--tag-bg);
+      border: 1px solid #bdd2ff;
+      padding: 1.3mm;
+      font-size: 6.85pt;
+      line-height: 1.08;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .flow-terminator {
+      width: 19mm;
+      height: 14mm;
+      border-radius: 999px;
+    }
+
+    .flow-decision {
+      width: 25mm;
+      height: 17mm;
+      padding: 2mm 4.5mm;
+      clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+    }
+
+    .flow-step strong {
+      display: block;
+      margin-bottom: 0.6mm;
+      color: var(--tag-ink);
+      font-size: 6.2pt;
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: 0.025em;
+    }
+
+    .arrow {
+      display: flex;
+      align-items: center;
+      color: var(--accent);
+      font-weight: 900;
+      font-size: 9pt;
+      line-height: 1;
+    }
+
+    .component-panel {
+      padding: 8mm;
+      justify-content: center;
+    }
+
+    .component-image {
+      flex: 1;
+      min-height: 0;
+      padding: 4mm;
+      background: #fbfdff;
+    }
+
+    .part-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.7mm;
+    }
+
+    .part {
+      border: 1px solid var(--line);
+      border-radius: 3mm;
+      padding: 2mm 1.5mm;
+      background: #ffffff;
+      text-align: center;
+    }
+
+    .part strong {
+      display: block;
+      margin-bottom: 0.8mm;
+      color: var(--accent);
+      font-size: 9.2pt;
+      line-height: 1;
+    }
+
+    .part span {
+      display: block;
+      color: var(--muted);
+      font-size: 7.6pt;
+      line-height: 1.1;
+    }
+
+    .code-panel {
+      padding-right: 7mm;
+    }
+
+    .code-block {
+      margin-bottom: 3.8mm;
+    }
+
+    pre {
+      margin-bottom: 0;
+      padding: 3mm;
+      background: var(--code-bg);
+      color: var(--code-ink);
+      border-radius: 3mm;
+      font-family: "Courier New", Courier, monospace;
+      font-size: 7.6pt;
+      line-height: 1.27;
+      white-space: pre;
+      overflow: visible;
+    }
+
+    code {
+      font-family: inherit;
+    }
+
+    .inline-code {
+      font-family: "Courier New", Courier, monospace;
+      font-weight: 800;
+      color: var(--accent);
+      background: #ffffff;
+      border: 1px solid #bdd2ff;
+      border-radius: 1.5mm;
+      padding: 0.2mm 1mm;
+    }
+
+    .note {
+      margin-top: auto;
+      border-left: 1mm solid var(--accent);
+      padding: 2.2mm 3mm;
+      background: var(--tag-bg);
+      color: var(--muted);
+      border-radius: 0 3mm 3mm 0;
+      font-size: 8.5pt;
+      line-height: 1.25;
+    }
+
+    .wiring-panel {
+      padding-left: 7mm;
+    }
+
+    .wiring-grid {
+      flex: 1;
+      min-height: 0;
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      gap: 4mm;
+    }
+
+    .wiring-card {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: 15mm 1fr;
+      gap: 3mm;
+      align-items: stretch;
+    }
+
+    .wiring-label {
+      border-radius: 4mm;
+      background: var(--tag-bg);
+      color: var(--tag-ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2mm;
+      font-weight: 800;
+      font-size: 8.6pt;
+      line-height: 1.08;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .wiring-image {
+      min-height: 0;
+      padding: 2mm;
+    }
+
+    .pin-note {
+      grid-column: 2;
+      margin-top: -2.2mm;
+      color: var(--muted);
+      font-size: 8pt;
+      line-height: 1.1;
+    }
+
+    .placeholder {
+      width: 100%;
+      height: 100%;
+      border: 1.2px dashed #9db7e9;
+      border-radius: inherit;
+      background:
+        linear-gradient(135deg, rgba(246, 248, 251, 0.95), rgba(255, 255, 255, 0.95)),
+        repeating-linear-gradient(
+          -45deg,
+          rgba(37, 99, 235, 0.05) 0,
+          rgba(37, 99, 235, 0.05) 8px,
+          rgba(255, 255, 255, 0.2) 8px,
+          rgba(255, 255, 255, 0.2) 16px
+        );
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 3mm;
+    }
+
+    .placeholder strong {
+      color: var(--accent);
+      font-size: 8.7pt;
+      line-height: 1.1;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .placeholder span {
+      margin-top: 1mm;
+      color: var(--muted);
+      font-size: 7.7pt;
+      line-height: 1.2;
+      max-width: 90%;
+    }
+
+    .placeholder.compact strong {
+      font-size: 7.2pt;
+    }
+
+    .placeholder.compact span {
+      font-size: 6.8pt;
+    }
+
+    @page {
+      size: A5 landscape;
+      margin: 0;
+    }
+
+    @media print {
+      html,
+      body {
+        width: 210mm;
+        background: #ffffff;
+      }
+
+      .page {
+        margin: 0;
+        width: 210mm;
+        height: 148mm;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>Lorem Ipsum Skill</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Lorem</span>
+          <span class="tag">Ipsum</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus.</p>
+        <p>Curabitur blandit tempus porttitor. Maecenas faucibus mollis interdum. Donec ullamcorper nulla non metus auctor fringilla.</p>
+        <p>Vestibulum id ligula porta felis euismod semper. Aenean lacinia bibendum nulla sed consectetur.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for use case image one">
+              <strong>Placeholder</strong>
+              <span>Use case image one</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Lorem use case one</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Lorem ipsum input</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Sit amet condition</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Consectetur action</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for use case image two">
+              <strong>Placeholder</strong>
+              <span>Use case image two</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Lorem use case two</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Dolor sit value</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Amet threshold met</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Elit response</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <div class="placeholder" role="img" aria-label="Placeholder for main component image">
+          <strong>Placeholder</strong>
+          <span>Main component image or product render</span>
+        </div>
+      </div>
+
+      <div class="part-strip" aria-label="Component parts">
+        <div class="part"><strong>Part 1</strong><span>Lorem</span></div>
+        <div class="part"><strong>Part 2</strong><span>Ipsum</span></div>
+        <div class="part"><strong>Part 3</strong><span>Dolor</span></div>
+        <div class="part"><strong>Part 4</strong><span>Sit amet</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>Platform One</h2>
+        <pre><code>from lorem import IpsumThing
+
+item = IpsumThing(
+    alpha=1,
+    beta=2
+)
+
+item.do_something()</code></pre>
+      </section>
+
+      <section class="code-block">
+        <h2>Platform Two</h2>
+        <pre><code>from ipsum import LoremThing
+
+item = LoremThing(
+    gamma=3,
+    delta=4
+)
+
+item.do_something()</code></pre>
+      </section>
+
+      <div class="note">Use <code class="inline-code">item.do_something()</code> as a placeholder for the final action in your project logic.</div>
+    </main>
+
+    <aside class="panel wiring-panel">
+      <h1>Wiring</h1>
+
+      <div class="wiring-grid">
+        <section class="wiring-card">
+          <div class="wiring-label">Platform One</div>
+          <div class="image-box wiring-image">
+            <div class="placeholder" role="img" aria-label="Placeholder for platform one wiring diagram">
+              <strong>Placeholder</strong>
+              <span>Platform one wiring diagram</span>
+            </div>
+          </div>
+          <div class="pin-note">Lorem pin -> ipsum pin &nbsp; | &nbsp; dolor pin -> sit amet</div>
+        </section>
+
+        <section class="wiring-card">
+          <div class="wiring-label">Platform Two</div>
+          <div class="image-box wiring-image">
+            <div class="placeholder" role="img" aria-label="Placeholder for platform two wiring diagram">
+              <strong>Placeholder</strong>
+              <span>Platform two wiring diagram</span>
+            </div>
+          </div>
+          <div class="pin-note">Alpha pin -> beta pin &nbsp; | &nbsp; gamma pin -> delta pin</div>
+        </section>
+      </div>
+    </aside>
+  </section>
+</body>
+</html>
