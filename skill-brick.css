@@ -593,10 +593,14 @@ code {
   color: var(--ink);
 }
 
-.brick-card:hover,
-.brick-card:focus-visible {
+a.brick-card:hover,
+a.brick-card:focus-visible {
   border-color: var(--accent);
   outline: none;
+}
+
+.brick-card.is-planned {
+  cursor: default;
 }
 
 .brick-card-visual {
