@@ -668,6 +668,8 @@ code {
 
 .brick-card-footer .tag {
   font-size: 7.5pt;
+  text-transform: none;
+  letter-spacing: 0;
 }
 
 .brick-card-link {
