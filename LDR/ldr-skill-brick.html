@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LDR Skill Brick</title>
+  <link rel="stylesheet" href="../skill-brick.css" />
+</head>
+<body>
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>LDR</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Detect</span>
+          <span class="tag">Level</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>An LDR is a light sensor that tells your project how bright or dark it is.</p>
+        <p>LDR stands for light dependent resistor. Its resistance changes when more or less light falls on the sensor face.</p>
+        <p>Your projects can use an LDR to react to sunshine, shadows, daylight, or darkness.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <img src="./automatic-night-light.png" alt="Automatic night light turning on when the room becomes dark" />
+          </div>
+          <div class="use-content">
+            <div class="use-title">Automatic night light</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Room light level</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Room is dark</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Turn on lamp</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <img src="./greenhouse-grow-light.png" alt="Greenhouse project using an LDR to monitor plant light and turn on a grow light in shade" />
+          </div>
+          <div class="use-content">
+            <div class="use-title">Greenhouse grow light</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Plant light level</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Plants are too shaded</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Turn on grow light</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <img src="./ldr.png" alt="Light dependent resistor component with a round sensor face and two metal legs" />
+      </div>
+
+      <div class="part-strip" aria-label="LDR parts">
+        <div class="part"><strong>Sensor face</strong><span>Detects light</span></div>
+        <div class="part"><strong>Track</strong><span>Changes resistance</span></div>
+        <div class="part"><strong>Legs</strong><span>Connect to circuit</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>Raspberry Pi</h2>
+        <pre><code>from gpiozero import LightSensor
+
+ldr = LightSensor(18)
+
+brightness = ldr.value</code></pre>
+      </section>
+
+      <section class="code-block">
+        <h2>Raspberry Pi Pico</h2>
+        <pre><code>from machine import ADC, Pin
+
+ldr = ADC(Pin(26))
+
+brightness = ldr.read_u16()</code></pre>
+      </section>
+
+      <div class="note">Use <code class="inline-code">brightness</code> later in your Decide code to react to light or darkness. On Raspberry Pi, <code class="inline-code">LightSensor</code> uses an LDR and a capacitor. On Pico, use the LDR in a voltage divider with a fixed resistor.</div>
+    </main>
+
+    <aside class="panel wiring-panel">
+      <h1>Wiring</h1>
+
+      <div class="wiring-grid">
+        <section class="wiring-card">
+          <div class="wiring-label">Raspberry Pi</div>
+          <div class="image-box wiring-image">
+            <div class="placeholder" role="img" aria-label="Placeholder for Raspberry Pi LDR wiring diagram">
+              <strong>Placeholder</strong>
+              <span>Raspberry Pi LDR wiring diagram</span>
+            </div>
+          </div>
+          <div class="pin-note">3V3 -> LDR -> GPIO 18 &nbsp; | &nbsp; GPIO 18 -> 1 uF capacitor -> GND</div>
+        </section>
+
+        <section class="wiring-card">
+          <div class="wiring-label">Pico</div>
+          <div class="image-box wiring-image">
+            <div class="placeholder" role="img" aria-label="Placeholder for Raspberry Pi Pico LDR wiring diagram">
+              <strong>Placeholder</strong>
+              <span>Raspberry Pi Pico LDR wiring diagram</span>
+            </div>
+          </div>
+          <div class="pin-note">3V3 -> LDR -> GP26 &nbsp; | &nbsp; GP26 -> 10k resistor -> GND</div>
+        </section>
+      </div>
+    </aside>
+  </section>
+</body>
+</html>

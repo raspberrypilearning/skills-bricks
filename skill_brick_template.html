@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skill Brick Template</title>
+  <link rel="stylesheet" href="skill-brick.css" />
+  <style>
+    .part-strip { grid-template-columns: repeat(4, 1fr); }
+  </style>
+</head>
+<body>
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>Lorem Ipsum Skill</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Lorem</span>
+          <span class="tag">Ipsum</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus.</p>
+        <p>Curabitur blandit tempus porttitor. Maecenas faucibus mollis interdum. Donec ullamcorper nulla non metus auctor fringilla.</p>
+        <p>Vestibulum id ligula porta felis euismod semper. Aenean lacinia bibendum nulla sed consectetur.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for use case image one">
+              <strong>Placeholder</strong>
+              <span>Use case image one</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Lorem use case one</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Lorem ipsum input</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Sit amet condition</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Consectetur action</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for use case image two">
+              <strong>Placeholder</strong>
+              <span>Use case image two</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Lorem use case two</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Dolor sit value</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Amet threshold met</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Elit response</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <div class="placeholder" role="img" aria-label="Placeholder for main component image">
+          <strong>Placeholder</strong>
+          <span>Main component image or product render</span>
+        </div>
+      </div>
+
+      <div class="part-strip" aria-label="Component parts">
+        <div class="part"><strong>Part 1</strong><span>Lorem</span></div>
+        <div class="part"><strong>Part 2</strong><span>Ipsum</span></div>
+        <div class="part"><strong>Part 3</strong><span>Dolor</span></div>
+        <div class="part"><strong>Part 4</strong><span>Sit amet</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>Platform One</h2>
+        <pre><code>from lorem import IpsumThing
+
+item = IpsumThing(
+    alpha=1,
+    beta=2
+)
+
+item.do_something()</code></pre>
+      </section>
+
+      <section class="code-block">
+        <h2>Platform Two</h2>
+        <pre><code>from ipsum import LoremThing
+
+item = LoremThing(
+    gamma=3,
+    delta=4
+)
+
+item.do_something()</code></pre>
+      </section>
+
+      <div class="note">Use <code class="inline-code">item.do_something()</code> as a placeholder for the final action in your project logic.</div>
+    </main>
+
+    <aside class="panel wiring-panel">
+      <h1>Wiring</h1>
+
+      <div class="wiring-grid">
+        <section class="wiring-card">
+          <div class="wiring-label">Platform One</div>
+          <div class="image-box wiring-image">
+            <div class="placeholder" role="img" aria-label="Placeholder for platform one wiring diagram">
+              <strong>Placeholder</strong>
+              <span>Platform one wiring diagram</span>
+            </div>
+          </div>
+          <div class="pin-note">Lorem pin -> ipsum pin &nbsp; | &nbsp; dolor pin -> sit amet</div>
+        </section>
+
+        <section class="wiring-card">
+          <div class="wiring-label">Platform Two</div>
+          <div class="image-box wiring-image">
+            <div class="placeholder" role="img" aria-label="Placeholder for platform two wiring diagram">
+              <strong>Placeholder</strong>
+              <span>Platform two wiring diagram</span>
+            </div>
+          </div>
+          <div class="pin-note">Alpha pin -> beta pin &nbsp; | &nbsp; gamma pin -> delta pin</div>
+        </section>
+      </div>
+    </aside>
+  </section>
+</body>
+</html>
