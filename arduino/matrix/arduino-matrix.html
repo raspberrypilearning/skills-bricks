@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arduino LED Matrix Skill Brick</title>
+  <link rel="stylesheet" href="../../skill-brick.css" />
+  <style>
+    .part-strip { grid-template-columns: repeat(4, 1fr); }
+  </style>
+</head>
+<body class="arduino">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>LED Matrix</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Do</span>
+          <span class="tag">Light</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>An LED matrix is a grid of LEDs you can light up to show numbers, letters and pictures.</p>
+        <p>A common module is an 8&times;8 grid driven by a MAX7219 chip.</p>
+        <p>With an Arduino, the LedControl library lights any LED in the grid.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for Mood badge illustration">
+              <strong>Placeholder</strong>
+              <span>Mood badge scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Mood badge</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>A button press</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Which face to show</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Show a happy or sad face</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for Dice roll illustration">
+              <strong>Placeholder</strong>
+              <span>Dice roll scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Dice roll</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>A shake or press</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Pick a number 1 to 6</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Show the number</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <div class="placeholder" role="img" aria-label="Placeholder for LED Matrix component image">
+          <strong>Placeholder</strong>
+          <span>8x8 LED matrix module (MAX7219) photo</span>
+        </div>
+      </div>
+
+      <div class="part-strip" aria-label="LED Matrix parts">
+        <div class="part"><strong>DIN</strong><span>Data</span></div>
+        <div class="part"><strong>CLK</strong><span>Clock</span></div>
+        <div class="part"><strong>CS</strong><span>Chip select</span></div>
+        <div class="part"><strong>VCC</strong><span>5V</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>Arduino</h2>
+        <pre><code>#include &lt;LedControl.h&gt;
+
+LedControl lc(12, 11, 10, 1);
+
+void setup() {
+  lc.shutdown(0, false);
+  lc.setIntensity(0, 8);
+  lc.clearDisplay(0);
+}
+
+void loop() {
+  lc.setLed(0, 2, 3, true);
+}</code></pre>
+      </section>
+
+      <div class="note">Install the LedControl library. <code class="inline-code">lc(DIN, CLK, CS, devices)</code>; <code class="inline-code">setLed()</code> lights one LED by row and column.</div>
+    </main>
+
+    <aside class="panel wiring-panel">
+      <h1>Wiring</h1>
+
+      <div class="image-box wiring-image mb-wiring">
+        <div class="placeholder" role="img" aria-label="Placeholder for the Arduino LED Matrix Fritzing wiring diagram">
+          <strong>Fritzing wiring</strong>
+          <span>Add matrix-wiring.png</span>
+        </div>
+      </div>
+      <div class="pin-note">DIN &rarr; pin 12 &nbsp; | &nbsp; CLK &rarr; pin 11 &nbsp; | &nbsp; CS &rarr; pin 10 &nbsp; | &nbsp; VCC &rarr; 5V, GND &rarr; GND</div>
+    </aside>
+  </section>
+</body>
+</html>

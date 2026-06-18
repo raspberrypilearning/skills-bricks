@@ -1,0 +1,206 @@
+micro:bit use-case image prompts
+
+Global style for every image:
+Landscape 3:2 thumbnail. Device-only scene. No people, no hands, no faces, no characters, no mascots.
+Technical but rugged and make-do: scarred wooden workbench, cardboard prototypes, masking tape, cable ties, crocodile clips, jumper wires, rough brackets, hot-glue blobs, small tools in the background.
+Show the micro:bit and the device or project being described clearly in the foreground. Use warm workshop lighting, playful but practical. No readable text, no logos, no watermarks.
+
+microbit/accelerometer
+
+Shake dice:
+Illustrate a micro:bit accelerometer dice project on a rugged workshop bench. Show a micro:bit in a cardboard dice tray with motion arrows or blur marks around the board, LED matrix showing dice pips, scattered foam dice and wires nearby. Device-only, no people or hands.
+
+Tilt maze:
+Illustrate a micro:bit tilt maze controller on a make-do workshop bench. Show the micro:bit mounted beside a cardboard maze board with a small ball and directional tilt arrows, rough tape and clips visible. Device-only, no people or hands.
+
+microbit/button-switch
+
+Arcade button:
+Illustrate an external arcade button connected to a micro:bit. Show a big colorful button mounted in a taped cardboard controller box, jumper wires to the micro:bit, and a rugged workshop bench with tools in the background. Device-only, no people or hands.
+
+Door switch:
+Illustrate a door switch connected to a micro:bit. Show a small cardboard doorway model with a switch at the frame, wires running to the micro:bit, and a tiny alert LED or buzzer module beside it. Device-only, no people or hands.
+
+microbit/buttons
+
+Yes / no quiz:
+Illustrate a micro:bit button quiz device. Show a micro:bit mounted on a rough cardboard quiz console with two chunky button areas for A and B, LED matrix showing a tick or cross icon, workshop wires and tape visible. Device-only, no people or hands.
+
+Jumping game:
+Illustrate a micro:bit button-controlled jumping game. Show the micro:bit on a scrappy cardboard game stand, A button highlighted with a small mechanical marker, LED matrix showing a tiny jumping dot or sprite. Device-only, no people or hands.
+
+microbit/capacitive-touch
+
+Secret reveal:
+Illustrate a micro:bit capacitive touch secret reveal project. Show a micro:bit on a hidden-message cardboard box, logo touch area highlighted with copper tape, LED matrix showing a simple reveal icon, rugged workshop parts around it. Device-only, no people or hands.
+
+Touch piano:
+Illustrate a touch piano made from a micro:bit. Show the micro:bit wired to copper tape piano keys on cardboard, small speaker or buzzer nearby, colored wires and tape on a rough bench. Device-only, no people or hands.
+
+microbit/edge-connector-pins
+
+External LED:
+Illustrate a micro:bit edge connector controlling an external LED. Show crocodile clips on P0 and GND, a resistor and glowing LED mounted through cardboard, with rough workshop tape and wire offcuts. Device-only, no people or hands.
+
+Grumpy desk plant:
+Illustrate a micro:bit pin sensor project for a grumpy desk plant. Show a small plant pot with a simple moisture or analog sensor probe connected to a micro:bit, LED matrix showing a warning face, tape and wires on the bench. Device-only, no people or hands.
+
+microbit/i2c
+
+Tiny display:
+Illustrate an I2C tiny display connected to a micro:bit. Show four neat wires from the micro:bit to a small OLED-style module on a cardboard mount, screen showing a simple icon, rugged workshop bench details. Device-only, no people or hands.
+
+Desk weather station:
+Illustrate an I2C desk weather station. Show a micro:bit connected to a small environmental sensor module and tiny display, all mounted on a taped cardboard weather station frame with paper cloud shapes but no words. Device-only, no people or hands.
+
+microbit/ldr
+
+Automatic night light:
+Illustrate an LDR automatic night light. Show an LDR sensor and micro:bit wired to a glowing LED lamp inside a small cardboard room model, one corner shaded, with tape and wires visible. Device-only, no people or hands.
+
+Greenhouse grow light:
+Illustrate an LDR greenhouse grow light. Show a cardboard mini greenhouse with small plant pots, an LDR sensor connected to a micro:bit, and a glowing LED grow light above the plants. Device-only, no people or hands.
+
+microbit/led
+
+Mini traffic light:
+Illustrate a mini traffic light controlled by a micro:bit. Show red, amber, and green LEDs mounted in a rough cardboard traffic light body, with resistors and wires leading to the micro:bit on a workshop bench. Device-only, no people or hands.
+
+Motion sensor light:
+Illustrate a motion sensor light using a micro:bit and LED. Show a small sensor module, glowing LED lamp, and micro:bit mounted on a cardboard hallway model, with cable ties and jumper wires visible. Device-only, no people or hands.
+
+microbit/light-sensor
+
+Night light:
+Illustrate the built-in micro:bit light sensor used as a night light. Show the micro:bit in a dim cardboard room model, LED matrix glowing brightly, nearby lamp cutout and rough workshop tape. Device-only, no people or hands.
+
+Shadow alarm:
+Illustrate a micro:bit shadow alarm. Show a micro:bit on a bench with its LED matrix reacting to a dark cardboard shadow shape falling over it, with a small buzzer module and wires nearby. Device-only, no people or hands.
+
+microbit/line-sensor
+
+Line-following buggy:
+Illustrate a line-following buggy using a micro:bit and line sensor. Show a scrappy two-wheel robot with downward-facing sensor following black tape on cardboard, visible motor wires and taped chassis. Device-only, no people or hands.
+
+Edge stopper:
+Illustrate a line sensor edge stopper. Show a small micro:bit robot near the edge of a cardboard platform, downward sensor aimed at the surface, wheels stopped, black tape and rough bench details visible. Device-only, no people or hands.
+
+microbit/magnetometer
+
+Digital compass:
+Illustrate a micro:bit digital compass. Show a micro:bit mounted on a rough cardboard compass base with a simple arrow on the LED matrix, surrounded by workshop scraps and a non-branded compass ring prop. Device-only, no people or hands.
+
+Magnet detector:
+Illustrate a micro:bit magnet detector. Show a magnet near the micro:bit, magnetic field arcs around it, LED matrix glowing as an alert, with cardboard brackets and tape on the bench. Device-only, no people or hands.
+
+microbit/matrix
+
+Mood badge:
+Illustrate a micro:bit LED matrix mood badge. Show a micro:bit clipped to a rough cardboard badge mount, LED matrix showing a happy or sad face icon, tape, string, and maker scraps nearby. Device-only, no people or hands.
+
+Dice roll:
+Illustrate a micro:bit LED matrix dice roll. Show the micro:bit lying in a cardboard dice tray with LED matrix showing dice pips, foam dice and motion marks nearby on a rugged bench. Device-only, no people or hands.
+
+microbit/motor-driver
+
+Robot buggy:
+Illustrate a robot buggy controlled by a micro:bit motor driver. Show a cardboard chassis, two wheels, motor driver board, battery holder, and micro:bit wired together on a rough bench. Device-only, no people or hands.
+
+Spinning display:
+Illustrate a spinning display controlled by a motor driver and micro:bit. Show a small motor turning a colorful cardboard display wheel, motor driver and micro:bit wired nearby, tape and cable ties visible. Device-only, no people or hands.
+
+microbit/neopixel
+
+Rainbow light:
+Illustrate a NeoPixel rainbow light connected to a micro:bit. Show a strip or ring of RGB LEDs inside a taped translucent jar or cardboard lamp, micro:bit and power wires beside it on a rugged bench. Device-only, no people or hands.
+
+Tiny disco badge:
+Illustrate a tiny disco badge using a NeoPixel ring and micro:bit. Show a cardboard badge shape with a glowing NeoPixel ring, micro:bit clipped behind or beside it, wires and tape visible. Device-only, no people or hands.
+
+microbit/piezo-buzzer
+
+Sound alert:
+Illustrate a piezo buzzer sound alert. Show a micro:bit wired to a small piezo buzzer on a taped cardboard alert box, with friendly sound-wave arcs and a small LED indicator. Device-only, no people or hands.
+
+Safety warning alarm:
+Illustrate a piezo buzzer safety warning alarm for a pretend machine. Show a cardboard machine model with a buzzer, warning light, and micro:bit wired together, rugged workshop materials visible. Device-only, no people or hands.
+
+microbit/pir
+
+Automatic hallway light:
+Illustrate a PIR automatic hallway light. Show a PIR dome sensor mounted on a cardboard hallway model, micro:bit connected nearby, small lamp or LED glowing as the detected output. Device-only, no people or hands.
+
+Security alarm:
+Illustrate a PIR security alarm. Show a PIR sensor watching a cardboard room model, micro:bit wired to a buzzer and red LED, with playful spy-gadget workshop props but no characters. Device-only, no people or hands.
+
+microbit/potentiometer
+
+Volume dial:
+Illustrate a potentiometer volume dial. Show a chunky knob mounted in a rough cardboard control panel, wires to a micro:bit and piezo buzzer, with simple sound-wave arcs. Device-only, no people or hands.
+
+Brightness slider:
+Illustrate a potentiometer brightness control. Show a knob or slider on a taped cardboard panel wired to a micro:bit, controlling a glowing LED lamp with visible brightness glow. Device-only, no people or hands.
+
+microbit/radio
+
+Wireless hello:
+Illustrate two micro:bits sending a wireless hello by radio. Show two micro:bits on separate cardboard stands with radio-wave arcs between them, rugged workshop bench and jumper wires nearby. Device-only, no people or hands.
+
+Remote light:
+Illustrate a radio remote light project. Show one micro:bit transmitter on a cardboard button panel and a second micro:bit receiver lighting its LED matrix, with radio-wave arcs between them. Device-only, no people or hands.
+
+microbit/rgb-led
+
+Mood lamp:
+Illustrate an RGB LED mood lamp. Show a micro:bit wired to an RGB LED inside a scrappy cardboard lampshade glowing with mixed colors, resistors and wires visible. Device-only, no people or hands.
+
+Status light:
+Illustrate an RGB LED status light. Show a micro:bit wired to an RGB LED mounted in a taped cardboard project box, with green, amber, and red indicator glow areas shown as light pools. Device-only, no people or hands.
+
+microbit/servo
+
+Robot arm:
+Illustrate a servo robot arm controlled by a micro:bit. Show a small cardboard and craft-stick arm with a blue hobby servo at the joint, micro:bit and wires beside it on a rugged workbench. Device-only, no people or hands.
+
+Dinosaur gate:
+Illustrate a servo dinosaur gate. Show a cardboard barrier gate moved by a servo, toy dinosaur waiting nearby, micro:bit wired to the servo, tape and handmade brackets visible. Device-only, no people or hands.
+
+microbit/speaker
+
+Egg timer:
+Illustrate a micro:bit speaker egg timer. Show a micro:bit on a taped cardboard kitchen timer stand, LED matrix showing a simple timer icon, sound-wave arcs from the built-in speaker, egg cup prop nearby. Device-only, no people or hands.
+
+Game point:
+Illustrate a micro:bit speaker game point alert. Show a micro:bit mounted on a cardboard tabletop game board, LED matrix showing a point icon, sound-wave arcs from the board, counters and wires nearby. Device-only, no people or hands.
+
+microbit/spi
+
+Tiny game screen:
+Illustrate an SPI tiny game screen. Show a small color display module wired to a micro:bit with several signal wires, display showing a simple pixel maze icon, rugged cardboard mount and bench tools. Device-only, no people or hands.
+
+Snack scoreboard:
+Illustrate an SPI snack scoreboard. Show a tiny screen module wired to a micro:bit on a cardboard scoreboard frame, toy snacks or animal tokens nearby, colorful icons on the screen but no readable text. Device-only, no people or hands.
+
+microbit/temperature
+
+Too hot warning:
+Illustrate a micro:bit temperature warning project. Show a micro:bit on a rough cardboard thermometer stand, LED matrix showing a warning face or heat icon, warm lamp and workshop props nearby. Device-only, no people or hands.
+
+Weather logger:
+Illustrate a micro:bit weather logger. Show a micro:bit connected to a small notebook-like cardboard data station or display stand, weather icons as props, wires and tape on the bench. Device-only, no people or hands.
+
+microbit/uart
+
+Treasure map tracker:
+Illustrate a UART treasure map tracker. Show a micro:bit wired to a small GPS-style receiver module on a rugged workbench, paper map prop with route marks but no readable text, jumper wires visible. Device-only, no people or hands.
+
+Secret hello wire:
+Illustrate a UART secret hello wire. Show two small boards or modules connected by TX/RX wires to a micro:bit, blinking LEDs and signal pulses along the wires, cardboard spy-gadget case nearby. Device-only, no people or hands.
+
+microbit/uds
+
+Car reversing sensor:
+Illustrate an ultrasonic car reversing sensor. Show an HC-SR04-style distance sensor with two round transducers, a toy car, cardboard wall, micro:bit and buzzer wired together on a rugged bench. Device-only, no people or hands.
+
+Magic treasure chest:
+Illustrate an ultrasonic magic treasure chest. Show a taped cardboard treasure chest with an ultrasonic sensor near the lid, micro:bit wired beside it, LED glowing when the chest detects something nearby, craft gems inside. Device-only, no people or hands.

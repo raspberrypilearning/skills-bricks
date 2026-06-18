@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arduino Speaker Skill Brick</title>
+  <link rel="stylesheet" href="../../skill-brick.css" />
+</head>
+<body class="arduino">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>Speaker</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Do</span>
+          <span class="tag">Sound</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>A speaker turns electrical signals into sound you can hear.</p>
+        <p>On an Arduino you can drive a small speaker with the tone() function to play notes and tunes.</p>
+        <p>A speaker can play richer sound than a simple buzzer.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for Door chime illustration">
+              <strong>Placeholder</strong>
+              <span>Door chime scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Door chime</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>The door opens</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Play a chime</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Sound the tune</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for Tiny fanfare illustration">
+              <strong>Placeholder</strong>
+              <span>Tiny fanfare scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Tiny fanfare</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>The player wins</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Time to celebrate</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Play a fanfare</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <img src="./speaker.png" alt="A small loudspeaker" />
+      </div>
+
+      <div class="part-strip" aria-label="Speaker parts">
+        <div class="part"><strong>Cone</strong><span>Makes the sound</span></div>
+        <div class="part"><strong>Terminals</strong><span>Signal and GND</span></div>
+        <div class="part"><strong>8 &#937;</strong><span>Typical speaker</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>Arduino</h2>
+        <pre><code>const int speaker = 8;
+int tune[] = {262, 294, 330, 349};
+
+void setup() {
+  pinMode(speaker, OUTPUT);
+}
+
+void loop() {
+  for (int i = 0; i &lt; 4; i++) {
+    tone(speaker, tune[i], 300);
+    delay(350);
+  }
+}</code></pre>
+      </section>
+
+      <div class="note"><code class="inline-code">tone()</code> plays square-wave notes through the speaker. For louder, cleaner sound, drive it through a small transistor or amplifier.</div>
+    </main>
+
+    <aside class="panel wiring-panel">
+      <h1>Wiring</h1>
+
+      <div class="image-box wiring-image mb-wiring">
+        <div class="placeholder" role="img" aria-label="Placeholder for the Arduino Speaker Fritzing wiring diagram">
+          <strong>Fritzing wiring</strong>
+          <span>Add speaker-wiring.png</span>
+        </div>
+      </div>
+      <div class="pin-note">pin 8 &rarr; speaker + (via a resistor) &nbsp; | &nbsp; speaker &minus; &rarr; GND</div>
+    </aside>
+  </section>
+</body>
+</html>

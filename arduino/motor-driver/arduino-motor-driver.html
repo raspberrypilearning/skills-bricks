@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arduino Motor Driver Skill Brick</title>
+  <link rel="stylesheet" href="../../skill-brick.css" />
+  <style>
+    .part-strip { grid-template-columns: repeat(4, 1fr); }
+  </style>
+</head>
+<body class="arduino">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>Motor Driver</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Do</span>
+          <span class="tag">Motor</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>A motor driver board lets your Arduino control motors that need more power than a pin can supply.</p>
+        <p>The Arduino sends low-power signals and the driver switches the larger motor current from its own supply.</p>
+        <p>You set direction with digital pins and speed with a PWM pin.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for Robot buggy illustration">
+              <strong>Placeholder</strong>
+              <span>Robot buggy scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Robot buggy</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Start button pressed</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Time to move</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Drive the motors forward</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for Spinning display illustration">
+              <strong>Placeholder</strong>
+              <span>Spinning display scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Spinning display</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Timer tick</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Turntable should turn</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Run the motor</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <img src="./motor-controller.png" alt="A motor controller / driver board" />
+      </div>
+
+      <div class="part-strip" aria-label="Motor Driver parts">
+        <div class="part"><strong>IN1, IN2</strong><span>Direction</span></div>
+        <div class="part"><strong>ENA</strong><span>Speed (PWM)</span></div>
+        <div class="part"><strong>Motor A/B</strong><span>To the motors</span></div>
+        <div class="part"><strong>VS / GND</strong><span>Motor power</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>Arduino</h2>
+        <pre><code>const int in1 = 5;
+const int in2 = 6;
+const int ena = 9;
+
+void setup() {
+  pinMode(in1, OUTPUT);
+  pinMode(in2, OUTPUT);
+  pinMode(ena, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(in1, HIGH);
+  digitalWrite(in2, LOW);
+  analogWrite(ena, 180);
+}</code></pre>
+      </section>
+
+      <div class="note">Power the motors from the driver board's own battery, not the Arduino. <code class="inline-code">analogWrite()</code> on ENA sets the speed.</div>
+    </main>
+
+    <aside class="panel wiring-panel">
+      <h1>Wiring</h1>
+
+      <div class="image-box wiring-image mb-wiring">
+        <div class="placeholder" role="img" aria-label="Placeholder for the Arduino Motor Driver Fritzing wiring diagram">
+          <strong>Fritzing wiring</strong>
+          <span>Add motor-driver-wiring.png</span>
+        </div>
+      </div>
+      <div class="pin-note">pin 5 &rarr; IN1 &nbsp; | &nbsp; pin 6 &rarr; IN2 &nbsp; | &nbsp; pin 9 &rarr; ENA &nbsp; | &nbsp; battery &rarr; VS, GND &rarr; GND</div>
+    </aside>
+  </section>
+</body>
+</html>

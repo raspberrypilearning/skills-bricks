@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arduino Capacitive Touch Skill Brick</title>
+  <link rel="stylesheet" href="../../skill-brick.css" />
+</head>
+<body class="arduino">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>Capacitive Touch</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Detect</span>
+          <span class="tag">Touch</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>A capacitive touch sensor reacts to your finger, just like a phone screen.</p>
+        <p>It senses the tiny electrical change your skin makes when you touch the pad.</p>
+        <p>With an Arduino, a touch module gives a digital HIGH when it is touched.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for Secret reveal illustration">
+              <strong>Placeholder</strong>
+              <span>Secret reveal scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Secret reveal</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Pad is touched</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Someone touched it</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Show a hidden message</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for Touch lamp illustration">
+              <strong>Placeholder</strong>
+              <span>Touch lamp scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Touch lamp</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Pad is touched</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Toggle the light</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Turn the lamp on or off</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <div class="placeholder" role="img" aria-label="Placeholder for Capacitive Touch component image">
+          <strong>Placeholder</strong>
+          <span>Capacitive touch module (TTP223) photo</span>
+        </div>
+      </div>
+
+      <div class="part-strip" aria-label="Capacitive Touch parts">
+        <div class="part"><strong>Pad</strong><span>Touch area</span></div>
+        <div class="part"><strong>OUT</strong><span>To a pin</span></div>
+        <div class="part"><strong>Power</strong><span>3.3&ndash;5V</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>Arduino</h2>
+        <pre><code>const int touch = 2;
+
+void setup() {
+  pinMode(touch, INPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  if (digitalRead(touch) == HIGH) {
+    Serial.println("Touched");
+  }
+}</code></pre>
+      </section>
+
+      <div class="note">A TTP223 touch module outputs HIGH while the pad is touched &mdash; read it like a button.</div>
+    </main>
+
+    <aside class="panel wiring-panel">
+      <h1>Wiring</h1>
+
+      <div class="image-box wiring-image mb-wiring">
+        <div class="placeholder" role="img" aria-label="Placeholder for the Arduino Capacitive Touch Fritzing wiring diagram">
+          <strong>Fritzing wiring</strong>
+          <span>Add capacitive-touch-wiring.png</span>
+        </div>
+      </div>
+      <div class="pin-note">OUT &rarr; pin 2 &nbsp; | &nbsp; VCC &rarr; 3.3V &nbsp; | &nbsp; GND &rarr; GND</div>
+    </aside>
+  </section>
+</body>
+</html>

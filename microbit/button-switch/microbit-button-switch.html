@@ -115,7 +115,7 @@ basic.forever(function () {
 })</code></pre>
       </section>
 
-      <div class="note">With a pull-up the pin reads 1 normally and 0 when pressed (button wired to GND). Set the pull mode before you read. (Make <code class="inline-code">pin0.set_pull()</code> and <code class="inline-code">pin0.read_digital()</code> inline-code — two spans.)</div>
+      <div class="note">With a pull-up the pin reads 1 normally and 0 when pressed (button wired to GND). Set <code class="inline-code">pin0.set_pull()</code> before you call <code class="inline-code">pin0.read_digital()</code>.</div>
     </main>
 
     <aside class="panel wiring-panel">

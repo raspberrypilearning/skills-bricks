@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arduino Accelerometer Skill Brick</title>
+  <link rel="stylesheet" href="../../skill-brick.css" />
+</head>
+<body class="arduino">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>Accelerometer</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Detect</span>
+          <span class="tag">Motion</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>An accelerometer senses movement, tilt, and how it is being held.</p>
+        <p>It measures force on three axes &mdash; x, y and z.</p>
+        <p>With an Arduino, an analog accelerometer is read on three analog pins.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for Shake dice illustration">
+              <strong>Placeholder</strong>
+              <span>Shake dice scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Shake dice</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>A shake</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>It was shaken</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Show a random number</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for Tilt maze illustration">
+              <strong>Placeholder</strong>
+              <span>Tilt maze scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Tilt maze</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Tilt on the x axis</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Which way it leans</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Move the dot</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <img src="./adafruit-compass-accelerometer.png" alt="An accelerometer module" />
+      </div>
+
+      <div class="part-strip" aria-label="Accelerometer parts">
+        <div class="part"><strong>X, Y, Z</strong><span>Three axes</span></div>
+        <div class="part"><strong>Analog out</strong><span>To analog pins</span></div>
+        <div class="part"><strong>VCC</strong><span>3.3V power</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>Arduino</h2>
+        <pre><code>const int xPin = A0;
+const int yPin = A1;
+const int zPin = A2;
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  int x = analogRead(xPin);
+  int y = analogRead(yPin);
+  int z = analogRead(zPin);
+  Serial.println(x);
+}</code></pre>
+      </section>
+
+      <div class="note">An analog accelerometer (like the ADXL335) gives a voltage per axis that you read with <code class="inline-code">analogRead()</code>.</div>
+    </main>
+
+    <aside class="panel wiring-panel">
+      <h1>Wiring</h1>
+
+      <div class="image-box wiring-image mb-wiring">
+        <div class="placeholder" role="img" aria-label="Placeholder for the Arduino Accelerometer Fritzing wiring diagram">
+          <strong>Fritzing wiring</strong>
+          <span>Add accelerometer-wiring.png</span>
+        </div>
+      </div>
+      <div class="pin-note">X &rarr; A0 &nbsp; | &nbsp; Y &rarr; A1 &nbsp; | &nbsp; Z &rarr; A2 &nbsp; | &nbsp; VCC &rarr; 3.3V, GND &rarr; GND</div>
+    </aside>
+  </section>
+</body>
+</html>

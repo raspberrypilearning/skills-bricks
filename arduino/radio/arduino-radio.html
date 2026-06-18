@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arduino Radio Skill Brick</title>
+  <link rel="stylesheet" href="../../skill-brick.css" />
+  <style>
+    .part-strip { grid-template-columns: repeat(4, 1fr); }
+  </style>
+</head>
+<body class="arduino">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>Radio</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Connect</span>
+          <span class="tag">Receive</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>A radio module lets two or more Arduinos talk to each other wirelessly.</p>
+        <p>Modules on the same channel and address can send and receive messages.</p>
+        <p>With an Arduino, the RF24 library sends and receives over SPI.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for Wireless hello illustration">
+              <strong>Placeholder</strong>
+              <span>Wireless hello scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Wireless hello</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Button pressed</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Time to send</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Send a message</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for Remote light illustration">
+              <strong>Placeholder</strong>
+              <span>Remote light scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Remote light</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>A message arrives</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Message says on</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Light an LED</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <div class="placeholder" role="img" aria-label="Placeholder for Radio component image">
+          <strong>Placeholder</strong>
+          <span>nRF24L01 radio module photo</span>
+        </div>
+      </div>
+
+      <div class="part-strip" aria-label="Radio parts">
+        <div class="part"><strong>CE</strong><span>Pin 7</span></div>
+        <div class="part"><strong>CSN</strong><span>Pin 8</span></div>
+        <div class="part"><strong>SPI</strong><span>SCK MISO MOSI</span></div>
+        <div class="part"><strong>3.3V</strong><span>Power</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>Arduino</h2>
+        <pre><code>#include &lt;SPI.h&gt;
+#include &lt;RF24.h&gt;
+
+RF24 radio(7, 8);
+const byte address[6] = "00001";
+
+void setup() {
+  radio.begin();
+  radio.openWritingPipe(address);
+  radio.stopListening();
+}
+
+void loop() {
+  const char text[] = "hello";
+  radio.write(&amp;text, sizeof(text));
+}</code></pre>
+      </section>
+
+      <div class="note">Install the RF24 library. The module uses SPI plus CE and CSN pins, and must run on 3.3V.</div>
+    </main>
+
+    <aside class="panel wiring-panel">
+      <h1>Wiring</h1>
+
+      <div class="image-box wiring-image mb-wiring">
+        <div class="placeholder" role="img" aria-label="Placeholder for the Arduino Radio Fritzing wiring diagram">
+          <strong>Fritzing wiring</strong>
+          <span>Add radio-wiring.png</span>
+        </div>
+      </div>
+      <div class="pin-note">CE &rarr; pin 7 &nbsp; | &nbsp; CSN &rarr; pin 8 &nbsp; | &nbsp; SCK/MISO/MOSI &rarr; SPI pins &nbsp; | &nbsp; VCC &rarr; 3.3V, GND &rarr; GND</div>
+    </aside>
+  </section>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arduino LED Skill Brick</title>
+  <link rel="stylesheet" href="../../skill-brick.css" />
+</head>
+<body class="arduino">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>LED</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Do</span>
+          <span class="tag">Light</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>An LED is a tiny light that your code can switch on, switch off, or blink.</p>
+        <p>LED stands for light-emitting diode. It glows when electricity flows the right way through it, so the long leg and short leg matter.</p>
+        <p>With an Arduino, you connect an LED to a pin through a resistor and switch it on and off in your sketch.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for Mini traffic light illustration">
+              <strong>Placeholder</strong>
+              <span>Mini traffic light scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Mini traffic light</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Timer reaches stop point</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Cars must stop now</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Turn on red LED</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for Motion sensor light illustration">
+              <strong>Placeholder</strong>
+              <span>Motion sensor light scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Motion sensor light</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Movement near the sensor</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Someone has arrived</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Turn on the LED</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <img src="./led.png" alt="A single LED with long and short legs" />
+      </div>
+
+      <div class="part-strip" aria-label="LED parts">
+        <div class="part"><strong>Anode</strong><span>Long leg</span></div>
+        <div class="part"><strong>Cathode</strong><span>Short leg</span></div>
+        <div class="part"><strong>Resistor</strong><span>Protects LED</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>Arduino</h2>
+        <pre><code>const int led = 13;
+
+void setup() {
+  pinMode(led, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(led, HIGH);
+  delay(500);
+  digitalWrite(led, LOW);
+  delay(500);
+}</code></pre>
+      </section>
+
+      <div class="note">Use <code class="inline-code">digitalWrite(led, HIGH)</code> to turn the LED on and <code class="inline-code">LOW</code> to turn it off. Always put a 220 &#937; resistor in series with the LED.</div>
+    </main>
+
+    <aside class="panel wiring-panel">
+      <h1>Wiring</h1>
+
+      <div class="image-box wiring-image mb-wiring">
+        <div class="placeholder" role="img" aria-label="Placeholder for the Arduino LED Fritzing wiring diagram">
+          <strong>Fritzing wiring</strong>
+          <span>Add led-wiring.png</span>
+        </div>
+      </div>
+      <div class="pin-note">Pin 13 &rarr; resistor &rarr; LED + (long leg) &nbsp; | &nbsp; LED &minus; (short leg) &rarr; GND</div>
+    </aside>
+  </section>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arduino Arduino Pins Skill Brick</title>
+  <link rel="stylesheet" href="../../skill-brick.css" />
+  <style>
+    .part-strip { grid-template-columns: repeat(4, 1fr); }
+  </style>
+</head>
+<body class="arduino">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>Arduino Pins</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Connect</span>
+          <span class="tag">Reference</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>The Arduino's pins are how it connects to the outside world.</p>
+        <p>Digital pins read or write HIGH and LOW, analog pins (A0&ndash;A5) read voltages, and PWM pins (marked ~) can fake an analog output.</p>
+        <p>Power pins give 5V, 3.3V and GND for your components.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for Read a sensor illustration">
+              <strong>Placeholder</strong>
+              <span>Read a sensor scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Read a sensor</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Analog pin voltage</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>What it means</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>React in code</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for Drive an output illustration">
+              <strong>Placeholder</strong>
+              <span>Drive an output scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Drive an output</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>A condition</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>On or off</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Set a digital pin</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <div class="placeholder" role="img" aria-label="Placeholder for Arduino Pins component image">
+          <strong>Placeholder</strong>
+          <span>Arduino board pin headers photo</span>
+        </div>
+      </div>
+
+      <div class="part-strip" aria-label="Arduino Pins parts">
+        <div class="part"><strong>Digital</strong><span>HIGH or LOW</span></div>
+        <div class="part"><strong>Analog</strong><span>A0&ndash;A5</span></div>
+        <div class="part"><strong>PWM</strong><span>~ pins</span></div>
+        <div class="part"><strong>Power</strong><span>5V 3.3V GND</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>Arduino</h2>
+        <pre><code>const int digitalPin = 2;
+const int analogPin = A0;
+const int pwmPin = 9;
+
+void setup() {
+  pinMode(digitalPin, INPUT);
+  pinMode(pwmPin, OUTPUT);
+}
+
+void loop() {
+  int sensor = analogRead(analogPin);
+  analogWrite(pwmPin, sensor / 4);
+}</code></pre>
+      </section>
+
+      <div class="note">Digital pins use <code class="inline-code">digitalRead/Write</code>, analog pins use <code class="inline-code">analogRead</code> (0&ndash;1023), and ~ pins use <code class="inline-code">analogWrite</code> (0&ndash;255).</div>
+    </main>
+
+    <aside class="panel wiring-panel">
+      <h1>Wiring</h1>
+
+      <div class="image-box wiring-image mb-wiring">
+        <div class="placeholder" role="img" aria-label="Placeholder for the Arduino Arduino Pins Fritzing wiring diagram">
+          <strong>Fritzing wiring</strong>
+          <span>Add arduino-pins-reference.png</span>
+        </div>
+      </div>
+      <div class="pin-note">digital pins 0&ndash;13 &nbsp; | &nbsp; analog A0&ndash;A5 &nbsp; | &nbsp; power 5V, 3.3V, GND</div>
+    </aside>
+  </section>
+</body>
+</html>

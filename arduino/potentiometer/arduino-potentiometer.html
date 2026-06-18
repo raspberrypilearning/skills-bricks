@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arduino Potentiometer Skill Brick</title>
+  <link rel="stylesheet" href="../../skill-brick.css" />
+</head>
+<body class="arduino">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>Potentiometer</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Detect</span>
+          <span class="tag">Level</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>A potentiometer is a knob that changes its resistance as you turn it.</p>
+        <p>Wired as a voltage divider, it gives the Arduino a value that rises and falls as you turn it.</p>
+        <p>With an Arduino, you read it on an analog pin to get a number from 0 to 1023.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for Volume dial illustration">
+              <strong>Placeholder</strong>
+              <span>Volume dial scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Volume dial</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Knob position</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>How loud it should be</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Set the buzzer pitch</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for Brightness slider illustration">
+              <strong>Placeholder</strong>
+              <span>Brightness slider scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Brightness slider</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Knob position</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>How bright it should be</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Set the LED brightness</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <div class="placeholder" role="img" aria-label="Placeholder for Potentiometer component image">
+          <strong>Placeholder</strong>
+          <span>Potentiometer component photo</span>
+        </div>
+      </div>
+
+      <div class="part-strip" aria-label="Potentiometer parts">
+        <div class="part"><strong>Two ends</strong><span>5V and GND</span></div>
+        <div class="part"><strong>Wiper</strong><span>To analog pin</span></div>
+        <div class="part"><strong>0&ndash;1023</strong><span>Value range</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>Arduino</h2>
+        <pre><code>const int pot = A0;
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  int value = analogRead(pot);
+  Serial.println(value);
+}</code></pre>
+      </section>
+
+      <div class="note"><code class="inline-code">analogRead()</code> gives 0 at one end and 1023 at the other.</div>
+    </main>
+
+    <aside class="panel wiring-panel">
+      <h1>Wiring</h1>
+
+      <div class="image-box wiring-image mb-wiring">
+        <div class="placeholder" role="img" aria-label="Placeholder for the Arduino Potentiometer Fritzing wiring diagram">
+          <strong>Fritzing wiring</strong>
+          <span>Add potentiometer-wiring.png</span>
+        </div>
+      </div>
+      <div class="pin-note">5V &rarr; one end &nbsp; | &nbsp; wiper &rarr; A0 &nbsp; | &nbsp; GND &rarr; other end</div>
+    </aside>
+  </section>
+</body>
+</html>

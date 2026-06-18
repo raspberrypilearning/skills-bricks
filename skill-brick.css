@@ -596,6 +596,11 @@ code {
   --code-bg: #0f4c81; /* deep micro:bit blue — cream text 7.8:1 */
 }
 
+/* Arduino resources — deep blue code blocks (Arduino palette) for quick recognition. Set on <body class="arduino">. */
+.arduino {
+  --code-bg: #1d2087; /* Arduino deep blue — cream text ~9:1 */
+}
+
 /* Quick-reference panel — replaces the wiring panel for built-in components */
 .ref-panel {
   padding-left: 7mm;
@@ -799,4 +804,105 @@ a.brick-card:focus-visible {
     width: 210mm;
     height: 148mm;
   }
+}
+
+/* ---- platform picker app (app.html) ---- */
+.platform-picker {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.platform-choice {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 22px 22px 24px;
+  border: 1px solid var(--line);
+  border-top-width: 5px;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  color: var(--ink);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+}
+
+.platform-choice:hover,
+.platform-choice:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+  outline: none;
+}
+
+.platform-pi { border-top-color: #c51a4a; }
+.platform-pico { border-top-color: #46499e; }
+.platform-microbit { border-top-color: #0f4c81; }
+
+.platform-emoji { font-size: 30pt; line-height: 1; }
+.platform-name { font-size: 16pt; font-weight: 800; line-height: 1.1; }
+.platform-sub { color: var(--muted); font-size: 10.5pt; line-height: 1.35; }
+
+.change-platform {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 18px;
+  padding: 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--ink);
+  font: inherit;
+  font-size: 10pt;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.change-platform:hover,
+.change-platform:focus-visible { border-color: var(--accent); outline: none; }
+
+.app-group + .app-group {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.app-group-title {
+  margin-bottom: 14px;
+  color: var(--ink);
+  font-size: 18pt;
+  letter-spacing: 0;
+}
+
+.platform-arduino { border-top-color: #1d2087; }
+
+/* floating music mute button (app.html) */
+.audio-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 50;
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #ffffff;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.12);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.audio-toggle:hover,
+.audio-toggle:focus-visible {
+  border-color: var(--accent);
+  outline: none;
 }

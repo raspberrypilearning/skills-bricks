@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arduino Magnetometer Skill Brick</title>
+  <link rel="stylesheet" href="../../skill-brick.css" />
+  <style>
+    .part-strip { grid-template-columns: repeat(4, 1fr); }
+  </style>
+</head>
+<body class="arduino">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>Magnetometer</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Detect</span>
+          <span class="tag">Direction</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>A magnetometer measures magnetic fields, which lets the Arduino work as a compass.</p>
+        <p>It can give a heading in degrees where 0 means north.</p>
+        <p>With an Arduino, a compass module is read over I&sup2;C using a library.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for Digital compass illustration">
+              <strong>Placeholder</strong>
+              <span>Digital compass scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Digital compass</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>The heading</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Which way is north</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Point an arrow north</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for Magnet detector illustration">
+              <strong>Placeholder</strong>
+              <span>Magnet detector scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Magnet detector</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Field strength</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>A magnet is close</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Light an LED</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <img src="./adafruit-compass-accelerometer.png" alt="A compass / magnetometer module" />
+      </div>
+
+      <div class="part-strip" aria-label="Magnetometer parts">
+        <div class="part"><strong>SDA</strong><span>I&sup2;C data (A4)</span></div>
+        <div class="part"><strong>SCL</strong><span>I&sup2;C clock (A5)</span></div>
+        <div class="part"><strong>VCC</strong><span>3.3V power</span></div>
+        <div class="part"><strong>GND</strong><span>Ground</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>Arduino</h2>
+        <pre><code>#include &lt;Wire.h&gt;
+#include &lt;QMC5883LCompass.h&gt;
+
+QMC5883LCompass compass;
+
+void setup() {
+  Serial.begin(9600);
+  compass.init();
+}
+
+void loop() {
+  compass.read();
+  Serial.println(compass.getAzimuth());
+}</code></pre>
+      </section>
+
+      <div class="note">Install a compass library. The module connects over I&sup2;C (SDA/SCL); <code class="inline-code">getAzimuth()</code> returns the heading.</div>
+    </main>
+
+    <aside class="panel wiring-panel">
+      <h1>Wiring</h1>
+
+      <div class="image-box wiring-image mb-wiring">
+        <div class="placeholder" role="img" aria-label="Placeholder for the Arduino Magnetometer Fritzing wiring diagram">
+          <strong>Fritzing wiring</strong>
+          <span>Add magnetometer-wiring.png</span>
+        </div>
+      </div>
+      <div class="pin-note">SDA &rarr; A4 &nbsp; | &nbsp; SCL &rarr; A5 &nbsp; | &nbsp; VCC &rarr; 3.3V &nbsp; | &nbsp; GND &rarr; GND</div>
+    </aside>
+  </section>
+</body>
+</html>

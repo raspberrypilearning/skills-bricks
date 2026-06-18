@@ -1,0 +1,240 @@
+ARDUINO SKILL BRICKS — USE-CASE ILLUSTRATION PROMPTS
+=====================================================
+
+These are image-generation prompts for the two "use case" scenes on each Arduino
+card. There is one prompt per use case (44 in total). Each suggests a filename —
+drop the finished PNG into the matching card folder and the scene will be wired in.
+
+────────────────────────────────────────────────────
+GLOBAL STYLE  (prepend to every prompt, or set as your style preset)
+────────────────────────────────────────────────────
+Technical illustration with a rugged, make-do maker aesthetic — an improvised
+hardware build like something thrown together on a hackerspace workbench. Always
+feature an exposed Arduino Uno, a breadboard, and visible colour-coded jumper
+wires; enclosures made from scrap cardboard, plywood, jar lids and tape; small
+hand-written paper labels. Flat, slightly desaturated and worn colour palette,
+clean confident linework, soft shading, a little grime and wear. Show ONLY the
+device and the scene being described — no people, no hands, no faces. Neutral
+background or a plain workbench surface. Square framing, slight 3/4 / isometric
+angle.
+
+Naming: filenames are kebab-case of the use-case title. Place each in
+arduino/<component>/ and they will replace the matching placeholder.
+
+
+════════════════════════════════════════════════════
+SENSORS & INPUTS
+════════════════════════════════════════════════════
+
+LDR  (arduino/ldr/)
+1. Automatic night light — A jam-jar night-light with a glowing LED inside and an
+   LDR taped to the outside, wired on a breadboard to an Arduino; dusky, dim
+   surroundings to show it switching on as the light fades.
+   → automatic-night-light.png
+2. Greenhouse grow light — A mini cardboard-and-tape greenhouse with a seedling
+   under a small purple grow-LED, an LDR clipped to the frame, wired to an
+   Arduino; humid, improvised feel.
+   → greenhouse-grow-light.png
+
+PIR  (arduino/pir/)
+1. Automatic hallway light — A PIR motion module on a scrap-wood bracket in a
+   hallway nook, wired to an Arduino that lights a bare LED bulb; cables taped
+   along the skirting.
+   → automatic-hallway-light.png
+2. Security alarm — A doorway rigged with a PIR module on a bracket, wired to an
+   Arduino with a small buzzer and a lit red LED, a hand-written "ARMED" tag.
+   → security-alarm.png
+
+ULTRASONIC DISTANCE SENSOR  (arduino/uds/)
+1. Car reversing sensor — A toy car's rear bumper fitted with an HC-SR04 sensor
+   (its two round "eyes"), wired to an Arduino and a buzzer, a cardboard wall just
+   behind, faint distance arcs drawn.
+   → car-reversing-sensor.png
+2. Magic treasure chest — A small wooden chest with an HC-SR04 mounted in the lip,
+   wired to an Arduino and a servo that lifts the lid, a glowing LED inside; taped,
+   make-do.
+   → magic-treasure-chest.png
+
+POTENTIOMETER  (arduino/potentiometer/)
+1. Volume dial — A breadboard with a rotary potentiometer knob wired to an Arduino
+   driving a piezo buzzer, a hand-drawn volume scale around the knob, little sound
+   waves.
+   → volume-dial.png
+2. Brightness slider — A potentiometer knob wired to an Arduino dimming a bright
+   LED on a breadboard, a hand-drawn gauge running from dim to bright.
+   → brightness-slider.png
+
+BUTTON / SWITCH  (arduino/button-switch/)
+1. Arcade button — A big round arcade push-button mounted through a cardboard box,
+   wired to an Arduino on a breadboard, a hand-written "PRESS" label.
+   → arcade-button.png
+2. Door switch — A door frame with a lever/limit switch on a bracket sensing the
+   door edge, wired to an Arduino and a small buzzer; taped cabling.
+   → door-switch.png
+
+CAPACITIVE TOUCH  (arduino/capacitive-touch/)
+1. Secret reveal — A cardboard panel with a copper-tape touch pad wired through a
+   TTP223 module to an Arduino, a hidden message lighting up on small LEDs, a
+   hand-drawn arrow pointing to the pad.
+   → secret-reveal.png
+2. Touch lamp — A jar desk-lamp with an LED, switched by a copper-tape touch pad on
+   its base via a TTP223 and Arduino; lamp glowing softly.
+   → touch-lamp.png
+
+LINE SENSOR  (arduino/line-sensor/)
+1. Line-following buggy — A small two-wheeled buggy with an infrared line-sensor
+   module underneath tracking a black tape line on white card, Arduino and motor
+   driver taped on top.
+   → line-following-buggy.png
+2. Edge stopper — A buggy stopped right at the edge of a table, an IR sensor module
+   pointing down at the drop, wired to an Arduino with the motors halted.
+   → edge-stopper.png
+
+ACCELEROMETER  (arduino/accelerometer/)
+1. Shake dice — An electronic-dice gadget in a taped cardboard box with an analog
+   accelerometer module and LEDs showing a number, wired to an Arduino, motion
+   lines suggesting a shake.
+   → shake-dice.png
+2. Tilt maze — A tilt-maze panel resting on the bench with an accelerometer module
+   and a row of indicator LEDs, a dot marker, wired to an Arduino; tilted slightly.
+   → tilt-maze.png
+
+MAGNETOMETER  (arduino/magnetometer/)
+1. Digital compass — A compass gadget with a magnetometer module and a ring of LEDs
+   (or a tiny display) pointing to north, wired to an Arduino, a drawn N/E/S/W rose.
+   → digital-compass.png
+2. Magnet detector — A magnetometer module on a scrap-wood wand held near a magnet
+   (no hand — clamped in a bench vice), wired to an Arduino with a lit LED, field
+   lines drawn around the magnet.
+   → magnet-detector.png
+
+TEMPERATURE  (arduino/temperature/)
+1. Too hot warning — A TMP36 temperature sensor on a breadboard beside a steaming
+   mug, wired to an Arduino with a lit red warning LED and a hand-written ">30°C"
+   tag.
+   → too-hot-warning.png
+2. Weather logger — A weather-proofed jar "station" holding a temperature sensor
+   and an Arduino, taped to a fence post outdoors under an overcast sky, an SD
+   module logging readings.
+   → weather-logger.png
+
+
+════════════════════════════════════════════════════
+OUTPUTS
+════════════════════════════════════════════════════
+
+LED  (arduino/led/)
+1. Mini traffic light — A miniature traffic light made from three LEDs (red, amber,
+   green) on a cardboard mast, wired on a breadboard to an Arduino, the red LED
+   glowing; a couple of toy cars stopped at the line.
+   → mini-traffic-light.png
+2. Motion sensor light — An improvised LED spot-lamp with a foil reflector switched
+   on by an Arduino beside a small PIR module on a breadboard, casting a pool of
+   light into a dim corner.
+   → motion-sensor-light.png
+
+RGB LED  (arduino/rgb-led/)
+1. Mood lamp — A frosted jar diffusing an RGB LED glowing teal-and-purple, wired on
+   a breadboard to an Arduino with three resistors visible; colour spilling into a
+   dim room.
+   → mood-lamp.png
+2. Status light — A small panel with a single RGB LED behind a hand-cut OK / WARN /
+   ERR label, currently amber, wired to an Arduino on a breadboard.
+   → status-light.png
+
+PIEZO BUZZER  (arduino/piezo-buzzer/)
+1. Sound alert — A breadboard with a piezo buzzer wired to an Arduino, cartoon
+   sound-wave rings radiating from the buzzer, a hand-written "ALERT" tag.
+   → sound-alert.png
+2. Safety warning alarm — A scrap-metal-and-wood machine guard with a piezo buzzer
+   and a red LED on a bracket, wired to an Arduino, hazard-striped tape, sound
+   waves radiating.
+   → safety-warning-alarm.png
+
+SERVO  (arduino/servo/)
+1. Automatic gate — A miniature barrier gate made from a lolly-stick arm on a servo
+   horn, the servo wired to an Arduino on a breadboard, gate raised, cardboard
+   posts.
+   → automatic-gate.png
+2. Robot arm — A cardboard-and-lolly-stick robot arm jointed with two servos, wired
+   to an Arduino, gripping a small wooden block; taped, hand-labelled.
+   → robot-arm.png
+
+MOTOR DRIVER  (arduino/motor-driver/)
+1. Robot buggy — A make-do robot buggy on a scrap chassis with two geared motors
+   and wheels, an L298N driver board and an Arduino taped on top, a battery pack,
+   loose jumper wires.
+   → robot-buggy.png
+2. Spinning display — A turntable made from a jam-jar lid driven by a small DC
+   motor through an L298N driver and Arduino, a trinket on top mid-spin; improvised
+   and taped.
+   → spinning-display.png
+
+NEOPIXEL  (arduino/neopixel/)
+1. Progress bar — A NeoPixel LED strip mounted on scrap wood, the first several
+   pixels lit in a gradient as a progress bar, wired to an Arduino, a hand-written
+   scale beneath.
+   → progress-bar.png
+2. Rainbow badge — A pin-back badge made from a short NeoPixel ring on cardboard,
+   glowing rainbow, wired to a small Arduino and a battery, lying on the workbench.
+   → rainbow-badge.png
+
+LED MATRIX  (arduino/matrix/)
+1. Mood badge — An 8x8 LED matrix on a MAX7219 board showing a smiley face, mounted
+   on cardboard with a pin back, wired to an Arduino on the bench.
+   → mood-badge.png
+2. Dice roll — An 8x8 LED matrix showing a five-pip dice pattern, wired to an
+   Arduino on a breadboard, motion lines implying a shake.
+   → dice-roll.png
+
+
+════════════════════════════════════════════════════
+CONNECTIONS & REFERENCE
+════════════════════════════════════════════════════
+
+I2C  (arduino/i2c/)
+1. OLED display — A small OLED screen module wired over I²C (just SDA, SCL and
+   power) to an Arduino on a breadboard, the screen showing a tiny graph; four neat
+   jumper wires labelled SDA / SCL.
+   → oled-display.png
+2. Sensor reading — An I²C sensor module daisy-chained on two shared wires to an
+   Arduino, a hand-drawn note showing two devices sharing the same SDA/SCL bus.
+   → sensor-reading.png
+
+SPI  (arduino/spi/)
+1. SD card — A micro-SD breakout wired over SPI to an Arduino on a breadboard, neat
+   jumper wires labelled SCK / MISO / MOSI / CS, a small "saving…" tag.
+   → sd-card.png
+2. TFT screen — A small colour TFT screen module wired over SPI to an Arduino,
+   showing a simple shape, several labelled jumper wires; bench setting.
+   → tft-screen.png
+
+UART  (arduino/uart/)
+1. Talk to a computer — An Arduino on a breadboard tethered by a USB cable to the
+   edge of a laptop (screen only, no person) showing a serial-monitor stream of
+   numbers; cable taped down.
+   → talk-to-a-computer.png
+2. GPS receiver — A GPS module with a small ceramic antenna wired over serial
+   (TX/RX) to an Arduino, a hand-drawn satellite-fix indicator and a coordinates
+   tag; outdoors on a bench.
+   → gps-receiver.png
+
+RADIO  (arduino/radio/)
+1. Wireless hello — Two separate breadboards, each with an nRF24L01 radio module
+   and an Arduino, a dashed wireless-signal arc carrying a little "hello" tag
+   between them; antennas visible, no people.
+   → wireless-hello.png
+2. Remote light — One breadboard with an nRF24 module and a button transmitting a
+   dashed signal arc to a second breadboard with an nRF24 and Arduino lighting an
+   LED; two improvised units on the bench.
+   → remote-light.png
+
+ARDUINO PINS  (arduino/pins/)
+1. Read a sensor — A close technical hero shot of an Arduino Uno with one sensor
+   wired into analog pin A0, the analog header row highlighted and labelled, a
+   couple of neat jumper wires, callout lines to the pins.
+   → read-a-sensor.png
+2. Drive an output — A technical shot of an Arduino Uno with an LED on PWM pin ~9
+   and a digital pin highlighted and labelled, neat jumper wires, callout lines
+   naming the digital / PWM / power pins.
+   → drive-an-output.png

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arduino Piezo Buzzer Skill Brick</title>
+  <link rel="stylesheet" href="../../skill-brick.css" />
+</head>
+<body class="arduino">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>Piezo Buzzer</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Do</span>
+          <span class="tag">Sound</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>A piezo buzzer is a small part that makes a buzz or beep when your code turns it on.</p>
+        <p>It turns electrical energy into vibration, which makes a sound you can hear.</p>
+        <p>With an Arduino, you play tones through a pin using the tone() function.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for Sound alert illustration">
+              <strong>Placeholder</strong>
+              <span>Sound alert scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Sound alert</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Program needs to alert</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>User must hear it now</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Beep the buzzer</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for Safety warning alarm illustration">
+              <strong>Placeholder</strong>
+              <span>Safety warning alarm scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Safety warning alarm</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Unsafe machine state</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>People must stay back</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Sound the buzzer</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <img src="./piezo-buzzer.png" alt="A piezo buzzer" />
+      </div>
+
+      <div class="part-strip" aria-label="Piezo Buzzer parts">
+        <div class="part"><strong>Positive</strong><span>Signal side</span></div>
+        <div class="part"><strong>Negative</strong><span>Ground side</span></div>
+        <div class="part"><strong>Sound hole</strong><span>Lets sound out</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>Arduino</h2>
+        <pre><code>const int buzzer = 8;
+
+void setup() {
+  pinMode(buzzer, OUTPUT);
+}
+
+void loop() {
+  tone(buzzer, 440, 500);
+  delay(1000);
+}</code></pre>
+      </section>
+
+      <div class="note"><code class="inline-code">tone(pin, frequency, duration)</code> plays a note. Use <code class="inline-code">noTone()</code> to stop it early.</div>
+    </main>
+
+    <aside class="panel wiring-panel">
+      <h1>Wiring</h1>
+
+      <div class="image-box wiring-image mb-wiring">
+        <div class="placeholder" role="img" aria-label="Placeholder for the Arduino Piezo Buzzer Fritzing wiring diagram">
+          <strong>Fritzing wiring</strong>
+          <span>Add piezo-buzzer-wiring.png</span>
+        </div>
+      </div>
+      <div class="pin-note">pin 8 &rarr; buzzer + &nbsp; | &nbsp; buzzer &minus; &rarr; GND</div>
+    </aside>
+  </section>
+</body>
+</html>

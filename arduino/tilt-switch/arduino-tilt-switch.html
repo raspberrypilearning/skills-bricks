@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arduino Tilt Switch Skill Brick</title>
+  <link rel="stylesheet" href="../../skill-brick.css" />
+</head>
+<body class="arduino">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>Tilt Switch</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Detect</span>
+          <span class="tag">Motion</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>A tilt switch is a small switch that turns on or off when it is tipped.</p>
+        <p>Inside is usually a tiny ball that rolls to make or break the connection.</p>
+        <p>With an Arduino, you read it on a digital pin, just like a button.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for Shake to wake illustration">
+              <strong>Placeholder</strong>
+              <span>Shake to wake scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Shake to wake</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Tilt changes</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>It has been moved</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Wake up the display</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for Tip-over alarm illustration">
+              <strong>Placeholder</strong>
+              <span>Tip-over alarm scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Tip-over alarm</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Tilt state</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>It tipped over</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Sound an alarm</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <div class="placeholder" role="img" aria-label="Placeholder for Tilt Switch component image">
+          <strong>Placeholder</strong>
+          <span>Tilt switch component photo</span>
+        </div>
+      </div>
+
+      <div class="part-strip" aria-label="Tilt Switch parts">
+        <div class="part"><strong>Ball</strong><span>Rolls inside</span></div>
+        <div class="part"><strong>Contacts</strong><span>Open or closed</span></div>
+        <div class="part"><strong>Legs</strong><span>Pin and GND</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>Arduino</h2>
+        <pre><code>const int tilt = 2;
+
+void setup() {
+  pinMode(tilt, INPUT_PULLUP);
+  Serial.begin(9600);
+}
+
+void loop() {
+  if (digitalRead(tilt) == LOW) {
+    Serial.println("Tilted");
+  }
+}</code></pre>
+      </section>
+
+      <div class="note">With <code class="inline-code">INPUT_PULLUP</code> the pin reads HIGH normally and LOW when the ball closes the contacts. Read it like a button.</div>
+    </main>
+
+    <aside class="panel wiring-panel">
+      <h1>Wiring</h1>
+
+      <div class="image-box wiring-image mb-wiring">
+        <div class="placeholder" role="img" aria-label="Placeholder for the Arduino Tilt Switch Fritzing wiring diagram">
+          <strong>Fritzing wiring</strong>
+          <span>Add tilt-switch-wiring.png</span>
+        </div>
+      </div>
+      <div class="pin-note">pin 2 &rarr; one leg &nbsp; | &nbsp; other leg &rarr; GND</div>
+    </aside>
+  </section>
+</body>
+</html>

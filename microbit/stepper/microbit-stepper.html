@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>micro:bit Stepper Motor Skill Brick</title>
+  <link rel="stylesheet" href="../../skill-brick.css" />
+  <style>
+    .part-strip { grid-template-columns: repeat(4, 1fr); }
+  </style>
+</head>
+<body class="microbit">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>Stepper Motor</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Do</span>
+          <span class="tag">Motion</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>A stepper motor moves in small exact steps instead of spinning freely.</p>
+        <p>This lets your project turn something to a precise position, like a dial or a pointer.</p>
+        <p>With a micro:bit, you drive it through a small driver board such as a ULN2003.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for Pointer dial illustration">
+              <strong>Placeholder</strong>
+              <span>Pointer dial scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Pointer dial</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>A new value</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Where the pointer goes</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Step the motor there</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for Tiny lift illustration">
+              <strong>Placeholder</strong>
+              <span>Tiny lift scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Tiny lift</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Button press</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Which floor</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Step the lift up or down</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <div class="placeholder" role="img" aria-label="Placeholder for Stepper Motor component image">
+          <strong>Placeholder</strong>
+          <span>Stepper motor and driver board photo</span>
+        </div>
+      </div>
+
+      <div class="part-strip" aria-label="Stepper Motor parts">
+        <div class="part"><strong>Coils</strong><span>Four windings</span></div>
+        <div class="part"><strong>Driver</strong><span>ULN2003 board</span></div>
+        <div class="part"><strong>Steps</strong><span>Exact moves</span></div>
+        <div class="part"><strong>Power</strong><span>Motor supply</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>MakeCode</h2>
+        <div class="image-box blocks-image">
+          <div class="placeholder" role="img" aria-label="Placeholder for the MakeCode blocks">
+            <strong>Placeholder</strong>
+            <span>MakeCode blocks</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="code-block">
+        <h2>MicroPython</h2>
+        <pre><code>from microbit import *
+
+coils = [pin0, pin1, pin2, pin8]
+seq = [(1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0, 1)]
+
+while True:
+    for step in seq:
+        for i in range(4):
+            coils[i].write_digital(step[i])
+        sleep(3)</code></pre>
+      </section>
+
+      <section class="code-block">
+        <h2>JavaScript</h2>
+        <pre><code>let coils = [DigitalPin.P0, DigitalPin.P1, DigitalPin.P2, DigitalPin.P8]
+let seq = [[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]
+basic.forever(function () {
+    for (let s = 0; s &lt; 4; s++) {
+        for (let i = 0; i &lt; 4; i++) {
+            pins.digitalWritePin(coils[i], seq[s][i])
+        }
+        basic.pause(3)
+    }
+})</code></pre>
+      </section>
+
+      <div class="note">Step through the four coils in order to turn the motor. A ULN2003 driver board and its own power supply do the heavy lifting.</div>
+    </main>
+
+    <aside class="panel wiring-panel">
+      <h1>Wiring</h1>
+
+      <div class="image-box wiring-image mb-wiring">
+        <div class="placeholder" role="img" aria-label="Placeholder for the micro:bit stepper motor wiring diagram">
+          <strong>Placeholder</strong>
+          <span>micro:bit stepper motor wiring diagram</span>
+        </div>
+      </div>
+      <div class="pin-note">P0&ndash;P2, P8 &rarr; ULN2003 IN1&ndash;IN4 &nbsp; | &nbsp; driver &rarr; motor &nbsp; | &nbsp; battery &rarr; driver power</div>
+    </aside>
+  </section>
+</body>
+</html>

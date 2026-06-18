@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arduino PIR Sensor Skill Brick</title>
+  <link rel="stylesheet" href="../../skill-brick.css" />
+</head>
+<body class="arduino">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>PIR Sensor</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Detect</span>
+          <span class="tag">Motion</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>A PIR sensor tells your project when something warm moves nearby.</p>
+        <p>PIR stands for passive infrared. It detects changes in infrared energy, so it is good at noticing people moving.</p>
+        <p>With an Arduino, you read the sensor's output on a digital pin.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for Automatic hallway light illustration">
+              <strong>Placeholder</strong>
+              <span>Automatic hallway light scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Automatic hallway light</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Person moving past</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Someone has arrived</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Turn on a light</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for Security alarm illustration">
+              <strong>Placeholder</strong>
+              <span>Security alarm scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Security alarm</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Movement in the room</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Alarm should trigger</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Sound a warning</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <img src="./pir.png" alt="A PIR motion sensor module" />
+      </div>
+
+      <div class="part-strip" aria-label="PIR Sensor parts">
+        <div class="part"><strong>Dome</strong><span>Senses movement</span></div>
+        <div class="part"><strong>Pins</strong><span>VCC OUT GND</span></div>
+        <div class="part"><strong>Adjusters</strong><span>Time and range</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>Arduino</h2>
+        <pre><code>const int pir = 2;
+
+void setup() {
+  pinMode(pir, INPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  if (digitalRead(pir) == HIGH) {
+    Serial.println("Motion!");
+  }
+}</code></pre>
+      </section>
+
+      <div class="note"><code class="inline-code">digitalRead()</code> is HIGH when movement is detected. Most PIR modules run on 5V and need a short warm-up.</div>
+    </main>
+
+    <aside class="panel wiring-panel">
+      <h1>Wiring</h1>
+
+      <div class="image-box wiring-image mb-wiring">
+        <div class="placeholder" role="img" aria-label="Placeholder for the Arduino PIR Sensor Fritzing wiring diagram">
+          <strong>Fritzing wiring</strong>
+          <span>Add pir-wiring.png</span>
+        </div>
+      </div>
+      <div class="pin-note">VCC &rarr; 5V &nbsp; | &nbsp; OUT &rarr; pin 2 &nbsp; | &nbsp; GND &rarr; GND</div>
+    </aside>
+  </section>
+</body>
+</html>

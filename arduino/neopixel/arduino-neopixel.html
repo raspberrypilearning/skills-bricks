@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arduino NeoPixel Skill Brick</title>
+  <link rel="stylesheet" href="../../skill-brick.css" />
+</head>
+<body class="arduino">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>NeoPixel</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Do</span>
+          <span class="tag">Light</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>NeoPixels are addressable RGB LEDs you can chain together on a single data pin.</p>
+        <p>Each pixel can be a different colour and brightness.</p>
+        <p>With an Arduino, the Adafruit NeoPixel library sets each pixel's colour.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for Progress bar illustration">
+              <strong>Placeholder</strong>
+              <span>Progress bar scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Progress bar</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Task progress</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>How many pixels to light</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Light that many</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for Rainbow badge illustration">
+              <strong>Placeholder</strong>
+              <span>Rainbow badge scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Rainbow badge</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Button press</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Next colour</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Show the colours</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <img src="./adafruit-neopixel.png" alt="An Adafruit NeoPixel addressable LED strip" />
+      </div>
+
+      <div class="part-strip" aria-label="NeoPixel parts">
+        <div class="part"><strong>DIN</strong><span>Data pin</span></div>
+        <div class="part"><strong>5V</strong><span>Power</span></div>
+        <div class="part"><strong>GND</strong><span>Ground</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>Arduino</h2>
+        <pre><code>#include &lt;Adafruit_NeoPixel.h&gt;
+
+Adafruit_NeoPixel strip(8, 6, NEO_GRB + NEO_KHZ800);
+
+void setup() {
+  strip.begin();
+  strip.show();
+}
+
+void loop() {
+  strip.setPixelColor(0, strip.Color(255, 0, 0));
+  strip.show();
+}</code></pre>
+      </section>
+
+      <div class="note">Install the Adafruit NeoPixel library. The first number is the pixel count, the second is the data pin.</div>
+    </main>
+
+    <aside class="panel wiring-panel">
+      <h1>Wiring</h1>
+
+      <div class="image-box wiring-image mb-wiring">
+        <div class="placeholder" role="img" aria-label="Placeholder for the Arduino NeoPixel Fritzing wiring diagram">
+          <strong>Fritzing wiring</strong>
+          <span>Add neopixel-wiring.png</span>
+        </div>
+      </div>
+      <div class="pin-note">DIN &rarr; pin 6 &nbsp; | &nbsp; 5V &rarr; 5V &nbsp; | &nbsp; GND &rarr; GND</div>
+    </aside>
+  </section>
+</body>
+</html>

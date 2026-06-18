@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arduino SPI Skill Brick</title>
+  <link rel="stylesheet" href="../../skill-brick.css" />
+  <style>
+    .part-strip { grid-template-columns: repeat(4, 1fr); }
+  </style>
+</head>
+<body class="arduino">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>SPI</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Connect</span>
+          <span class="tag">Fast Data</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>SPI is a fast way to connect modules like screens, card readers and radios.</p>
+        <p>It uses separate data-in, data-out and clock lines, plus a select pin for each device.</p>
+        <p>With an Arduino, the SPI library handles the timing for you.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for SD card illustration">
+              <strong>Placeholder</strong>
+              <span>SD card scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">SD card</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Data to save</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Time to write</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Send it to the card</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for TFT screen illustration">
+              <strong>Placeholder</strong>
+              <span>TFT screen scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">TFT screen</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>New image</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>What to draw</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Stream it over SPI</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <div class="placeholder" role="img" aria-label="Placeholder for SPI component image">
+          <strong>Placeholder</strong>
+          <span>SPI module (e.g. SD card reader) photo</span>
+        </div>
+      </div>
+
+      <div class="part-strip" aria-label="SPI parts">
+        <div class="part"><strong>SCK</strong><span>Clock</span></div>
+        <div class="part"><strong>MOSI</strong><span>Data out</span></div>
+        <div class="part"><strong>MISO</strong><span>Data in</span></div>
+        <div class="part"><strong>SS</strong><span>Select</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>Arduino</h2>
+        <pre><code>#include &lt;SPI.h&gt;
+
+void setup() {
+  SPI.begin();
+  pinMode(SS, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(SS, LOW);
+  SPI.transfer(0x42);
+  digitalWrite(SS, HIGH);
+}</code></pre>
+      </section>
+
+      <div class="note">SPI uses pins 13 (SCK), 12 (MISO) and 11 (MOSI) on an Uno, plus a select pin for each device.</div>
+    </main>
+
+    <aside class="panel wiring-panel">
+      <h1>Wiring</h1>
+
+      <div class="image-box wiring-image mb-wiring">
+        <div class="placeholder" role="img" aria-label="Placeholder for the Arduino SPI Fritzing wiring diagram">
+          <strong>Fritzing wiring</strong>
+          <span>Add spi-wiring.png</span>
+        </div>
+      </div>
+      <div class="pin-note">SCK &rarr; pin 13 &nbsp; | &nbsp; MISO &rarr; pin 12 &nbsp; | &nbsp; MOSI &rarr; pin 11 &nbsp; | &nbsp; SS &rarr; pin 10</div>
+    </aside>
+  </section>
+</body>
+</html>

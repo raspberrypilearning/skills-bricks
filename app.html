@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skill Bricks — choose your device</title>
+  <link rel="stylesheet" href="skill-brick.css" />
+</head>
+<body class="theme-detect index-body">
+  <button id="muteBtn" class="audio-toggle" type="button" aria-pressed="false" aria-label="Mute music" title="Mute music">🔊</button>
+  <audio id="bgm" preload="auto"></audio>
+
+  <main class="index-shell">
+    <header class="index-header">
+      <h1>Skill Bricks</h1>
+      <p id="app-subtitle">Which device are you using?</p>
+    </header>
+
+    <div class="platform-picker" id="picker">
+      <button class="platform-choice platform-pi" type="button" data-platform="pi">
+        <span class="platform-emoji" aria-hidden="true">🍓</span>
+        <span class="platform-name">Raspberry Pi</span>
+        <span class="platform-sub">The full Raspberry Pi computer with GPIO pins.</span>
+      </button>
+      <button class="platform-choice platform-pico" type="button" data-platform="pico">
+        <span class="platform-emoji" aria-hidden="true">🔌</span>
+        <span class="platform-name">Raspberry Pi Pico</span>
+        <span class="platform-sub">The tiny Pico microcontroller board.</span>
+      </button>
+      <button class="platform-choice platform-microbit" type="button" data-platform="microbit">
+        <span class="platform-emoji" aria-hidden="true">📟</span>
+        <span class="platform-name">micro:bit</span>
+        <span class="platform-sub">The BBC micro:bit with built-in sensors.</span>
+      </button>
+      <button class="platform-choice platform-arduino" type="button" data-platform="arduino">
+        <span class="platform-emoji" aria-hidden="true">🔷</span>
+        <span class="platform-name">Arduino</span>
+        <span class="platform-sub">An Arduino board wired up with header pins.</span>
+      </button>
+    </div>
+
+    <div id="results" hidden>
+      <button id="changeBtn" class="change-platform" type="button">← Change device</button>
+      <div id="sections"></div>
+    </div>
+  </main>
+
+  <script>
+    const CARDS = [
+  { platform:"pipico", group:"Pete's Pi & Pico", theme:"do", href:"LED-Pete/led-skill-brick.html", hero:"LED-Pete/images/component-led.png", scene:"LED-Pete/images/mini-traffic-light.png", title:"LED", desc:"Make a project light up, blink, signal, or stubbornly turn itself back on.", tag1:"Do", tag2:"Current" },
+  { platform:"pipico", group:"Pete's Pi & Pico", theme:"detect", href:"Ultrasonic_Distance_Sensor-Pete/ultrasonic-distance-sensor-skill-brick.html", hero:"Ultrasonic_Distance_Sensor-Pete/images/component-ultrasonic-distance-sensor.png", scene:"Ultrasonic_Distance_Sensor-Pete/images/car-reversing-sensor.png", title:"Ultrasonic Distance Sensor", desc:"Tell a project when something is close, far away, or sneaking up on it.", tag1:"Detect", tag2:"Current" },
+  { platform:"pipico", group:"Pete's Pi & Pico", theme:"do", href:"Buzzer-Pete/buzzer-skill-brick.html", hero:"Buzzer-Pete/images/component-buzzer.png", scene:"Buzzer-Pete/images/countdown-timer.png", title:"Buzzer", desc:"Make a project beep, squeak, warn, celebrate, or be mildly annoying.", tag1:"Do", tag2:"Current" },
+  { platform:"pipico", group:"Pete's Pi & Pico", theme:"detect", href:"LDR-Pete/ldr-skill-brick.html", hero:"LDR-Pete/images/component-ldr.png", scene:"LDR-Pete/images/night-light.png", title:"LDR", desc:"Let a project notice light, shadow, darkness, or a hand blocking the sun.", tag1:"Detect", tag2:"Current" },
+  { platform:"pipico", group:"Pete's Pi & Pico", theme:"detect", href:"Capacitive_Touch-Pete/capacitive-touch-skill-brick.html", hero:"Capacitive_Touch-Pete/images/component-capacitive-touch.svg", scene:"Capacitive_Touch-Pete/images/touch-lamp-switch.png", title:"Touch Sensor", desc:"Touch a pad to wake hidden buttons, secret switches, or banana pianos.", tag1:"Detect", tag2:"Current" },
+  { platform:"pipico", group:"Pete's Pi & Pico", theme:"detect", href:"Button-Pete/button-skill-brick.html", hero:"Button-Pete/images/component-button.png", scene:"Button-Pete/images/doorbell-trigger.png", title:"Button", desc:"A pressable thing that tells a project someone wants something to happen.", tag1:"Detect", tag2:"Current" },
+  { platform:"pipico", group:"Pete's Pi & Pico", theme:"detect", href:"Temp_Sensor-Pete/temp-sensor-skill-brick.html", hero:"Temp_Sensor-Pete/images/component-temperature-sensor.png", scene:"Temp_Sensor-Pete/images/plant-propagator.png", title:"Temp Sensor", desc:"Let a project notice when things are warm, cold, or getting suspiciously toasty.", tag1:"Detect", tag2:"Current" },
+  { platform:"pipico", group:"Pete's Pi & Pico", theme:"do", href:"Motor_Driver-Pete/motor-driver-skill-brick.html", hero:"Motor_Driver-Pete/images/component-motor-driver.png", scene:"Motor_Driver-Pete/images/robot-wheel.png", title:"Motor/Driver", desc:"Make wheels, arms, fans, signs, and tiny inventions start moving.", tag1:"Do", tag2:"Current" },
+  { platform:"pipico", group:"Pete's Pi & Pico", theme:"detect", href:"PIR-Pete/pir-skill-brick.html", hero:"PIR-Pete/images/component-pir.png", scene:"PIR-Pete/images/room-light.png", title:"PIR", desc:"Spot movement nearby, like a person walking past or a hallway ambush.", tag1:"Detect", tag2:"Current" },
+  { platform:"pipico", group:"Pete's Pi & Pico", theme:"detect", href:"Tilt_Switch-Pete/tilt-switch-skill-brick.html", hero:"Tilt_Switch-Pete/images/component-tilt-switch.svg", scene:"Tilt_Switch-Pete/images/box-lid-sensor.png", title:"Tilt Switch", desc:"Notice when something tips, rolls over, or gets picked up the wrong way.", tag1:"Detect", tag2:"Current" },
+  { platform:"pipico", group:"Pete's Pi & Pico", theme:"do", href:"RGB_LED-Pete/rgb-led-skill-brick.html", hero:"RGB_LED-Pete/images/component-rgb-led.svg", scene:"RGB_LED-Pete/images/status-light.png", title:"RGB LED", desc:"Mix colours for warnings, moods, countdowns, and tiny disco moments.", tag1:"Do", tag2:"Current" },
+  { platform:"pipico", group:"Pete's Pi & Pico", theme:"do", href:"NeoPixels-Pete/neopixels-skill-brick.html", hero:"NeoPixels-Pete/images/component-neopixel.png", scene:"NeoPixels-Pete/images/progress-bar.png", title:"NeoPixels", desc:"Control chains of colourful lights for signs, badges, clocks, and chaos.", tag1:"Do", tag2:"Current" },
+  { platform:"pipico", group:"Pete's Pi & Pico", theme:"detect", href:"Potentiometer-Pete/potentiometer-skill-brick.html", hero:"Potentiometer-Pete/images/component-potentiometer.svg", scene:"Potentiometer-Pete/images/volume-knob.png", title:"Potentiometer", desc:"Turn a knob to choose speed, brightness, volume, or ridiculousness.", tag1:"Detect", tag2:"Current" },
+  { platform:"pipico", group:"Pete's Pi & Pico", theme:"do", href:"Speaker-Pete/speaker-skill-brick.html", hero:"Speaker-Pete/images/component-speaker.png", scene:"Speaker-Pete/images/door-chime.png", title:"Speaker", desc:"Play notes, noises, alarms, fanfares, and tiny tunes from code.", tag1:"Do", tag2:"Current" },
+  { platform:"pipico", group:"Pete's Pi & Pico", theme:"do", href:"Stepper-Pete/stepper-skill-brick.html", hero:"Stepper-Pete/images/component-stepper.svg", scene:"Stepper-Pete/images/pointer-dial.png", title:"Stepper", desc:"Move in careful steps for dials, pointers, sliders, and tiny machines.", tag1:"Do", tag2:"Current" },
+  { platform:"pipico", group:"Pete's Pi & Pico", theme:"detect", href:"Toggle_Switch-Pete/toggle-switch-skill-brick.html", hero:"Toggle_Switch-Pete/images/component-toggle-switch.svg", scene:"Toggle_Switch-Pete/images/mode-selector.png", title:"Toggle Switch", desc:"Flip between modes, power states, choices, or dramatic secret settings.", tag1:"Detect", tag2:"Current" },
+  { platform:"pipico", group:"Pete's Pi & Pico", theme:"detect", href:"Line_Sensor-Pete/line-sensor-skill-brick.html", hero:"Line_Sensor-Pete/images/component-line-sensor.svg", scene:"Line_Sensor-Pete/images/line-following-robot.png", title:"Line Sensor", desc:"Follow dark lines, find edges, or notice marks on the floor.", tag1:"Detect", tag2:"Current" },
+  { platform:"pipico", group:"MrC's Pi & Pico", theme:"do", href:"LED/led-skill-brick.html", hero:"LED/component-led.png", scene:"", title:"LED", desc:"Earlier LED brick with a more direct traffic-light style example.", tag1:"Do", tag2:"Earlier version" },
+  { platform:"pipico", group:"MrC's Pi & Pico", theme:"detect", href:"UDS/ultrasonic-distance-sensor.html", hero:"UDS/images/HC-SR04P.png", scene:"UDS/images/car-sensors.png", title:"Ultrasonic Distance Sensor", desc:"Earlier distance-sensor brick with Fritzing-style wiring images already in place.", tag1:"Detect", tag2:"Earlier version" },
+  { platform:"pipico", group:"MrC's Pi & Pico", theme:"detect", href:"Skills_Brick_Example-Pete/ultrasonic-distance-sensor.html", hero:"Skills_Brick_Example-Pete/images/component-ultrasonic-distance-sensor.png", scene:"Skills_Brick_Example-Pete/images/car-sensors.png", title:"Ultrasonic Distance Sensor", desc:"Copied example version kept alongside the newer distance-sensor brick for comparison.", tag1:"Detect", tag2:"Example copy" },
+  { platform:"pipico", group:"MrC's Pi & Pico", theme:"do", href:"Piezo_Buzzer/piezo-buzzer-skill-brick.html", hero:"Piezo_Buzzer/buzzer.png", scene:"Piezo_Buzzer/buzzer_sound.png", title:"Piezo Buzzer", desc:"Earlier buzzer brick with a piezo-specific name and a simpler component layout.", tag1:"Do", tag2:"Earlier version" },
+  { platform:"pipico", group:"MrC's Pi & Pico", theme:"detect", href:"LDR/ldr-skill-brick.html", hero:"LDR/ldr.png", scene:"LDR/automatic-night-light.png", title:"LDR", desc:"Earlier light-sensor brick with a greenhouse grow-light example.", tag1:"Detect", tag2:"Earlier version" },
+  { platform:"pipico", group:"MrC's Pi & Pico", theme:"detect", href:"PIR/pir-skill-brick.html", hero:"PIR/pir-module.png", scene:"PIR/hallway-light.png", title:"PIR", desc:"Earlier motion-sensor brick with hallway light and security alarm examples.", tag1:"Detect", tag2:"Earlier version" },
+  { platform:"microbit", group:"Built-in", theme:"detect", href:"microbit/buttons/microbit-buttons.html", hero:"microbit/buttons/buttons-a-b.png", scene:"microbit/buttons/yes-no-quiz.png", title:"Buttons (A/B)", desc:"Read the two built-in buttons to choose, control, and trigger.", tag1:"Detect", tag2:"micro:bit" },
+  { platform:"microbit", group:"Built-in", theme:"do", href:"microbit/matrix/microbit-matrix.html", hero:"microbit/matrix/led-matrix-display.png", scene:"microbit/matrix/mood-badge.png", title:"LED Matrix", desc:"Show numbers, faces, pictures, and scrolling messages on the 5×5 grid.", tag1:"Do", tag2:"micro:bit" },
+  { platform:"microbit", group:"Built-in", theme:"do", href:"microbit/speaker/microbit-speaker.html", hero:"microbit/speaker/speaker-sound.png", scene:"microbit/speaker/egg-timer.png", title:"Speaker", desc:"Play tunes, notes, and sound effects from the built-in V2 speaker.", tag1:"Do", tag2:"micro:bit" },
+  { platform:"microbit", group:"Built-in", theme:"detect", href:"microbit/light-sensor/microbit-light-sensor.html", hero:"microbit/light-sensor/light-sensor-display.png", scene:"microbit/light-sensor/night-light.png", title:"Light Sensor", desc:"Use the display itself to sense how bright or dark it is.", tag1:"Detect", tag2:"micro:bit" },
+  { platform:"microbit", group:"Built-in", theme:"detect", href:"microbit/accelerometer/microbit-accelerometer.html", hero:"microbit/accelerometer/accelerometer-axes.png", scene:"microbit/accelerometer/shake-dice.png", title:"Accelerometer", desc:"Feel movement, tilt, and gestures like shake and free fall.", tag1:"Detect", tag2:"micro:bit" },
+  { platform:"microbit", group:"Built-in", theme:"detect", href:"microbit/capacitive-touch/microbit-capacitive-touch.html", hero:"microbit/capacitive-touch/touch-logo.png", scene:"microbit/capacitive-touch/secret-reveal.png", title:"Touch Logo", desc:"Touch the V2 logo (or a pin) like a hidden capacitive button.", tag1:"Detect", tag2:"micro:bit" },
+  { platform:"microbit", group:"Built-in", theme:"detect", href:"microbit/magnetometer/microbit-magnetometer.html", hero:"microbit/magnetometer/magnetometer-compass.png", scene:"microbit/magnetometer/digital-compass.png", title:"Magnetometer", desc:"Find north and notice magnets, like a built-in compass.", tag1:"Detect", tag2:"micro:bit" },
+  { platform:"microbit", group:"Built-in", theme:"do", href:"microbit/radio/microbit-radio.html", hero:"microbit/radio/radio-microbits.png", scene:"microbit/radio/wireless-hello.png", title:"Radio", desc:"Send and receive messages wirelessly between micro:bits.", tag1:"Connect", tag2:"micro:bit" },
+  { platform:"microbit", group:"Built-in", theme:"detect", href:"microbit/temperature/microbit-temperature.html", hero:"microbit/temperature/temperature-chip.png", scene:"microbit/temperature/too-hot-warning.png", title:"Temperature", desc:"Read the temperature in °C from the sensor on the chip.", tag1:"Detect", tag2:"micro:bit" },
+  { platform:"microbit", group:"Add-on components", theme:"do", href:"microbit/led/microbit-led.html", hero:"microbit/led/led.png", scene:"", title:"LED", desc:"Switch an external LED on, off, or blinking from a pin.", tag1:"Do", tag2:"micro:bit" },
+  { platform:"microbit", group:"Add-on components", theme:"detect", href:"microbit/ldr/microbit-ldr.html", hero:"microbit/ldr/ldr.png", scene:"", title:"LDR", desc:"Read a light sensor on an analog pin to spot bright or dark.", tag1:"Detect", tag2:"micro:bit" },
+  { platform:"microbit", group:"Add-on components", theme:"detect", href:"microbit/pir/microbit-pir.html", hero:"microbit/pir/pir.png", scene:"", title:"PIR", desc:"Notice movement nearby with a passive-infrared sensor.", tag1:"Detect", tag2:"micro:bit" },
+  { platform:"microbit", group:"Add-on components", theme:"detect", href:"microbit/uds/microbit-uds.html", hero:"microbit/uds/ultrasonic-distance-sensor.png", scene:"", title:"Ultrasonic Distance Sensor", desc:"Measure how far away things are using echo timing.", tag1:"Detect", tag2:"micro:bit" },
+  { platform:"microbit", group:"Add-on components", theme:"do", href:"microbit/piezo-buzzer/microbit-piezo-buzzer.html", hero:"microbit/piezo-buzzer/piezo-buzzer.png", scene:"", title:"Piezo Buzzer", desc:"Beep, buzz, and play tones through an external buzzer.", tag1:"Do", tag2:"micro:bit" },
+  { platform:"microbit", group:"Add-on components", theme:"do", href:"microbit/motor-driver/microbit-motor-driver.html", hero:"microbit/motor-driver/motor-controller.png", scene:"", title:"Motor Driver", desc:"Drive motors that need more power, through a driver board.", tag1:"Do", tag2:"micro:bit" },
+  { platform:"microbit", group:"Add-on components", theme:"do", href:"microbit/rgb-led/microbit-rgb-led.html", hero:"", scene:"", title:"RGB LED", desc:"Mix red, green, and blue on three PWM pins for any colour.", tag1:"Do", tag2:"micro:bit" },
+  { platform:"microbit", group:"Add-on components", theme:"detect", href:"microbit/potentiometer/microbit-potentiometer.html", hero:"", scene:"", title:"Potentiometer", desc:"Turn a knob to get a 0–1023 value on an analog pin.", tag1:"Detect", tag2:"micro:bit" },
+  { platform:"microbit", group:"Add-on components", theme:"detect", href:"microbit/button-switch/microbit-button-switch.html", hero:"microbit/button-switch/tactile-push-button.png", scene:"", title:"Button / Switch", desc:"Add your own button or switch on a digital pin.", tag1:"Detect", tag2:"micro:bit" },
+  { platform:"microbit", group:"Add-on components", theme:"detect", href:"microbit/line-sensor/microbit-line-sensor.html", hero:"", scene:"", title:"Line Sensor", desc:"Follow dark lines and spot edges with reflected infrared.", tag1:"Detect", tag2:"micro:bit" },
+  { platform:"microbit", group:"Add-on components", theme:"do", href:"microbit/servo/microbit-servo.html", hero:"microbit/servo/servo-motor.png", scene:"microbit/servo/robot-arm.png", title:"Servo", desc:"Move a servo to an exact angle for arms, gates, and dials.", tag1:"Do", tag2:"micro:bit" },
+  { platform:"microbit", group:"Add-on components", theme:"do", href:"microbit/neopixel/microbit-neopixel.html", hero:"microbit/neopixel/neopixel-strip.png", scene:"microbit/neopixel/rainbow-light.png", title:"NeoPixel", desc:"Control chains of addressable RGB lights for signs and effects.", tag1:"Do", tag2:"micro:bit" },
+  { platform:"microbit", group:"Add-on components", theme:"detect", href:"microbit/tilt-switch/microbit-tilt-switch.html", hero:"", scene:"", title:"Tilt Switch", desc:"Sense tipping and movement with a ball-bearing tilt switch.", tag1:"Detect", tag2:"micro:bit" },
+  { platform:"microbit", group:"Add-on components", theme:"do", href:"microbit/stepper/microbit-stepper.html", hero:"", scene:"", title:"Stepper Motor", desc:"Turn something to an exact position, step by step.", tag1:"Do", tag2:"micro:bit" },
+  { platform:"microbit", group:"Add-on components", theme:"detect", href:"microbit/toggle-switch/microbit-toggle-switch.html", hero:"", scene:"", title:"Toggle Switch", desc:"Read an on/off switch that stays where you set it.", tag1:"Detect", tag2:"micro:bit" },
+  { platform:"microbit", group:"Connections & reference", theme:"detect", href:"microbit/i2c/microbit-i2c.html", hero:"microbit/i2c/i2c-module.png", scene:"microbit/i2c/oled-display.png", title:"I²C", desc:"Connect I²C modules like displays and sensors over two shared pins.", tag1:"Connect", tag2:"micro:bit" },
+  { platform:"microbit", group:"Connections & reference", theme:"detect", href:"microbit/spi/microbit-spi.html", hero:"microbit/spi/spi-module.png", scene:"microbit/spi/tiny-screen.png", title:"SPI", desc:"Talk to faster SPI devices like screens and card readers.", tag1:"Connect", tag2:"micro:bit" },
+  { platform:"microbit", group:"Connections & reference", theme:"detect", href:"microbit/uart/microbit-uart.html", hero:"microbit/uart/uart-module.png", scene:"microbit/uart/gps-receiver.png", title:"UART", desc:"Send and receive serial text to other devices and computers.", tag1:"Connect", tag2:"micro:bit" },
+  { platform:"microbit", group:"Connections & reference", theme:"detect", href:"microbit/edge-connector-pins/microbit-edge-connector-pins.html", hero:"microbit/edge-connector-pins/edge-pins.png", scene:"microbit/edge-connector-pins/external-led.png", title:"Edge Connector Pins", desc:"A map of every pin and what each one can do.", tag1:"Connect", tag2:"micro:bit" },
+  { platform:"arduino", group:"Sensors & inputs", theme:"detect", href:"arduino/ldr/arduino-ldr.html", hero:"arduino/ldr/ldr.png", scene:"", title:"LDR", desc:"Read a light sensor (LDR) on an analog pin.", tag1:"Detect", tag2:"Arduino" },
+  { platform:"arduino", group:"Sensors & inputs", theme:"detect", href:"arduino/pir/arduino-pir.html", hero:"arduino/pir/pir.png", scene:"", title:"PIR", desc:"Spot movement nearby with a passive-infrared sensor.", tag1:"Detect", tag2:"Arduino" },
+  { platform:"arduino", group:"Sensors & inputs", theme:"detect", href:"arduino/uds/arduino-uds.html", hero:"arduino/uds/ultrasonic-distance-sensor.png", scene:"", title:"Ultrasonic Distance Sensor", desc:"Measure distance without touching, using echo timing.", tag1:"Detect", tag2:"Arduino" },
+  { platform:"arduino", group:"Sensors & inputs", theme:"detect", href:"arduino/potentiometer/arduino-potentiometer.html", hero:"", scene:"", title:"Potentiometer", desc:"Turn a knob to get a 0–1023 value on an analog pin.", tag1:"Detect", tag2:"Arduino" },
+  { platform:"arduino", group:"Sensors & inputs", theme:"detect", href:"arduino/button-switch/arduino-button-switch.html", hero:"arduino/button-switch/tactile-push-button.png", scene:"", title:"Button / Switch", desc:"Read a push button or switch on a digital pin.", tag1:"Detect", tag2:"Arduino" },
+  { platform:"arduino", group:"Sensors & inputs", theme:"detect", href:"arduino/capacitive-touch/arduino-capacitive-touch.html", hero:"", scene:"", title:"Capacitive Touch", desc:"Sense a finger touch with a TTP223 pad.", tag1:"Detect", tag2:"Arduino" },
+  { platform:"arduino", group:"Sensors & inputs", theme:"detect", href:"arduino/line-sensor/arduino-line-sensor.html", hero:"", scene:"", title:"Line Sensor", desc:"Follow dark lines and spot edges with reflected infrared.", tag1:"Detect", tag2:"Arduino" },
+  { platform:"arduino", group:"Sensors & inputs", theme:"detect", href:"arduino/accelerometer/arduino-accelerometer.html", hero:"arduino/accelerometer/adafruit-compass-accelerometer.png", scene:"", title:"Accelerometer", desc:"Sense movement and tilt on three axes.", tag1:"Detect", tag2:"Arduino" },
+  { platform:"arduino", group:"Sensors & inputs", theme:"detect", href:"arduino/magnetometer/arduino-magnetometer.html", hero:"arduino/magnetometer/adafruit-compass-accelerometer.png", scene:"", title:"Magnetometer", desc:"Find north and detect magnets, like a compass.", tag1:"Detect", tag2:"Arduino" },
+  { platform:"arduino", group:"Sensors & inputs", theme:"detect", href:"arduino/temperature/arduino-temperature.html", hero:"", scene:"", title:"Temperature", desc:"Read the temperature in °C from an analog sensor.", tag1:"Detect", tag2:"Arduino" },
+  { platform:"arduino", group:"Sensors & inputs", theme:"detect", href:"arduino/tilt-switch/arduino-tilt-switch.html", hero:"", scene:"", title:"Tilt Switch", desc:"Sense tipping and movement with a ball-bearing tilt switch.", tag1:"Detect", tag2:"Arduino" },
+  { platform:"arduino", group:"Sensors & inputs", theme:"detect", href:"arduino/toggle-switch/arduino-toggle-switch.html", hero:"", scene:"", title:"Toggle Switch", desc:"Read an on/off switch that stays where you set it.", tag1:"Detect", tag2:"Arduino" },
+  { platform:"arduino", group:"Outputs", theme:"do", href:"arduino/led/arduino-led.html", hero:"arduino/led/led.png", scene:"", title:"LED", desc:"Switch an LED on, off, or blinking from a pin.", tag1:"Do", tag2:"Arduino" },
+  { platform:"arduino", group:"Outputs", theme:"do", href:"arduino/rgb-led/arduino-rgb-led.html", hero:"", scene:"", title:"RGB LED", desc:"Mix red, green and blue on three PWM pins.", tag1:"Do", tag2:"Arduino" },
+  { platform:"arduino", group:"Outputs", theme:"do", href:"arduino/piezo-buzzer/arduino-piezo-buzzer.html", hero:"arduino/piezo-buzzer/piezo-buzzer.png", scene:"", title:"Piezo Buzzer", desc:"Beep and play tones with the tone() function.", tag1:"Do", tag2:"Arduino" },
+  { platform:"arduino", group:"Outputs", theme:"do", href:"arduino/servo/arduino-servo.html", hero:"arduino/servo/servo.png", scene:"", title:"Servo", desc:"Move a servo motor to an exact angle.", tag1:"Do", tag2:"Arduino" },
+  { platform:"arduino", group:"Outputs", theme:"do", href:"arduino/motor-driver/arduino-motor-driver.html", hero:"arduino/motor-driver/motor-controller.png", scene:"", title:"Motor Driver", desc:"Drive motors through a driver board.", tag1:"Do", tag2:"Arduino" },
+  { platform:"arduino", group:"Outputs", theme:"do", href:"arduino/neopixel/arduino-neopixel.html", hero:"arduino/neopixel/adafruit-neopixel.png", scene:"", title:"NeoPixel", desc:"Control chains of addressable RGB LEDs.", tag1:"Do", tag2:"Arduino" },
+  { platform:"arduino", group:"Outputs", theme:"do", href:"arduino/matrix/arduino-matrix.html", hero:"", scene:"", title:"LED Matrix", desc:"Show numbers and pictures on an 8×8 LED matrix.", tag1:"Do", tag2:"Arduino" },
+  { platform:"arduino", group:"Outputs", theme:"do", href:"arduino/stepper/arduino-stepper.html", hero:"", scene:"", title:"Stepper Motor", desc:"Turn something to an exact position, step by step.", tag1:"Do", tag2:"Arduino" },
+  { platform:"arduino", group:"Outputs", theme:"do", href:"arduino/speaker/arduino-speaker.html", hero:"arduino/speaker/speaker.png", scene:"", title:"Speaker", desc:"Play notes and tunes through a small speaker.", tag1:"Do", tag2:"Arduino" },
+  { platform:"arduino", group:"Connections & reference", theme:"detect", href:"arduino/i2c/arduino-i2c.html", hero:"", scene:"", title:"I²C", desc:"Connect modules over two shared I²C wires.", tag1:"Connect", tag2:"Arduino" },
+  { platform:"arduino", group:"Connections & reference", theme:"detect", href:"arduino/spi/arduino-spi.html", hero:"", scene:"", title:"SPI", desc:"Talk to fast SPI devices like screens and cards.", tag1:"Connect", tag2:"Arduino" },
+  { platform:"arduino", group:"Connections & reference", theme:"detect", href:"arduino/uart/arduino-uart.html", hero:"", scene:"", title:"UART", desc:"Send and receive serial text and data.", tag1:"Connect", tag2:"Arduino" },
+  { platform:"arduino", group:"Connections & reference", theme:"detect", href:"arduino/radio/arduino-radio.html", hero:"", scene:"", title:"Radio", desc:"Send messages wirelessly with an nRF24L01.", tag1:"Connect", tag2:"Arduino" },
+  { platform:"arduino", group:"Connections & reference", theme:"detect", href:"arduino/pins/arduino-pins.html", hero:"", scene:"", title:"Arduino Pins", desc:"A map of the Arduino's pins and what each one does.", tag1:"Connect", tag2:"Arduino" }
+];
+    const GROUP_ORDER = {
+      pipico: ["Pete's Pi & Pico", "MrC's Pi & Pico"],
+      microbit: ["Built-in", "Add-on components", "Connections & reference"],
+      arduino: ["Sensors & inputs", "Outputs", "Connections & reference"]
+    };
+    const PLATFORM_LABEL = { pi: "Raspberry Pi", pico: "Raspberry Pi Pico", microbit: "micro:bit", arduino: "Arduino" };
+
+    const picker = document.getElementById('picker');
+    const results = document.getElementById('results');
+    const sectionsEl = document.getElementById('sections');
+    const subtitle = document.getElementById('app-subtitle');
+
+    function cardHTML(c) {
+      let v;
+      if (c.hero && c.scene) {
+        v = `<div class="brick-card-visual"><img class="brick-hero" src="${c.hero}" alt="" loading="lazy" /><img class="brick-scene" src="${c.scene}" alt="" loading="lazy" /></div>`;
+      } else if (c.hero) {
+        v = `<div class="brick-card-visual"><img class="brick-hero only" src="${c.hero}" alt="" loading="lazy" /></div>`;
+      } else {
+        v = `<div class="brick-card-visual" aria-hidden="true"></div>`;
+      }
+      return `<a class="brick-card theme-${c.theme}" href="${c.href}">${v}<div class="brick-card-content"><h2>${c.title}</h2><p>${c.desc}</p></div><div class="brick-card-footer"><span class="tag">${c.tag1}</span><span class="tag">${c.tag2}</span></div></a>`;
+    }
+
+    function show(platform) {
+      const dp = (platform === 'pi' || platform === 'pico') ? 'pipico' : platform;
+      let html = '';
+      for (const g of GROUP_ORDER[dp]) {
+        const cards = CARDS.filter(c => c.platform === dp && c.group === g);
+        if (!cards.length) continue;
+        html += `<section class="app-group"><h2 class="app-group-title">${g}</h2><div class="brick-grid">${cards.map(cardHTML).join('')}</div></section>`;
+      }
+      sectionsEl.innerHTML = html;
+      subtitle.textContent = dp === 'pipico'
+        ? `${PLATFORM_LABEL[platform]} bricks — each one includes both Pi and Pico code`
+        : `${PLATFORM_LABEL[platform]} bricks`;
+      picker.hidden = true;
+      results.hidden = false;
+      if (location.hash !== '#' + platform) location.hash = platform;
+      window.scrollTo(0, 0);
+    }
+
+    function reset() {
+      results.hidden = true;
+      picker.hidden = false;
+      subtitle.textContent = 'Which device are you using?';
+      if (location.hash) history.replaceState(null, '', location.pathname);
+      window.scrollTo(0, 0);
+    }
+
+    document.querySelectorAll('.platform-choice').forEach(function (b) {
+      b.addEventListener('click', function () { show(b.dataset.platform); });
+    });
+    document.getElementById('changeBtn').addEventListener('click', reset);
+
+    const initial = location.hash.replace('#', '');
+    if (['pi', 'pico', 'microbit', 'arduino'].includes(initial)) show(initial);
+
+    // ---- background music: two-track looping playlist + mute ----
+    (function () {
+      const tracks = ['app/workshop-song1.mp3', 'app/workshop-song2.mp3'];
+      let t = 0;
+      const audio = document.getElementById('bgm');
+      const btn = document.getElementById('muteBtn');
+      audio.src = tracks[t];
+      audio.addEventListener('ended', function () {
+        t = (t + 1) % tracks.length;
+        audio.src = tracks[t];
+        audio.play().catch(function () {});
+      });
+      audio.play().catch(function () {
+        const start = function () {
+          audio.play().catch(function () {});
+          document.removeEventListener('pointerdown', start);
+          document.removeEventListener('keydown', start);
+        };
+        document.addEventListener('pointerdown', start);
+        document.addEventListener('keydown', start);
+      });
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        audio.muted = !audio.muted;
+        btn.textContent = audio.muted ? '🔇' : '🔊';
+        btn.setAttribute('aria-pressed', String(audio.muted));
+        btn.setAttribute('aria-label', audio.muted ? 'Unmute music' : 'Mute music');
+        btn.setAttribute('title', audio.muted ? 'Unmute music' : 'Mute music');
+        if (!audio.muted && audio.paused) audio.play().catch(function () {});
+      });
+    })();
+  </script>
+</body>
+</html>

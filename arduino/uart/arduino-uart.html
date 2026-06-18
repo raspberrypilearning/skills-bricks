@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arduino UART Skill Brick</title>
+  <link rel="stylesheet" href="../../skill-brick.css" />
+</head>
+<body class="arduino">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>UART</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Connect</span>
+          <span class="tag">Serial</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>UART is serial communication &mdash; sending text and data one bit at a time.</p>
+        <p>The Arduino uses it to talk to your computer and to modules like GPS or Bluetooth.</p>
+        <p>With an Arduino, the Serial library sends and receives over USB or pins 0 and 1.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for Talk to a computer illustration">
+              <strong>Placeholder</strong>
+              <span>Talk to a computer scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Talk to a computer</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>A reading</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Time to report</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Print it to Serial</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for GPS receiver illustration">
+              <strong>Placeholder</strong>
+              <span>GPS receiver scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">GPS receiver</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>A GPS sentence</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>New position</div>
+              <div class="arrow">&rarr;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Read it in</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <div class="placeholder" role="img" aria-label="Placeholder for UART component image">
+          <strong>Placeholder</strong>
+          <span>Serial / GPS module photo</span>
+        </div>
+      </div>
+
+      <div class="part-strip" aria-label="UART parts">
+        <div class="part"><strong>TX</strong><span>Sends (pin 1)</span></div>
+        <div class="part"><strong>RX</strong><span>Receives (pin 0)</span></div>
+        <div class="part"><strong>Serial</strong><span>The library</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>Arduino</h2>
+        <pre><code>void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  Serial.println("Hello");
+  if (Serial.available()) {
+    char c = Serial.read();
+    Serial.println(c);
+  }
+}</code></pre>
+      </section>
+
+      <div class="note"><code class="inline-code">Serial.begin()</code> sets the speed. TX (pin 1) sends and RX (pin 0) receives &mdash; these are also used by the USB connection.</div>
+    </main>
+
+    <aside class="panel wiring-panel">
+      <h1>Wiring</h1>
+
+      <div class="image-box wiring-image mb-wiring">
+        <div class="placeholder" role="img" aria-label="Placeholder for the Arduino UART Fritzing wiring diagram">
+          <strong>Fritzing wiring</strong>
+          <span>Add uart-wiring.png</span>
+        </div>
+      </div>
+      <div class="pin-note">TX &rarr; RX of device &nbsp; | &nbsp; RX &rarr; TX of device &nbsp; | &nbsp; GND &rarr; GND</div>
+    </aside>
+  </section>
+</body>
+</html>
