@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>micro:bit RGB LED Skill Brick</title>
+  <link rel="stylesheet" href="../../skill-brick.css" />
+  <style>
+    .part-strip { grid-template-columns: repeat(4, 1fr); }
+  </style>
+</head>
+<body class="microbit">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>RGB LED</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Output</span>
+          <span class="tag">Colour</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>An RGB LED is three coloured lights — red, green and blue — built into one part.</p>
+        <p>By mixing how bright each colour is, your code can make almost any colour.</p>
+        <p>With a micro:bit, you connect the three colour legs to the three PWM pins and set each level.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for mood lamp illustration">
+              <strong>Placeholder</strong>
+              <span>Mood lamp scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Mood lamp</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Button is pressed</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Which colour to show</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Mix red, green and blue</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for status light illustration">
+              <strong>Placeholder</strong>
+              <span>Status light scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Status light</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>System state</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>OK, warning or error</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Show green, amber or red</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <div class="placeholder" role="img" aria-label="Placeholder for RGB LED component image">
+          <strong>Placeholder</strong>
+          <span>RGB LED component photo</span>
+        </div>
+      </div>
+
+      <div class="part-strip" aria-label="RGB LED parts">
+        <div class="part"><strong>Red leg</strong><span>P0</span></div>
+        <div class="part"><strong>Green leg</strong><span>P1</span></div>
+        <div class="part"><strong>Blue leg</strong><span>P2</span></div>
+        <div class="part"><strong>Common</strong><span>3V or GND</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>MakeCode</h2>
+        <div class="image-box blocks-image">
+          <div class="placeholder" role="img" aria-label="Placeholder for the MakeCode blocks">
+            <strong>Placeholder</strong>
+            <span>MakeCode blocks</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="code-block">
+        <h2>MicroPython</h2>
+        <pre><code>from microbit import *
+
+pin0.write_analog(1023)  # red
+pin1.write_analog(400)   # green
+pin2.write_analog(0)     # blue</code></pre>
+      </section>
+
+      <section class="code-block">
+        <h2>JavaScript</h2>
+        <pre><code>pins.analogWritePin(AnalogPin.P0, 1023)
+pins.analogWritePin(AnalogPin.P1, 400)
+pins.analogWritePin(AnalogPin.P2, 0)</code></pre>
+      </section>
+
+      <div class="note">Each colour uses a PWM pin (P0, P1, P2) — that is all three of the micro:bit's analog outputs. Add a resistor on each leg; for a common-anode LED, <code class="inline-code">pin0.write_analog()</code> with 0 is brightest.</div>
+    </main>
+
+    <aside class="panel wiring-panel">
+      <h1>Wiring</h1>
+
+      <div class="image-box wiring-image mb-wiring">
+        <div class="placeholder" role="img" aria-label="Placeholder for the micro:bit RGB LED wiring diagram">
+          <strong>Placeholder</strong>
+          <span>micro:bit RGB LED wiring diagram</span>
+        </div>
+      </div>
+      <div class="pin-note">P0 → R &nbsp; | &nbsp; P1 → G &nbsp; | &nbsp; P2 → B &nbsp; | &nbsp; common → GND or 3V</div>
+    </aside>
+  </section>
+</body>
+</html>

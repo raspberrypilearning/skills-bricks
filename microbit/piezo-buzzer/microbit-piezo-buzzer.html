@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>micro:bit Piezo Buzzer Skill Brick</title>
+  <link rel="stylesheet" href="../../skill-brick.css" />
+</head>
+<body class="microbit">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>Piezo Buzzer</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Output</span>
+          <span class="tag">Sound</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>A piezo buzzer is a small part that makes a buzz or beep when your code turns it on.</p>
+        <p>It turns electrical energy into vibration, which makes a sound you can hear without a screen or lights.</p>
+        <p>With a micro:bit, you play tones through a pin connected to the buzzer.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for mini traffic light illustration">
+              <strong>Placeholder</strong>
+              <span>Sound alert scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Sound alert</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Program needs to alert</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>User must hear it now</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Beep the buzzer</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for motion sensor light illustration">
+              <strong>Placeholder</strong>
+              <span>Safety warning alarm scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Safety warning alarm</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Unsafe machine state</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>People must stay back</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Sound the buzzer</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <img src="./piezo-buzzer.png" alt="A piezo buzzer" />
+      </div>
+
+      <div class="part-strip" aria-label="LED parts">
+        <div class="part"><strong>Positive</strong><span>Signal side</span></div>
+        <div class="part"><strong>Negative</strong><span>Ground side</span></div>
+        <div class="part"><strong>Sound hole</strong><span>Lets sound out</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>MakeCode</h2>
+        <div class="image-box blocks-image">
+          <div class="placeholder" role="img" aria-label="Placeholder for the MakeCode blocks">
+            <strong>Placeholder</strong>
+            <span>MakeCode blocks</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="code-block">
+        <h2>MicroPython</h2>
+        <pre><code>import music
+from microbit import *
+
+music.pitch(440, 500, pin0)</code></pre>
+      </section>
+
+      <section class="code-block">
+        <h2>JavaScript</h2>
+        <pre><code>pins.analogSetPitchPin(AnalogPin.P0)
+music.playTone(262, music.beat(BeatFraction.Whole))</code></pre>
+      </section>
+
+      <div class="note">Set the pitch pin to P0 so tones play through the external buzzer, then use <code class="inline-code">music.pitch()</code> or <code class="inline-code">music.play()</code> for tunes.</div>
+    </main>
+
+    <aside class="panel wiring-panel">
+      <h1>Wiring</h1>
+
+      <div class="image-box wiring-image mb-wiring">
+        <div class="placeholder" role="img" aria-label="Placeholder for the micro:bit piezo buzzer wiring diagram">
+          <strong>Placeholder</strong>
+          <span>micro:bit piezo buzzer wiring diagram</span>
+        </div>
+      </div>
+      <div class="pin-note">P0 → buzzer + &nbsp; | &nbsp; buzzer − → GND</div>
+    </aside>
+  </section>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>micro:bit Line Sensor Skill Brick</title>
+  <link rel="stylesheet" href="../../skill-brick.css" />
+</head>
+<body class="microbit">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>Line Sensor</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Detect</span>
+          <span class="tag">Surface</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>A line sensor shines infrared light down and measures how much bounces back.</p>
+        <p>A dark line reflects little light and a pale surface reflects a lot, so the sensor can tell them apart.</p>
+        <p>With a micro:bit, you read the sensor on a pin to follow lines or spot edges.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for line-following buggy illustration">
+              <strong>Placeholder</strong>
+              <span>Line-following buggy scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Line-following buggy</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Surface under the sensor</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>On the line or off it</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Steer back to the line</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for edge stopper illustration">
+              <strong>Placeholder</strong>
+              <span>Edge stopper scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Edge stopper</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Surface ahead</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Table edge reached</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Stop the motors</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <div class="placeholder" role="img" aria-label="Placeholder for line sensor component image">
+          <strong>Placeholder</strong>
+          <span>Infrared line sensor module photo</span>
+        </div>
+      </div>
+
+      <div class="part-strip" aria-label="Line Sensor parts">
+        <div class="part"><strong>IR LED</strong><span>Shines light</span></div>
+        <div class="part"><strong>Detector</strong><span>Reads reflection</span></div>
+        <div class="part"><strong>OUT</strong><span>To a pin</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>MakeCode</h2>
+        <div class="image-box blocks-image">
+          <div class="placeholder" role="img" aria-label="Placeholder for the MakeCode blocks">
+            <strong>Placeholder</strong>
+            <span>MakeCode blocks</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="code-block">
+        <h2>MicroPython</h2>
+        <pre><code>from microbit import *
+
+while True:
+    on_line = pin0.read_digital()
+    display.scroll(on_line)</code></pre>
+      </section>
+
+      <section class="code-block">
+        <h2>JavaScript</h2>
+        <pre><code>basic.forever(function () {
+    let onLine = pins.digitalReadPin(DigitalPin.P0)
+    basic.showNumber(onLine)
+})</code></pre>
+      </section>
+
+      <div class="note">Most modules output digital (1 and 0 for line and no line). Some have an analog output — read it with <code class="inline-code">read_analog()</code> instead. Adjust the module's sensitivity screw.</div>
+    </main>
+
+    <aside class="panel wiring-panel">
+      <h1>Wiring</h1>
+
+      <div class="image-box wiring-image mb-wiring">
+        <div class="placeholder" role="img" aria-label="Placeholder for the micro:bit line sensor wiring diagram">
+          <strong>Placeholder</strong>
+          <span>micro:bit line sensor wiring diagram</span>
+        </div>
+      </div>
+      <div class="pin-note">VCC → 3V &nbsp; | &nbsp; OUT → P0 &nbsp; | &nbsp; GND → GND</div>
+    </aside>
+  </section>
+</body>
+</html>

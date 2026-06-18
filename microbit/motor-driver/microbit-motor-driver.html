@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>micro:bit Motor Driver Skill Brick</title>
+  <link rel="stylesheet" href="../../skill-brick.css" />
+  <style>
+    .part-strip { grid-template-columns: repeat(4, 1fr); }
+  </style>
+</head>
+<body class="microbit">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>Motor Driver</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Output</span>
+          <span class="tag">Motor</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>A motor driver board lets your micro:bit control motors that need more power than a pin can supply.</p>
+        <p>The micro:bit sends low-power signals and the driver switches the larger motor current from its own battery.</p>
+        <p>With a micro:bit, you set direction with digital pins and speed with a PWM (analog) pin.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for robot buggy illustration">
+              <strong>Placeholder</strong>
+              <span>Robot buggy scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Robot buggy</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Start button pressed</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Time to move</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Drive the motors forward</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for spinning display illustration">
+              <strong>Placeholder</strong>
+              <span>Spinning display scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Spinning display</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Timer tick</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Turntable should turn</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Run the motor</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <img src="./motor-controller.png" alt="A motor controller driver board" />
+      </div>
+
+      <div class="part-strip" aria-label="Motor Driver parts">
+        <div class="part"><strong>IN1, IN2</strong><span>Direction</span></div>
+        <div class="part"><strong>Motor A/B</strong><span>To the motors</span></div>
+        <div class="part"><strong>VM</strong><span>Motor power in</span></div>
+        <div class="part"><strong>GND</strong><span>Shared ground</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>MakeCode</h2>
+        <div class="image-box blocks-image">
+          <div class="placeholder" role="img" aria-label="Placeholder for the MakeCode blocks">
+            <strong>Placeholder</strong>
+            <span>MakeCode blocks</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="code-block">
+        <h2>MicroPython</h2>
+        <pre><code>from microbit import *
+
+# motor forward at about 70% speed
+pin0.write_analog(700)
+pin1.write_digital(0)</code></pre>
+      </section>
+
+      <section class="code-block">
+        <h2>JavaScript</h2>
+        <pre><code>// motor forward at about 70% speed
+pins.analogWritePin(AnalogPin.P0, 700)
+pins.digitalWritePin(DigitalPin.P1, 0)</code></pre>
+      </section>
+
+      <div class="note">Power the motors from the driver board's own battery, never from the micro:bit. Many driver boards have a MakeCode extension with ready-made motor blocks. Use <code class="inline-code">pin0.write_analog()</code> to set the motor speed.</div>
+    </main>
+
+    <aside class="panel wiring-panel">
+      <h1>Wiring</h1>
+
+      <div class="image-box wiring-image mb-wiring">
+        <div class="placeholder" role="img" aria-label="Placeholder for the micro:bit motor driver wiring diagram">
+          <strong>Placeholder</strong>
+          <span>micro:bit motor driver wiring diagram</span>
+        </div>
+      </div>
+      <div class="pin-note">P0 → IN1 (PWM) &nbsp; | &nbsp; P1 → IN2 &nbsp; | &nbsp; battery → VM &nbsp; | &nbsp; GND → GND</div>
+    </aside>
+  </section>
+</body>
+</html>

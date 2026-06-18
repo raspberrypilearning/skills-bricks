@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>micro:bit PIR Skill Brick</title>
+  <link rel="stylesheet" href="../../skill-brick.css" />
+</head>
+<body class="microbit">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>PIR Sensor</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Detect</span>
+          <span class="tag">Motion</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>A PIR sensor tells your project when something warm moves nearby.</p>
+        <p>PIR stands for passive infrared. It detects changes in infrared energy, so it is good at noticing people moving.</p>
+        <p>With a micro:bit, you read the sensor's output on a digital pin.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for automatic hallway light illustration">
+              <strong>Placeholder</strong>
+              <span>Automatic hallway light scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Automatic hallway light</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Person moving past</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Someone has arrived</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Turn on a light</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for security alarm illustration">
+              <strong>Placeholder</strong>
+              <span>Security alarm scene</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Security alarm</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Movement in the room</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Alarm should trigger</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Sound a warning</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <img src="./pir.png" alt="A PIR motion sensor module" />
+      </div>
+
+      <div class="part-strip" aria-label="PIR Sensor parts">
+        <div class="part"><strong>Dome</strong><span>Senses movement</span></div>
+        <div class="part"><strong>Pins</strong><span>VCC OUT GND</span></div>
+        <div class="part"><strong>Adjusters</strong><span>Time and range</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>MakeCode</h2>
+        <div class="image-box blocks-image">
+          <div class="placeholder" role="img" aria-label="Placeholder for the MakeCode blocks">
+            <strong>Placeholder</strong>
+            <span>MakeCode blocks</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="code-block">
+        <h2>MicroPython</h2>
+        <pre><code>from microbit import *
+
+while True:
+    if pin0.read_digital():
+        display.show(Image.YES)</code></pre>
+      </section>
+
+      <section class="code-block">
+        <h2>JavaScript</h2>
+        <pre><code>basic.forever(function () {
+    if (pins.digitalReadPin(DigitalPin.P0) == 1) {
+        basic.showIcon(IconNames.Yes)
+    }
+})</code></pre>
+      </section>
+
+      <div class="note"><code class="inline-code">pin0.read_digital()</code> is 1 when movement is detected. Many PIR modules need 5V power and a short warm-up after switching on.</div>
+    </main>
+
+    <aside class="panel wiring-panel">
+      <h1>Wiring</h1>
+
+      <div class="image-box wiring-image mb-wiring">
+        <div class="placeholder" role="img" aria-label="Placeholder for the micro:bit PIR wiring diagram">
+          <strong>Placeholder</strong>
+          <span>micro:bit PIR wiring diagram</span>
+        </div>
+      </div>
+      <div class="pin-note">VCC → 3V &nbsp; | &nbsp; OUT → P0 &nbsp; | &nbsp; GND → GND</div>
+    </aside>
+  </section>
+</body>
+</html>

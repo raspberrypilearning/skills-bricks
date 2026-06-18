@@ -381,6 +381,11 @@ ul {
   color: var(--muted);
 }
 
+/* single-platform wiring image (micro:bit external components) */
+.mb-wiring {
+  flex: 1;
+}
+
 .part-strip,
 .pin-strip {
   display: grid;
