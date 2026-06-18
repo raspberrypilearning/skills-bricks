@@ -346,6 +346,38 @@ ul {
   object-fit: contain;
 }
 
+/* micro:bit: front + back board views with the component circled */
+.board-views {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5mm;
+}
+
+.board-view {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1mm;
+}
+
+.board-view svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 3mm;
+  background: #f4fbf7;
+}
+
+.board-view figcaption {
+  text-align: center;
+  font-size: 7.5pt;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
 .part-strip,
 .pin-strip {
   display: grid;
@@ -400,6 +432,12 @@ body.theme-do .part strong {
 
 .code-block {
   margin-bottom: 3.8mm;
+}
+
+/* MakeCode blocks screenshot box (micro:bit Code sections) */
+.blocks-image {
+  height: 22mm;
+  padding: 2mm;
 }
 
 pre {
