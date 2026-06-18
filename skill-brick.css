@@ -686,23 +686,28 @@ code {
 .brick-card {
   display: grid;
   grid-template-rows: auto 1fr auto;
-  min-height: 230px;
+  min-height: 284px;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 12px;
   background: #ffffff;
   overflow: hidden;
   color: var(--ink);
   text-decoration: none;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
 }
 
 a.brick-card:hover,
 a.brick-card:focus-visible {
+  transform: translateY(-3px);
   border-color: var(--accent);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
   outline: none;
 }
 
 .brick-card-visual {
-  height: 72px;
+  height: 132px;
+  display: flex;
   border-bottom: 1px solid var(--line);
   background:
     linear-gradient(135deg, var(--soft), #ffffff),
@@ -713,6 +718,31 @@ a.brick-card:focus-visible {
       rgba(255, 255, 255, 0.35) 10px,
       rgba(255, 255, 255, 0.35) 20px
     );
+}
+
+.brick-card-visual img {
+  min-width: 0;
+  height: 100%;
+  display: block;
+}
+
+/* hero = component shot (sits on white, shown whole); scene = use-case illustration (fills) */
+.brick-hero {
+  flex: 1 1 48%;
+  object-fit: contain;
+  background: #ffffff;
+  padding: 8px;
+}
+
+.brick-scene {
+  flex: 1 1 52%;
+  object-fit: cover;
+  border-left: 1px solid var(--line);
+}
+
+.brick-hero.only {
+  flex-basis: 100%;
+  padding: 10px 16px;
 }
 
 .brick-card-content {
