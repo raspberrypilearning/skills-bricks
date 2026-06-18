@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Capacitive Touch Sensor Skill Brick</title>
+  <link rel="stylesheet" href="../skill-brick-Pete.css" />
+</head>
+<body class="theme-detect">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>Capacitive Touch Sensor</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Detect</span>
+          <span class="tag">Touch</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>A capacitive touch sensor lets your project detect a gentle finger touch.</p>
+        <p>It senses a tiny change in electricity around its touch pad, a bit like the screen on a phone or tablet.</p>
+        <p>Your projects can use touch to make hidden buttons, magic switches, musical pads, or secret controls.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <img src="./images/touch-lamp-switch.png" alt="Touch lamp switch project with a capacitive touch sensor" />
+          </div>
+          <div class="use-content">
+            <div class="use-title">Touch lamp switch</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Finger touches pad</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Lamp should change</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Toggle light</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <img src="./images/secret-banana-piano.png" alt="Secret banana piano project with a capacitive touch sensor" />
+          </div>
+          <div class="use-content">
+            <div class="use-title">Secret banana piano</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Banana key touched</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Banana note chosen</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Play squeaky tune</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <div class="placeholder" role="img" aria-label="Placeholder for capacitive touch sensor component image">
+          <strong>Placeholder</strong>
+          <span>Main capacitive touch sensor product image or rendered component photo</span>
+        </div>
+      </div>
+
+      <div class="part-strip" aria-label="Capacitive touch sensor parts">
+        <div class="part"><strong>Pad</strong><span>Touch area</span></div>
+        <div class="part"><strong>OUT</strong><span>Touch signal</span></div>
+        <div class="part"><strong>VCC</strong><span>Power</span></div>
+        <div class="part"><strong>GND</strong><span>Ground</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>Raspberry Pi</h2>
+        <pre><code>from gpiozero import DigitalInputDevice
+
+touch = DigitalInputDevice(
+    17,
+    pull_up=False
+)
+
+touched = touch.is_active</code></pre>
+      </section>
+
+      <section class="code-block">
+        <h2>Raspberry Pi Pico</h2>
+        <pre><code>from picozero import TouchSensor
+
+touch = TouchSensor(2)
+
+touched = touch.is_touched</code></pre>
+      </section>
+
+      <div class="note">Use <code class="inline-code">touch.is_active</code> on Raspberry Pi or <code class="inline-code">touch.is_touched</code> on Pico when your project needs to react to touch.</div>
+    </main>
+
+    <aside class="panel wiring-panel">
+      <h1>Wiring</h1>
+
+      <div class="wiring-grid">
+        <section class="wiring-card">
+          <div class="wiring-label">Raspberry Pi</div>
+          <div class="image-box wiring-image">
+            <div class="placeholder" role="img" aria-label="Placeholder for Raspberry Pi capacitive touch wiring diagram">
+              <strong>Placeholder</strong>
+              <span>Raspberry Pi capacitive touch wiring diagram</span>
+            </div>
+          </div>
+          <div class="pin-note">VCC -> 3V3 &nbsp; | &nbsp; GND -> GND &nbsp; | &nbsp; OUT -> GPIO 17</div>
+        </section>
+
+        <section class="wiring-card">
+          <div class="wiring-label">Pico</div>
+          <div class="image-box wiring-image">
+            <div class="placeholder" role="img" aria-label="Placeholder for Raspberry Pi Pico capacitive touch wiring diagram">
+              <strong>Placeholder</strong>
+              <span>Raspberry Pi Pico capacitive touch wiring diagram</span>
+            </div>
+          </div>
+          <div class="pin-note">VCC -> 3V3 &nbsp; | &nbsp; GND -> GND &nbsp; | &nbsp; OUT -> GP2</div>
+        </section>
+      </div>
+    </aside>
+  </section>
+</body>
+</html>

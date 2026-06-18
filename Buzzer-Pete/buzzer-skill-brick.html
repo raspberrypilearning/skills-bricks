@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buzzer Skill Brick</title>
+  <link rel="stylesheet" href="../skill-brick-Pete.css" />
+</head>
+<body class="theme-do">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>Buzzer</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Do</span>
+          <span class="tag">Sound</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>A buzzer lets your project make a simple sound.</p>
+        <p>Some buzzers just turn on and off, while others can make different tones.</p>
+        <p>Your projects can use buzzers for alarms, timers, games, tiny celebrations, and noisy mistakes.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <img src="./images/countdown-timer.png" alt="Countdown timer project with a buzzer" />
+          </div>
+          <div class="use-content">
+            <div class="use-title">Countdown timer</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Timer reaches zero</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Time is up</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Beep buzzer</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <img src="./images/sock-finder-siren.png" alt="Sock finder siren project with a buzzer" />
+          </div>
+          <div class="use-content">
+            <div class="use-title">Sock finder siren</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Lost sock button pressed</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Search mode begins</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Buzz dramatically</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <div class="placeholder" role="img" aria-label="Placeholder for buzzer component image">
+          <strong>Placeholder</strong>
+          <span>Main buzzer product image or rendered component photo</span>
+        </div>
+      </div>
+
+      <div class="part-strip" aria-label="Buzzer parts">
+        <div class="part"><strong>+</strong><span>Signal</span></div>
+        <div class="part"><strong>-</strong><span>Ground</span></div>
+        <div class="part"><strong>Case</strong><span>Sound hole</span></div>
+        <div class="part"><strong>Type</strong><span>Active or passive</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>Raspberry Pi</h2>
+        <pre><code>from gpiozero import Buzzer
+
+buzzer = Buzzer(17)
+
+buzzer.beep()</code></pre>
+      </section>
+
+      <section class="code-block">
+        <h2>Raspberry Pi Pico</h2>
+        <pre><code>from picozero import Buzzer
+
+buzzer = Buzzer(2)
+
+buzzer.beep()</code></pre>
+      </section>
+
+      <div class="note">Use <code class="inline-code">buzzer.on()</code>, <code class="inline-code">buzzer.off()</code>, or <code class="inline-code">buzzer.beep()</code> after a Detect brick spots something.</div>
+    </main>
+
+    <aside class="panel wiring-panel">
+      <h1>Wiring</h1>
+
+      <div class="wiring-grid">
+        <section class="wiring-card">
+          <div class="wiring-label">Raspberry Pi</div>
+          <div class="image-box wiring-image">
+            <div class="placeholder" role="img" aria-label="Placeholder for Raspberry Pi buzzer wiring diagram">
+              <strong>Placeholder</strong>
+              <span>Raspberry Pi buzzer wiring diagram</span>
+            </div>
+          </div>
+          <div class="pin-note">+ pin -&gt; GPIO 17 | - pin -&gt; GND</div>
+        </section>
+
+        <section class="wiring-card">
+          <div class="wiring-label">Pico</div>
+          <div class="image-box wiring-image">
+            <div class="placeholder" role="img" aria-label="Placeholder for Raspberry Pi Pico buzzer wiring diagram">
+              <strong>Placeholder</strong>
+              <span>Raspberry Pi Pico buzzer wiring diagram</span>
+            </div>
+          </div>
+          <div class="pin-note">+ pin -&gt; GP2 | - pin -&gt; GND</div>
+        </section>
+      </div>
+    </aside>
+  </section>
+</body>
+</html>

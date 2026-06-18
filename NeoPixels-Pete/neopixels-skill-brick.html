@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeoPixels Skill Brick</title>
+  <link rel="stylesheet" href="../skill-brick-Pete.css" />
+</head>
+<body class="theme-do">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>NeoPixels</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Do</span>
+          <span class="tag">Pixels</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>NeoPixels are colourful lights that can be controlled one by one from a single data wire.</p>
+        <p>Each pixel remembers its own colour, so a strip can become a sign, meter, clock, or rainbow trail.</p>
+        <p>Your projects can use NeoPixels for badges, reactions, animations, and unnecessary sparkle.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <img src="./images/progress-bar.png" alt="Progress bar project with NeoPixels" />
+          </div>
+          <div class="use-content">
+            <div class="use-title">Progress bar</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Task gets further</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>More progress is done</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Light more pixels</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <img src="./images/disco-shoelace-meter.png" alt="Disco shoelace meter project with NeoPixels" />
+          </div>
+          <div class="use-content">
+            <div class="use-title">Disco shoelace meter</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Magic level changes</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Shoelace needs sparkle</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Run rainbow wave</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <div class="placeholder" role="img" aria-label="Placeholder for neopixels component image">
+          <strong>Placeholder</strong>
+          <span>Main neopixels product image or rendered component photo</span>
+        </div>
+      </div>
+
+      <div class="part-strip" aria-label="NeoPixels parts">
+        <div class="part"><strong>DIN</strong><span>Data in</span></div>
+        <div class="part"><strong>5V</strong><span>Power</span></div>
+        <div class="part"><strong>GND</strong><span>Ground</span></div>
+        <div class="part"><strong>Pixels</strong><span>Many LEDs</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>Raspberry Pi</h2>
+        <pre><code>from rpi_ws281x import PixelStrip, Color
+
+pixels = PixelStrip(8, 18)
+pixels.begin()
+
+pixels.setPixelColor(0, Color(255, 0, 80))
+pixels.show()</code></pre>
+      </section>
+
+      <section class="code-block">
+        <h2>Raspberry Pi Pico</h2>
+        <pre><code>from machine import Pin
+from neopixel import NeoPixel
+
+pixels = NeoPixel(Pin(2), 8)
+
+pixels[0] = (255, 0, 80)
+pixels.write()</code></pre>
+      </section>
+
+      <div class="note">Use pixel colours after a Detect brick spots something.</div>
+    </main>
+
+    <aside class="panel wiring-panel">
+      <h1>Wiring</h1>
+
+      <div class="wiring-grid">
+        <section class="wiring-card">
+          <div class="wiring-label">Raspberry Pi</div>
+          <div class="image-box wiring-image">
+            <div class="placeholder" role="img" aria-label="Placeholder for Raspberry Pi neopixels wiring diagram">
+              <strong>Placeholder</strong>
+              <span>Raspberry Pi neopixels wiring diagram</span>
+            </div>
+          </div>
+          <div class="pin-note">DIN -&gt; GPIO 18 | 5V -&gt; external 5V | GND -&gt; shared GND</div>
+        </section>
+
+        <section class="wiring-card">
+          <div class="wiring-label">Pico</div>
+          <div class="image-box wiring-image">
+            <div class="placeholder" role="img" aria-label="Placeholder for Raspberry Pi Pico neopixels wiring diagram">
+              <strong>Placeholder</strong>
+              <span>Raspberry Pi Pico neopixels wiring diagram</span>
+            </div>
+          </div>
+          <div class="pin-note">DIN -&gt; GP2 | VCC -&gt; 3V3 or 5V strip supply | GND -&gt; shared GND</div>
+        </section>
+      </div>
+    </aside>
+  </section>
+</body>
+</html>

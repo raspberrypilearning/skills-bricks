@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LED Skill Brick</title>
+  <link rel="stylesheet" href="../skill-brick-Pete.css" />
+</head>
+<body class="theme-do">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>LED</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Do</span>
+          <span class="tag">Light</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>An LED is a tiny light that your code can switch on, switch off, or blink.</p>
+        <p>LED stands for light-emitting diode. It glows when electricity flows the right way through it, so the long leg and short leg matter.</p>
+        <p>Your projects can use LEDs to show warnings, celebrate events, or tell people what is happening.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <img src="./images/mini-traffic-light.png" alt="Mini traffic light project with LEDs" />
+          </div>
+          <div class="use-content">
+            <div class="use-title">Mini traffic light</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Timer reaches stop point</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Cars must stop now</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Turn on red LED</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <img src="./images/do-not-turn-me-off-box.png" alt="Do not turn me off box project with an LED" />
+          </div>
+          <div class="use-content">
+            <div class="use-title">Do not turn me off box</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Light is off</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Random wait is over</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Turn LED back on</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <div class="placeholder" role="img" aria-label="Placeholder for LED component image">
+          <strong>Placeholder</strong>
+          <span>Main LED product image or rendered component photo</span>
+        </div>
+      </div>
+
+      <div class="part-strip three-part" aria-label="LED parts">
+        <div class="part"><strong>Anode</strong><span>Long leg</span></div>
+        <div class="part"><strong>Cathode</strong><span>Short leg</span></div>
+        <div class="part"><strong>Resistor</strong><span>Protects LED</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>Raspberry Pi</h2>
+        <pre><code>from gpiozero import LED
+
+led = LED(17)
+
+led.on()</code></pre>
+      </section>
+
+      <section class="code-block">
+        <h2>Raspberry Pi Pico</h2>
+        <pre><code>from picozero import LED
+
+led = LED(2)
+
+led.on()</code></pre>
+      </section>
+
+      <div class="note">Use <code class="inline-code">led.on()</code>, <code class="inline-code">led.off()</code>, or <code class="inline-code">led.blink()</code> after a Detect brick spots something.</div>
+    </main>
+
+    <aside class="panel wiring-panel">
+      <h1>Wiring</h1>
+
+      <div class="wiring-grid">
+        <section class="wiring-card">
+          <div class="wiring-label">Raspberry Pi</div>
+          <div class="image-box wiring-image">
+            <div class="placeholder" role="img" aria-label="Placeholder for Raspberry Pi LED wiring diagram">
+              <strong>Placeholder</strong>
+              <span>Raspberry Pi LED wiring diagram</span>
+            </div>
+          </div>
+          <div class="pin-note">GPIO 17 -> resistor -> LED anode &nbsp; | &nbsp; LED cathode -> GND</div>
+        </section>
+
+        <section class="wiring-card">
+          <div class="wiring-label">Pico</div>
+          <div class="image-box wiring-image">
+            <div class="placeholder" role="img" aria-label="Placeholder for Raspberry Pi Pico LED wiring diagram">
+              <strong>Placeholder</strong>
+              <span>Raspberry Pi Pico LED wiring diagram</span>
+            </div>
+          </div>
+          <div class="pin-note">GP2 -> resistor -> LED anode &nbsp; | &nbsp; LED cathode -> GND</div>
+        </section>
+      </div>
+    </aside>
+  </section>
+</body>
+</html>

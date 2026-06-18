@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ultrasonic Distance Sensor Skill Brick</title>
+  <link rel="stylesheet" href="../skill-brick-Pete.css" />
+</head>
+<body class="theme-detect">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>Ultrasonic Distance Sensor</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Detect</span>
+          <span class="tag">Level</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>A distance sensor measures how far away something is without touching it.</p>
+        <p>It works a bit like a bat, sending out sounds and listening for the echo bouncing back to understand how far away things are.</p>
+        <p>Your projects can use the distance to react when something moves closer or further away.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <img src="./images/car-sensors.png" alt="Car reversing sensors warning that an object is nearby" />
+          </div>
+          <div class="use-content">
+            <div class="use-title">Car reversing sensor</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Car distance to wall</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Wall is closer than 0.5 m</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Turn on beeper</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <img src="./images/magic-chest.png" alt="Magic treasure chest opening when a hand comes close" />
+          </div>
+          <div class="use-content">
+            <div class="use-title">Magic treasure chest</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Hand distance to chest</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Hand is close enough</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Light&nbsp;LED and open lid</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <img src="./images/HC-SR04P.png" alt="HC-SR04P ultrasonic distance sensor" />
+      </div>
+
+      <div class="part-strip" aria-label="HC-SR04P pins">
+        <div class="part"><strong>VCC</strong><span>Power</span></div>
+        <div class="part"><strong>Trig</strong><span>Sends pulse</span></div>
+        <div class="part"><strong>Echo</strong><span>Gets echo</span></div>
+        <div class="part"><strong>GND</strong><span>Ground</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>Raspberry Pi</h2>
+        <pre><code>from gpiozero import DistanceSensor
+
+sensor = DistanceSensor(
+    echo=18,
+    trigger=17
+)
+
+distance = sensor.distance</code></pre>
+      </section>
+
+      <section class="code-block">
+        <h2>Raspberry Pi Pico</h2>
+        <pre><code>from picozero import DistanceSensor
+
+sensor = DistanceSensor(
+    echo=3,
+    trigger=2
+)
+
+distance = sensor.distance</code></pre>
+      </section>
+
+      <div class="note">Use <code class="inline-code">distance</code> when your project needs to react to nearby things.</div>
+    </main>
+
+    <aside class="panel wiring-panel">
+      <h1>Wiring</h1>
+
+      <div class="wiring-grid">
+        <section class="wiring-card">
+          <div class="wiring-label">Raspberry Pi</div>
+          <div class="image-box wiring-image">
+            <img src="./images/HC-SR04P-pi.png" alt="HC-SR04P wiring diagram for Raspberry Pi" />
+          </div>
+          <div class="pin-note">Trigger: GPIO 17 &nbsp; Echo: GPIO 18</div>
+        </section>
+
+        <section class="wiring-card">
+          <div class="wiring-label">Pico</div>
+          <div class="image-box wiring-image">
+            <img src="./images/HC-SR04P-pico.png" alt="HC-SR04P wiring diagram for Raspberry Pi Pico" />
+          </div>
+          <div class="pin-note">Trigger: GP2 &nbsp; Echo: GP3</div>
+        </section>
+      </div>
+    </aside>
+  </section>
+</body>
+</html>

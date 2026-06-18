@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Speaker Skill Brick</title>
+  <link rel="stylesheet" href="../skill-brick-Pete.css" />
+</head>
+<body class="theme-do">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>Speaker</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Do</span>
+          <span class="tag">Sound</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>A speaker lets your project play tones and simple tunes.</p>
+        <p>Code changes the signal quickly to make the speaker vibrate at different pitches.</p>
+        <p>Your projects can use speakers for melodies, warnings, secret jingles, and dramatic noises.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <img src="./images/door-chime.png" alt="Door chime project with a speaker" />
+          </div>
+          <div class="use-content">
+            <div class="use-title">Door chime</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Door opens</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Visitor arrived</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Play tune</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <img src="./images/tiny-fanfare-machine.png" alt="Tiny fanfare machine project with a speaker" />
+          </div>
+          <div class="use-content">
+            <div class="use-title">Tiny fanfare machine</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Excellent thing happens</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Celebration required</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Play fanfare</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <div class="placeholder" role="img" aria-label="Placeholder for speaker component image">
+          <strong>Placeholder</strong>
+          <span>Main speaker product image or rendered component photo</span>
+        </div>
+      </div>
+
+      <div class="part-strip" aria-label="Speaker parts">
+        <div class="part"><strong>+</strong><span>Signal</span></div>
+        <div class="part"><strong>-</strong><span>Ground</span></div>
+        <div class="part"><strong>Cone</strong><span>Vibrates</span></div>
+        <div class="part"><strong>PWM</strong><span>Tone signal</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>Raspberry Pi</h2>
+        <pre><code>from gpiozero import TonalBuzzer
+from gpiozero.tones import Tone
+
+speaker = TonalBuzzer(17)
+
+speaker.play(Tone(&#x27;A4&#x27;))</code></pre>
+      </section>
+
+      <section class="code-block">
+        <h2>Raspberry Pi Pico</h2>
+        <pre><code>from picozero import Speaker
+
+speaker = Speaker(2)
+
+speaker.play(&#x27;E4&#x27;, duration=1)</code></pre>
+      </section>
+
+      <div class="note">Use <code class="inline-code">speaker.play()</code> after a Detect brick spots something.</div>
+    </main>
+
+    <aside class="panel wiring-panel">
+      <h1>Wiring</h1>
+
+      <div class="wiring-grid">
+        <section class="wiring-card">
+          <div class="wiring-label">Raspberry Pi</div>
+          <div class="image-box wiring-image">
+            <div class="placeholder" role="img" aria-label="Placeholder for Raspberry Pi speaker wiring diagram">
+              <strong>Placeholder</strong>
+              <span>Raspberry Pi speaker wiring diagram</span>
+            </div>
+          </div>
+          <div class="pin-note">+ pin -&gt; GPIO 17 | - pin -&gt; GND</div>
+        </section>
+
+        <section class="wiring-card">
+          <div class="wiring-label">Pico</div>
+          <div class="image-box wiring-image">
+            <div class="placeholder" role="img" aria-label="Placeholder for Raspberry Pi Pico speaker wiring diagram">
+              <strong>Placeholder</strong>
+              <span>Raspberry Pi Pico speaker wiring diagram</span>
+            </div>
+          </div>
+          <div class="pin-note">+ pin -&gt; GP2 | - pin -&gt; GND</div>
+        </section>
+      </div>
+    </aside>
+  </section>
+</body>
+</html>

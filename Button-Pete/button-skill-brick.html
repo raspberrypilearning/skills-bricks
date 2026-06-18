@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Button Skill Brick</title>
+  <link rel="stylesheet" href="../skill-brick-Pete.css" />
+</head>
+<body class="theme-detect">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>Button</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Detect</span>
+          <span class="tag">Press</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>A button lets your project notice when someone presses something.</p>
+        <p>Inside the button are tiny metal contacts. Pressing the cap joins the contacts together, closing the circuit.</p>
+        <p>Your projects can use a button to start actions, choose modes, confirm choices, or act like a simple controller.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <img src="./images/doorbell-trigger.png" alt="Doorbell trigger project with a button" />
+          </div>
+          <div class="use-content">
+            <div class="use-title">Doorbell trigger</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Button is pressed</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Press is new</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Play chime</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <img src="./images/pet-rock-applause.png" alt="Pet rock applause project with a button" />
+          </div>
+          <div class="use-content">
+            <div class="use-title">Pet rock applause</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Applause button press</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Rock needs praise</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Play tiny applause</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <div class="placeholder" role="img" aria-label="Placeholder for button component image">
+          <strong>Placeholder</strong>
+          <span>Main button product image or rendered component photo</span>
+        </div>
+      </div>
+
+      <div class="part-strip" aria-label="Button parts">
+        <div class="part"><strong>Cap</strong><span>Press here</span></div>
+        <div class="part"><strong>Contacts</strong><span>Close circuit</span></div>
+        <div class="part"><strong>Pins</strong><span>Breadboard legs</span></div>
+        <div class="part"><strong>Pull-up</strong><span>Stable reading</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>Raspberry Pi</h2>
+        <pre><code>from gpiozero import Button
+
+button = Button(17)
+
+pressed = button.is_pressed</code></pre>
+      </section>
+
+      <section class="code-block">
+        <h2>Raspberry Pi Pico</h2>
+        <pre><code>from picozero import Button
+
+button = Button(2)
+
+pressed = button.is_pressed</code></pre>
+      </section>
+
+      <div class="note">Use <code class="inline-code">button.is_pressed</code> or <code class="inline-code">button.when_pressed</code> when your project needs to react to a press.</div>
+    </main>
+
+    <aside class="panel wiring-panel">
+      <h1>Wiring</h1>
+
+      <div class="wiring-grid">
+        <section class="wiring-card">
+          <div class="wiring-label">Raspberry Pi</div>
+          <div class="image-box wiring-image">
+            <div class="placeholder" role="img" aria-label="Placeholder for Raspberry Pi button wiring diagram">
+              <strong>Placeholder</strong>
+              <span>Raspberry Pi button wiring diagram</span>
+            </div>
+          </div>
+          <div class="pin-note">GPIO 17 -> one button leg &nbsp; | &nbsp; opposite leg -> GND</div>
+        </section>
+
+        <section class="wiring-card">
+          <div class="wiring-label">Pico</div>
+          <div class="image-box wiring-image">
+            <div class="placeholder" role="img" aria-label="Placeholder for Raspberry Pi Pico button wiring diagram">
+              <strong>Placeholder</strong>
+              <span>Raspberry Pi Pico button wiring diagram</span>
+            </div>
+          </div>
+          <div class="pin-note">GP2 -> one button leg &nbsp; | &nbsp; opposite leg -> GND</div>
+        </section>
+      </div>
+    </aside>
+  </section>
+</body>
+</html>
