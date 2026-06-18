@@ -349,12 +349,15 @@ ul {
 /* micro:bit: front + back board views with the component circled */
 .board-views {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
+  justify-items: center;
   gap: 2.5mm;
 }
 
 .board-view {
   margin: 0;
+  width: 100%;
+  max-width: 46mm;
   display: flex;
   flex-direction: column;
   gap: 1mm;
