@@ -19,10 +19,10 @@
 - Added current component-repo PNGs where there was a clear match: LED, button, buzzer, LDR, ultrasonic distance sensor, temperature probe, motor controller, PIR, NeoPixel, and speaker.
 - Added local component SVGs where the component repo did not have a matching image: capacitive touch sensor, RGB LED, potentiometer, stepper motor, tilt switch, toggle switch, and line sensor.
 - Checked and tightened the labels under the component images so they describe the component shown, not unrelated circuit or code details.
+- Checked the notes under the code examples and wrapped method, property, variable, and code-value references in inline code formatting.
 
 ## What Needs To Happen Next
 
 - Create Fritzing files for each wiring diagram, then use those files to create screenshots for the bricks.
 - Check that each `Decide` box contains the decision that needs to be made for that specific example.
 - Review the Pete pages after switching them to the shared `skill-brick.css`, especially the index cards and Detect/Do category cues.
-- Check that the text under the code examples uses inline code snippet formatting for references to methods, properties, variables, and code values.
