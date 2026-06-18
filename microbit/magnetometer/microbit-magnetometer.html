@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>micro:bit Magnetometer Skill Brick</title>
+  <link rel="stylesheet" href="../../skill-brick.css" />
+</head>
+<body class="microbit">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>micro:bit Magnetometer</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Detect</span>
+          <span class="tag">Direction</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>The magnetometer measures magnetic fields, which lets the micro:bit work as a compass.</p>
+        <p>It can tell you the heading in degrees, where 0 means north.</p>
+        <p>It also senses strong magnets that are held nearby.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <img src="./digital-compass.png" alt="Child using a micro:bit as a digital compass outdoors" />
+          </div>
+          <div class="use-content">
+            <div class="use-title">Digital compass</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>The compass heading</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Which way is north</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Point an arrow north</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <img src="./magnet-detector.png" alt="Child bringing a magnet near a micro:bit magnet detector project" />
+          </div>
+          <div class="use-content">
+            <div class="use-title">Magnet detector</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Magnetic field strength</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>A magnet is close</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Light the display</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <img src="./magnetometer-compass.png" alt="micro:bit showing magnetometer compass heading" />
+      </div>
+
+      <div class="part-strip" aria-label="micro:bit magnetometer parts">
+        <div class="part"><strong>Heading</strong><span>0 to 359°</span></div>
+        <div class="part"><strong>Compass</strong><span>0 is north</span></div>
+        <div class="part"><strong>Calibrate</strong><span>Tilt to start</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>MicroPython</h2>
+        <pre><code>from microbit import *
+
+compass.calibrate()
+while True:
+    heading = compass.heading()
+    display.scroll(heading)</code></pre>
+      </section>
+
+      <section class="code-block">
+        <h2>MakeCode</h2>
+        <pre><code>basic.forever(function () {
+    let heading = input.compassHeading()
+    basic.showNumber(heading)
+})</code></pre>
+      </section>
+
+      <div class="note">Call <code class="inline-code">compass.calibrate()</code> first and tilt the micro:bit to fill the screen. <code class="inline-code">compass.heading()</code> returns 0 to 359 degrees.</div>
+    </main>
+
+    <aside class="panel ref-panel">
+      <h1>Quick reference</h1>
+
+      <div class="ref-list">
+        <div class="ref-item"><strong>compass.heading()</strong><span>Direction 0 to 359°</span></div>
+        <div class="ref-item"><strong>compass.calibrate()</strong><span>Do this first</span></div>
+        <div class="ref-item"><strong>get_field_strength()</strong><span>How strong the field is</span></div>
+        <div class="ref-item"><strong>0° = north</strong><span>Built in</span></div>
+      </div>
+    </aside>
+  </section>
+</body>
+</html>

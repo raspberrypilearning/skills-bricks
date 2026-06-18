@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>micro:bit Buttons Skill Brick</title>
+  <link rel="stylesheet" href="../../skill-brick.css" />
+</head>
+<body class="microbit">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>micro:bit Buttons</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Input</span>
+          <span class="tag">Press</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>The micro:bit has two buttons, A and B, that your code can react to when they are pressed.</p>
+        <p>They are built into the board, so there is nothing to wire up. Button A is on the left and Button B is on the right.</p>
+        <p>Your projects can use the buttons to choose options, control characters, or trigger actions.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <img src="./yes-no-quiz.png" alt="Child answering a yes or no quiz using micro:bit buttons A and B" />
+          </div>
+          <div class="use-content">
+            <div class="use-title">Yes / no quiz</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Which button is pressed</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Answer is A or B</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Show a tick or cross</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <img src="./jumping-game.png" alt="Child pressing a micro:bit button to make a game character jump" />
+          </div>
+          <div class="use-content">
+            <div class="use-title">Jumping game</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Button A is pressed</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Player wants to jump</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Make the sprite jump</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <img src="./buttons-a-b.png" alt="micro:bit showing built-in buttons A and B" />
+      </div>
+
+      <div class="part-strip" aria-label="micro:bit button parts">
+        <div class="part"><strong>Button A</strong><span>Left button</span></div>
+        <div class="part"><strong>Button B</strong><span>Right button</span></div>
+        <div class="part"><strong>A + B</strong><span>Press both together</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>MicroPython</h2>
+        <pre><code>from microbit import *
+
+while True:
+    if button_a.was_pressed():
+        display.show("A")
+    if button_b.was_pressed():
+        display.show("B")</code></pre>
+      </section>
+
+      <section class="code-block">
+        <h2>MakeCode</h2>
+        <pre><code>input.onButtonPressed(Button.A, function () {
+    basic.showString("A")
+})
+input.onButtonPressed(Button.B, function () {
+    basic.showString("B")
+})</code></pre>
+      </section>
+
+      <div class="note">Use <code class="inline-code">is_pressed()</code> to check if a button is held down right now, or <code class="inline-code">was_pressed()</code> to catch a press that already happened.</div>
+    </main>
+
+    <aside class="panel ref-panel">
+      <h1>Quick reference</h1>
+
+      <div class="ref-list">
+        <div class="ref-item"><strong>button_a, button_b</strong><span>The two named buttons</span></div>
+        <div class="ref-item"><strong>is_pressed()</strong><span>True while the button is held down</span></div>
+        <div class="ref-item"><strong>was_pressed()</strong><span>True once after a press</span></div>
+        <div class="ref-item"><strong>Built in</strong><span>No wiring needed — both buttons are on the board</span></div>
+      </div>
+    </aside>
+  </section>
+</body>
+</html>

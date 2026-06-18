@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>micro:bit Light Sensor Skill Brick</title>
+  <link rel="stylesheet" href="../../skill-brick.css" />
+</head>
+<body class="microbit">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>micro:bit Light Sensor</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Detect</span>
+          <span class="tag">Level</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>The micro:bit can sense light using its LED display as a light sensor.</p>
+        <p>It gives a light level from 0 (dark) up to 255 (bright).</p>
+        <p>Your projects can react to daylight, shadows, or a torch shining on the screen.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <img src="./night-light.png" alt="micro:bit glowing as a night light in a dark bedroom" />
+          </div>
+          <div class="use-content">
+            <div class="use-title">Night light</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Room light level</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>The room is dark</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Light up the display</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <img src="./shadow-alarm.png" alt="Shadow falling across a micro:bit to trigger an alarm" />
+          </div>
+          <div class="use-content">
+            <div class="use-title">Shadow alarm</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Light level</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>A shadow falls over it</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Play a sound</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <img src="./light-sensor-display.png" alt="micro:bit LED display acting as a light sensor" />
+      </div>
+
+      <div class="part-strip" aria-label="micro:bit button parts">
+        <div class="part"><strong>LED display</strong><span>Senses light</span></div>
+        <div class="part"><strong>Range</strong><span>0 to 255</span></div>
+        <div class="part"><strong>No extra parts</strong><span>Built in</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>MicroPython</h2>
+        <pre><code>from microbit import *
+
+while True:
+    level = display.read_light_level()
+    display.scroll(level)</code></pre>
+      </section>
+
+      <section class="code-block">
+        <h2>MakeCode</h2>
+        <pre><code>basic.forever(function () {
+    let level = input.lightLevel()
+    basic.showNumber(level)
+})</code></pre>
+      </section>
+
+      <div class="note">Use <code class="inline-code">display.read_light_level()</code> to briefly use the LEDs to measure light and return a value from 0 to 255. Point the front of the micro:bit at the light.</div>
+    </main>
+
+    <aside class="panel ref-panel">
+      <h1>Quick reference</h1>
+
+      <div class="ref-list">
+        <div class="ref-item"><strong>read_light_level()</strong><span>Light level 0 to 255</span></div>
+        <div class="ref-item"><strong>0 = dark</strong><span>255 = bright</span></div>
+        <div class="ref-item"><strong>Uses the display</strong><span>The 25 LEDs sense the light</span></div>
+        <div class="ref-item"><strong>Built in</strong><span>No wiring needed</span></div>
+      </div>
+    </aside>
+  </section>
+</body>
+</html>

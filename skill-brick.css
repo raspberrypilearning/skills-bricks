@@ -491,6 +491,48 @@ code {
   font-size: 6.8pt;
 }
 
+/* ---- micro:bit resources ---- */
+/* Blue code blocks give the micro:bit set quick visual recognition,
+   distinct from the indigo Pi/Pico code blocks. Set on <body class="microbit">. */
+.microbit {
+  --code-bg: #0f4c81; /* deep micro:bit blue — cream text 7.8:1 */
+}
+
+/* Quick-reference panel — replaces the wiring panel for built-in components */
+.ref-panel {
+  padding-left: 7mm;
+}
+
+.ref-list {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  gap: 2.6mm;
+  align-content: start;
+}
+
+.ref-item {
+  border: 1px solid var(--line);
+  border-radius: 4mm;
+  background: #f4fbf7;
+  padding: 2.6mm 3.4mm;
+}
+
+.ref-item strong {
+  display: block;
+  margin-bottom: 0.6mm;
+  color: var(--cc-indigo);
+  font-size: 9.2pt;
+  line-height: 1.1;
+}
+
+.ref-item span {
+  display: block;
+  color: var(--muted);
+  font-size: 8.2pt;
+  line-height: 1.2;
+}
+
 @page {
   size: A5 landscape;
   margin: 0;

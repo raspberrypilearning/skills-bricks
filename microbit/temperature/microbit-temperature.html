@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>micro:bit Temperature Skill Brick</title>
+  <link rel="stylesheet" href="../../skill-brick.css" />
+</head>
+<body class="microbit">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>micro:bit Temperature</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Detect</span>
+          <span class="tag">Level</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>The micro:bit can measure temperature in degrees Celsius using a sensor on its main chip.</p>
+        <p>It reads the temperature of the board, which is usually close to the room temperature.</p>
+        <p>Your projects can react to warm or cold, log readings, or warn about heat.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <img src="./too-hot-warning.png" alt="micro:bit showing a warning face when it gets too hot" />
+          </div>
+          <div class="use-content">
+            <div class="use-title">Too hot warning</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>The temperature</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>It is above 30°C</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Show a warning face</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <img src="./weather-logger.png" alt="micro:bit used as a simple temperature weather logger by a window" />
+          </div>
+          <div class="use-content">
+            <div class="use-title">Weather logger</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Temperature each minute</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Time to record</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Save the reading</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <img src="./temperature-chip.png" alt="micro:bit showing temperature sensing on the main chip" />
+      </div>
+
+      <div class="part-strip" aria-label="micro:bit temperature parts">
+        <div class="part"><strong>°C</strong><span>Degrees Celsius</span></div>
+        <div class="part"><strong>On the chip</strong><span>Senses board heat</span></div>
+        <div class="part"><strong>No extra parts</strong><span>Built in</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>MicroPython</h2>
+        <pre><code>from microbit import *
+
+while True:
+    temp = temperature()
+    display.scroll(temp)</code></pre>
+      </section>
+
+      <section class="code-block">
+        <h2>MakeCode</h2>
+        <pre><code>basic.forever(function () {
+    let temp = input.temperature()
+    basic.showNumber(temp)
+})</code></pre>
+      </section>
+
+      <div class="note"><code class="inline-code">temperature()</code> returns the chip temperature in °C. It can read a little high because it senses the board, not the air.</div>
+    </main>
+
+    <aside class="panel ref-panel">
+      <h1>Quick reference</h1>
+
+      <div class="ref-list">
+        <div class="ref-item"><strong>temperature()</strong><span>Degrees Celsius</span></div>
+        <div class="ref-item"><strong>On the chip</strong><span>Reads the board's heat</span></div>
+        <div class="ref-item"><strong>Reads a bit high</strong><span>Board is warmer than air</span></div>
+        <div class="ref-item"><strong>Built in</strong><span>No wiring needed</span></div>
+      </div>
+    </aside>
+  </section>
+</body>
+</html>

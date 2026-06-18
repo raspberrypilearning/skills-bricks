@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>micro:bit Capacitive Touch Skill Brick</title>
+  <link rel="stylesheet" href="../../skill-brick.css" />
+</head>
+<body class="microbit">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>micro:bit Capacitive Touch</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Input</span>
+          <span class="tag">Touch</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>The micro:bit V2 has a touch-sensitive logo at the top that senses your finger.</p>
+        <p>Capacitive touch reacts to the tiny electrical change your skin makes, just like a phone screen.</p>
+        <p>Pins 0, 1, and 2 can also be set up to sense touch.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <img src="./secret-reveal.png" alt="Child touching the micro:bit logo to reveal a hidden display pattern" />
+          </div>
+          <div class="use-content">
+            <div class="use-title">Secret reveal</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>The logo is touched</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Someone touched it</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Show a hidden message</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <img src="./touch-piano.png" alt="Child using foil touch pads connected to a micro:bit as a piano" />
+          </div>
+          <div class="use-content">
+            <div class="use-title">Touch piano</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>A pin is touched</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Which pin it was</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Play that note</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <img src="./touch-logo.png" alt="micro:bit showing the touch-sensitive logo" />
+      </div>
+
+      <div class="part-strip" aria-label="micro:bit button parts">
+        <div class="part"><strong>Logo (V2)</strong><span>Touch sensor</span></div>
+        <div class="part"><strong>Pins 0,1,2</strong><span>Touch inputs</span></div>
+        <div class="part"><strong>Capacitive</strong><span>Senses skin</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>MicroPython</h2>
+        <pre><code>from microbit import *
+
+while True:
+    if pin_logo.is_touched():
+        display.show(Image.YES)</code></pre>
+      </section>
+
+      <section class="code-block">
+        <h2>MakeCode</h2>
+        <pre><code>input.onLogoEvent(TouchButtonEvent.Touched, function () {
+    basic.showIcon(IconNames.Yes)
+})</code></pre>
+      </section>
+
+      <div class="note"><code class="inline-code">pin_logo.is_touched()</code> works on the micro:bit V2. For pins, set the mode first, e.g. <code class="inline-code">pin0.set_touch_mode(pin0.CAPACITIVE)</code>.</div>
+    </main>
+
+    <aside class="panel ref-panel">
+      <h1>Quick reference</h1>
+
+      <div class="ref-list">
+        <div class="ref-item"><strong>pin_logo.is_touched()</strong><span>V2 logo touch</span></div>
+        <div class="ref-item"><strong>pin0 pin1 pin2</strong><span>Touch-capable pins</span></div>
+        <div class="ref-item"><strong>set_touch_mode(CAPACITIVE)</strong><span>Sense skin, not wires</span></div>
+        <div class="ref-item"><strong>Logo touch</strong><span>V2 only</span></div>
+      </div>
+    </aside>
+  </section>
+</body>
+</html>

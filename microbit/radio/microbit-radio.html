@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>micro:bit Radio Skill Brick</title>
+  <link rel="stylesheet" href="../../skill-brick.css" />
+</head>
+<body class="microbit">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>micro:bit Radio</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Send</span>
+          <span class="tag">Receive</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>The radio lets two or more micro:bits talk to each other wirelessly.</p>
+        <p>micro:bits set to the same group number can send and receive short messages.</p>
+        <p>Your projects can build chat tools, remote controls, or multiplayer games.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <img src="./wireless-hello.png" alt="Two children sending a wireless hello between micro:bits" />
+          </div>
+          <div class="use-content">
+            <div class="use-title">Wireless hello</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Button A is pressed</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Time to send</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Send hello to others</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <img src="./remote-light.png" alt="One micro:bit remotely lighting another micro:bit display by radio" />
+          </div>
+          <div class="use-content">
+            <div class="use-title">Remote light</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>A radio message arrives</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Message says on</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Light the display</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <img src="./radio-microbits.png" alt="Two micro:bits communicating wirelessly by radio" />
+      </div>
+
+      <div class="part-strip" aria-label="micro:bit button parts">
+        <div class="part"><strong>Group</strong><span>Channel 0–255</span></div>
+        <div class="part"><strong>send()</strong><span>Transmit</span></div>
+        <div class="part"><strong>receive()</strong><span>Listen</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>MicroPython</h2>
+        <pre><code>import radio
+from microbit import *
+
+radio.on()
+radio.config(group=23)
+
+while True:
+    if button_a.was_pressed():
+        radio.send("hello")
+    msg = radio.receive()</code></pre>
+      </section>
+
+      <section class="code-block">
+        <h2>MakeCode</h2>
+        <pre><code>radio.setGroup(23)
+input.onButtonPressed(Button.A, function () {
+    radio.sendString("hello")
+})
+radio.onReceivedString(function (receivedString) {
+    basic.showString(receivedString)
+})</code></pre>
+      </section>
+
+      <div class="note">All micro:bits must use the same group number to hear each other. Call <code class="inline-code">radio.on()</code> before sending or receiving.</div>
+    </main>
+
+    <aside class="panel ref-panel">
+      <h1>Quick reference</h1>
+
+      <div class="ref-list">
+        <div class="ref-item"><strong>radio.on()</strong><span>Turn the radio on</span></div>
+        <div class="ref-item"><strong>radio.config(group=23)</strong><span>Same group to connect</span></div>
+        <div class="ref-item"><strong>send() / receive()</strong><span>Talk wirelessly</span></div>
+        <div class="ref-item"><strong>Built in</strong><span>No wiring needed</span></div>
+      </div>
+    </aside>
+  </section>
+</body>
+</html>

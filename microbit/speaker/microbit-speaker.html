@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>micro:bit Speaker Skill Brick</title>
+  <link rel="stylesheet" href="../../skill-brick.css" />
+</head>
+<body class="microbit">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>micro:bit Speaker</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Output</span>
+          <span class="tag">Sound</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>The micro:bit V2 has a tiny speaker built in, so it can make sounds and play tunes with no extra parts.</p>
+        <p>Your code can play built-in melodies, single notes, or fun sound effects.</p>
+        <p>Your projects can use sound for alarms, music, games, or feedback.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <img src="./egg-timer.png" alt="micro:bit egg timer playing an alarm sound" />
+          </div>
+          <div class="use-content">
+            <div class="use-title">Egg timer</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>A countdown reaches zero</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>The time is up</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Play an alarm tune</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <img src="./game-point.png" alt="micro:bit playing a happy sound when a player scores a point" />
+          </div>
+          <div class="use-content">
+            <div class="use-title">Game point</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>The player scores</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>A point was won</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Play a happy sound</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <img src="./speaker-sound.png" alt="micro:bit V2 showing the built-in speaker with sound waves" />
+      </div>
+
+      <div class="part-strip" aria-label="micro:bit speaker parts">
+        <div class="part"><strong>Speaker (V2)</strong><span>Built-in buzzer</span></div>
+        <div class="part"><strong>music</strong><span>Tunes and notes</span></div>
+        <div class="part"><strong>Pin 0</strong><span>Headphones on V1</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>MicroPython</h2>
+        <pre><code>import music
+from microbit import *
+
+music.play(music.POWER_UP)
+sleep(500)
+music.pitch(440, 500)</code></pre>
+      </section>
+
+      <section class="code-block">
+        <h2>MakeCode</h2>
+        <pre><code>music.playTone(262, music.beat(BeatFraction.Whole))
+music.startMelody(music.builtInMelody(Melodies.PowerUp), MelodyOptions.Once)</code></pre>
+      </section>
+
+      <div class="note">The built-in speaker is on the micro:bit V2. On a V1, connect a buzzer or headphones to <code class="inline-code">pin0</code> and <code class="inline-code">GND</code>.</div>
+    </main>
+
+    <aside class="panel ref-panel">
+      <h1>Quick reference</h1>
+
+      <div class="ref-list">
+        <div class="ref-item"><strong>import music</strong><span>Sounds and tunes</span></div>
+        <div class="ref-item"><strong>music.play(music.POWER_UP)</strong><span>Play a built-in melody</span></div>
+        <div class="ref-item"><strong>music.pitch(440, 500)</strong><span>A note for a number of ms</span></div>
+        <div class="ref-item"><strong>Speaker</strong><span>Built in on V2, pin 0 on V1</span></div>
+      </div>
+    </aside>
+  </section>
+</body>
+</html>
