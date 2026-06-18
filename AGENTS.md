@@ -2,10 +2,10 @@
 
 Use these notes when creating or updating skill brick HTML files in this repo.
 
-- Keep each brick consistent with `skill_brick_template.html`: two A5 landscape sides, a Discover side, and a Build side.
+- Keep each brick consistent with `skill_brick_template-Pete.html`: two A5 landscape sides, a Discover side, and a Build side.
 - Put each brick in its own top-level folder, using the component name with a `-Pete` suffix, such as `Temp_Sensor-Pete`.
-- Use the shared `skill-brick.css` stylesheet for layout, print sizing, cards, placeholders, code blocks, and wiring sections.
-- Link component-folder HTML files to `../skill-brick.css`; link root-level files to `skill-brick.css`.
+- Use the shared `skill-brick-Pete.css` stylesheet for layout, print sizing, cards, placeholders, code blocks, and wiring sections.
+- Link component-folder HTML files to `../skill-brick-Pete.css`; link root-level files to `skill-brick-Pete.css`.
 - Use `theme-detect` for Detect bricks and `theme-do` for Do bricks. Do not create extra colour schemes unless the set needs a new category.
 - In the Uses section, make the first use a standard, well-known real-world use of the component.
 - Make the second use more creative, wacky, fun, silly, or deliberately pointless so it inspires kids to imagine their own projects.
