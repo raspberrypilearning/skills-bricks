@@ -844,6 +844,24 @@ a.brick-card:focus-visible {
 .platform-microbit { border-top-color: #0f4c81; }
 
 .platform-emoji { font-size: 30pt; line-height: 1; }
+.platform-logo { height: 42px; width: auto; max-width: 80%; object-fit: contain; margin-bottom: 2px; }
+
+/* Code Club wallpaper behind the app (app.html only) */
+.app-bg {
+  background-image: url('app/codeclub-wallpaper.svg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* float the content on a translucent sheet so text stays readable over the green */
+.app-bg .index-shell {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 18px;
+  margin: 18px auto 28px;
+  padding: 28px 24px 40px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+}
 .platform-name { font-size: 16pt; font-weight: 800; line-height: 1.1; }
 .platform-sub { color: var(--muted); font-size: 10.5pt; line-height: 1.35; }
 

@@ -6,7 +6,7 @@
   <title>Skill Bricks — choose your device</title>
   <link rel="stylesheet" href="skill-brick.css" />
 </head>
-<body class="theme-detect index-body">
+<body class="theme-detect index-body app-bg">
   <button id="muteBtn" class="audio-toggle" type="button" aria-pressed="false" aria-label="Mute music" title="Mute music">🔊</button>
   <audio id="bgm" preload="auto"></audio>
 
@@ -18,22 +18,22 @@
 
     <div class="platform-picker" id="picker">
       <button class="platform-choice platform-pi" type="button" data-platform="pi">
-        <span class="platform-emoji" aria-hidden="true">🍓</span>
+        <img class="platform-logo" src="app/logos/raspberry-pi.png" alt="" />
         <span class="platform-name">Raspberry Pi</span>
         <span class="platform-sub">The full Raspberry Pi computer with GPIO pins.</span>
       </button>
       <button class="platform-choice platform-pico" type="button" data-platform="pico">
-        <span class="platform-emoji" aria-hidden="true">🔌</span>
+        <img class="platform-logo" src="app/logos/raspberry-pi.png" alt="" />
         <span class="platform-name">Raspberry Pi Pico</span>
         <span class="platform-sub">The tiny Pico microcontroller board.</span>
       </button>
       <button class="platform-choice platform-microbit" type="button" data-platform="microbit">
-        <span class="platform-emoji" aria-hidden="true">📟</span>
+        <img class="platform-logo" src="app/logos/microbit.png" alt="" />
         <span class="platform-name">micro:bit</span>
         <span class="platform-sub">The BBC micro:bit with built-in sensors.</span>
       </button>
       <button class="platform-choice platform-arduino" type="button" data-platform="arduino">
-        <span class="platform-emoji" aria-hidden="true">🔷</span>
+        <img class="platform-logo" src="app/logos/arduino.png" alt="" />
         <span class="platform-name">Arduino</span>
         <span class="platform-sub">An Arduino board wired up with header pins.</span>
       </button>
