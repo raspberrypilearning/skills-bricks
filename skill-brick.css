@@ -617,6 +617,20 @@ code {
   line-height: 1.4;
 }
 
+.index-section + .index-section {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.index-section-title {
+  margin-bottom: 14px;
+  color: var(--ink);
+  font-size: 18pt;
+  line-height: 1.1;
+  letter-spacing: 0;
+}
+
 .brick-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -676,6 +690,7 @@ a.brick-card:focus-visible {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  flex-wrap: wrap;
   gap: 10px;
   padding: 0 16px 16px;
 }
