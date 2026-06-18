@@ -20,9 +20,12 @@
 - Added local component SVGs where the component repo did not have a matching image: capacitive touch sensor, RGB LED, potentiometer, stepper motor, tilt switch, toggle switch, and line sensor.
 - Checked and tightened the labels under the component images so they describe the component shown, not unrelated circuit or code details.
 - Checked the notes under the code examples and wrapped method, property, variable, and code-value references in inline code formatting.
+- Replaced the separate Pete index with the main `index.html` catalogue for non-`microbit` bricks.
+- Updated `index.html` to link all non-`microbit` brick pages, with a `Current Set` section and an `Other Versions To Compare` section.
+- Added shared index section styling to `skill-brick.css` so the catalogue can show current and comparison cards clearly.
+- Checked the `Decide` boxes and tightened the ones that did not clearly state the choice needed for the example.
 
 ## What Needs To Happen Next
 
 - Create Fritzing files for each wiring diagram, then use those files to create screenshots for the bricks.
-- Check that each `Decide` box contains the decision that needs to be made for that specific example.
-- Review the Pete pages after switching them to the shared `skill-brick.css`, especially the index cards and Detect/Do category cues.
+- Check through any duplicates with the team to decide which alternate approaches should stay, change, or be removed.
