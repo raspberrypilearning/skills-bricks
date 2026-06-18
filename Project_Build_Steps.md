@@ -3,7 +3,7 @@
 ## What Has Happened So Far
 
 - Created a shared Skill Brick structure: two A5 landscape sides, a Discover side, a Build side, use examples, code examples, component area, and wiring area.
-- Added a shared stylesheet for the original bricks and a separate Pete stylesheet/template set.
+- Added a shared stylesheet and a separate Pete template set.
 - Built out the Pete brick folders using the `-Pete` suffix.
 - Added an index page for the Pete bricks.
 - Simplified the category model to two types: `Detect` and `Do`.
@@ -13,14 +13,16 @@
 - Merged the Pete branch back with `master`, keeping both the original files and the Pete-suffixed versions.
 - Removed merge conflicts caused by renamed folders, renamed templates, and renamed example assets.
 - Identified that `skill-brick.css` now uses a Code Club brand-token styling approach.
-- Checked that `skill-brick-Pete.css` should use the same brand approach, but must keep the Pete-specific index styles and Detect/Do theme hooks.
+- Moved the Pete-specific index styles and Detect/Do theme hooks into `skill-brick.css` so all bricks can use one stylesheet.
+- Agreed not to edit files in `microbit/` while that folder is being worked on separately.
+- Checked the Raspberry Pi Learning component image repo at commit `0102235420fd8b9f07a66c6a7e30db89a6d34a50`.
+- Added current component-repo PNGs where there was a clear match: LED, button, buzzer, LDR, ultrasonic distance sensor, temperature probe, motor controller, PIR, NeoPixel, and speaker.
+- Added local component SVGs where the component repo did not have a matching image: capacitive touch sensor, RGB LED, potentiometer, stepper motor, tilt switch, toggle switch, and line sensor.
+- Checked and tightened the labels under the component images so they describe the component shown, not unrelated circuit or code details.
 
 ## What Needs To Happen Next
 
 - Create Fritzing files for each wiring diagram, then use those files to create screenshots for the bricks.
-- Add an image of each component to the component image area.
-- Use the component images already in this repo where possible, but first check they are up to date against: <https://github.com/raspberrypilearning/components/tree/master/components>.
-- Check that the labels and information under each component image actually match that component.
 - Check that each `Decide` box contains the decision that needs to be made for that specific example.
-- Update `skill-brick-Pete.css` to match the Code Club brand styling approach used in `skill-brick.css`, while preserving Pete-specific index styles and `theme-detect` / `theme-do`.
+- Review the Pete pages after switching them to the shared `skill-brick.css`, especially the index cards and Detect/Do category cues.
 - Check that the text under the code examples uses inline code snippet formatting for references to methods, properties, variables, and code values.

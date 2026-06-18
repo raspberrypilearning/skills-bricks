@@ -27,6 +27,44 @@
   --code-ink: var(--cc-cream);   /* code text — 7.5:1 on indigo */
   --green: var(--cc-green);   /* Code Club green — flow arrows */
   --accent: #2b8240;          /* darkened Code Club green for AA-legible code text — 4.8:1 on white */
+  --surface: #f4fbf7;
+  --flow-border: #c9d0d7;
+  --placeholder-dash: #92d6af;
+  --placeholder-soft-start: rgba(247, 243, 237, 0.95);
+  --placeholder-soft-end: rgba(255, 255, 255, 0.95);
+  --placeholder-stripe: rgba(65, 182, 83, 0.05);
+}
+
+body.theme-detect,
+.theme-detect {
+  --line: #c8e6f3;
+  --soft: #eef9fd;
+  --surface: #f4fbf7;
+  --tag-bg: #cceaf7;
+  --tag-ink: var(--cc-slate);
+  --accent: #147fae;
+  --green: var(--cc-green);
+  --flow-border: #8ed0ee;
+  --placeholder-dash: #8ed0ee;
+  --placeholder-soft-start: rgba(238, 249, 253, 0.95);
+  --placeholder-soft-end: rgba(255, 255, 255, 0.95);
+  --placeholder-stripe: rgba(49, 169, 224, 0.055);
+}
+
+body.theme-do,
+.theme-do {
+  --line: #f6d0c4;
+  --soft: #fff4ef;
+  --surface: #fff9f6;
+  --tag-bg: #ffd7c7;
+  --tag-ink: var(--cc-slate);
+  --accent: #b84f34;
+  --green: var(--cc-orange);
+  --flow-border: #f0ad98;
+  --placeholder-dash: #f0ad98;
+  --placeholder-soft-start: rgba(255, 244, 239, 0.95);
+  --placeholder-soft-end: rgba(255, 255, 255, 0.95);
+  --placeholder-stripe: rgba(242, 106, 69, 0.055);
 }
 
 * {
@@ -239,7 +277,7 @@ ul {
   flex: 0 0 auto;
   min-width: 0;
   background: var(--tag-bg);
-  border: 1px solid #c9d0d7;
+  border: 1px solid var(--flow-border);
   padding: 1.3mm;
   font-size: 6.85pt;
   line-height: 1.08;
@@ -299,7 +337,7 @@ ul {
   flex: 1;
   min-height: 0;
   padding: 4mm;
-  background: #f4fbf7;
+  background: var(--surface);
 }
 
 .sensor-image img {
@@ -313,6 +351,15 @@ ul {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.7mm;
+}
+
+body.theme-detect .part-strip,
+body.theme-do .part-strip {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.part-strip.three-part {
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .part,
@@ -339,6 +386,11 @@ ul {
   color: var(--muted);
   font-size: 7.6pt;
   line-height: 1.1;
+}
+
+body.theme-detect .part strong,
+body.theme-do .part strong {
+  color: var(--accent);
 }
 
 /* Code side */
@@ -372,7 +424,7 @@ code {
   font-weight: 800;
   color: var(--accent);
   background: #ffffff;
-  border: 1px solid #b7e3ca;
+  border: 1px solid var(--flow-border);
   border-radius: 1.5mm;
   padding: 0.2mm 1mm;
 }
@@ -448,14 +500,14 @@ code {
 .placeholder {
   width: 100%;
   height: 100%;
-  border: 1.2px dashed #92d6af;
+  border: 1.2px dashed var(--placeholder-dash);
   border-radius: inherit;
   background:
-    linear-gradient(135deg, rgba(247, 243, 237, 0.95), rgba(255, 255, 255, 0.95)),
+    linear-gradient(135deg, var(--placeholder-soft-start), var(--placeholder-soft-end)),
     repeating-linear-gradient(
       -45deg,
-      rgba(65, 182, 83, 0.05) 0,
-      rgba(65, 182, 83, 0.05) 8px,
+      var(--placeholder-stripe) 0,
+      var(--placeholder-stripe) 8px,
       rgba(255, 255, 255, 0.2) 8px,
       rgba(255, 255, 255, 0.2) 16px
     );
@@ -531,6 +583,107 @@ code {
   color: var(--muted);
   font-size: 8.2pt;
   line-height: 1.2;
+}
+
+/* ---- Skill bricks index ---- */
+.index-body {
+  min-height: 100vh;
+  background: #f4f6f8;
+}
+
+.index-shell {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0 48px;
+}
+
+.index-header {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.index-header h1 {
+  margin-bottom: 0;
+  font-size: 30pt;
+  letter-spacing: 0;
+}
+
+.index-header p {
+  max-width: 680px;
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 12pt;
+  line-height: 1.4;
+}
+
+.brick-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.brick-card {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 230px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #ffffff;
+  overflow: hidden;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+a.brick-card:hover,
+a.brick-card:focus-visible {
+  border-color: var(--accent);
+  outline: none;
+}
+
+.brick-card-visual {
+  height: 72px;
+  border-bottom: 1px solid var(--line);
+  background:
+    linear-gradient(135deg, var(--soft), #ffffff),
+    repeating-linear-gradient(
+      -45deg,
+      var(--placeholder-stripe) 0,
+      var(--placeholder-stripe) 10px,
+      rgba(255, 255, 255, 0.35) 10px,
+      rgba(255, 255, 255, 0.35) 20px
+    );
+}
+
+.brick-card-content {
+  padding: 16px;
+}
+
+.brick-card h2 {
+  margin-bottom: 8px;
+  font-size: 16pt;
+  line-height: 1.05;
+}
+
+.brick-card p {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 10pt;
+  line-height: 1.35;
+}
+
+.brick-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 0 16px 16px;
+}
+
+.brick-card-footer .tag {
+  font-size: 7.5pt;
+  letter-spacing: 0;
+  text-transform: none;
 }
 
 @page {

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500" role="img" aria-labelledby="title desc">
+  <title id="title">Potentiometer</title>
+  <desc id="desc">A rotary potentiometer with a blue body, circular shaft, and three pins.</desc>
+  <rect width="600" height="500" fill="#ffffff"/>
+  <rect x="166" y="148" width="268" height="218" rx="24" fill="#2878bd" stroke="#164c7a" stroke-width="9"/>
+  <circle cx="300" cy="257" r="82" fill="#d9edf8" stroke="#164c7a" stroke-width="9"/>
+  <circle cx="300" cy="257" r="38" fill="#f7f3ed" stroke="#164c7a" stroke-width="7"/>
+  <line x1="300" y1="257" x2="336" y2="226" stroke="#f26a45" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="220" cy="189" r="13" fill="#f8f294" stroke="#164c7a" stroke-width="5"/>
+  <circle cx="380" cy="189" r="13" fill="#f8f294" stroke="#164c7a" stroke-width="5"/>
+  <rect x="204" y="366" width="30" height="42" rx="4" fill="#d7dce2" stroke="#6b7280" stroke-width="5"/>
+  <rect x="285" y="366" width="30" height="42" rx="4" fill="#d7dce2" stroke="#6b7280" stroke-width="5"/>
+  <rect x="366" y="366" width="30" height="42" rx="4" fill="#d7dce2" stroke="#6b7280" stroke-width="5"/>
+  <line x1="219" y1="408" x2="219" y2="462" stroke="#6b7280" stroke-width="9" stroke-linecap="round"/>
+  <line x1="300" y1="408" x2="300" y2="462" stroke="#6b7280" stroke-width="9" stroke-linecap="round"/>
+  <line x1="381" y1="408" x2="381" y2="462" stroke="#6b7280" stroke-width="9" stroke-linecap="round"/>
+  <text x="300" y="90" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#37384d">Potentiometer</text>
+</svg>

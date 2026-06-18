@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500" role="img" aria-labelledby="title desc">
+  <title id="title">Tilt switch</title>
+  <desc id="desc">A cylindrical tilt switch with a small ball inside and two wire legs.</desc>
+  <rect width="600" height="500" fill="#ffffff"/>
+  <g transform="rotate(-16 300 235)">
+    <line x1="102" y1="256" x2="28" y2="256" stroke="#6b7280" stroke-width="10" stroke-linecap="round"/>
+    <line x1="498" y1="256" x2="572" y2="256" stroke="#6b7280" stroke-width="10" stroke-linecap="round"/>
+    <rect x="96" y="179" width="408" height="154" rx="70" fill="#eaf6ff" stroke="#5b8db8" stroke-width="8"/>
+    <rect x="95" y="189" width="58" height="134" rx="22" fill="#c7ccd4" stroke="#6b7280" stroke-width="6"/>
+    <rect x="447" y="189" width="58" height="134" rx="22" fill="#c7ccd4" stroke="#6b7280" stroke-width="6"/>
+    <circle cx="374" cy="265" r="30" fill="#f26a45" stroke="#a24027" stroke-width="6"/>
+    <path d="M184 221c48-30 141-38 214-12" fill="none" stroke="#ffffff" stroke-width="12" stroke-linecap="round" opacity="0.92"/>
+  </g>
+  <text x="300" y="86" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#37384d">Tilt switch</text>
+</svg>

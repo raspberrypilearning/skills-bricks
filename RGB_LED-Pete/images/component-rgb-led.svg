@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500" role="img" aria-labelledby="title desc">
+  <title id="title">RGB LED</title>
+  <desc id="desc">A clear four-legged RGB LED with red, green, and blue colour sections inside.</desc>
+  <rect width="600" height="500" fill="#ffffff"/>
+  <path d="M210 238c0-89 45-154 90-154s90 65 90 154v48H210z" fill="#eaf6ff" stroke="#5b8db8" stroke-width="8"/>
+  <path d="M234 239c0-58 23-105 59-123v145z" fill="#f05a5a" opacity="0.82"/>
+  <path d="M293 116c4-2 10-3 15-3 30 0 55 48 58 126l-73 22z" fill="#45c069" opacity="0.82"/>
+  <path d="M234 239h132v47H234z" fill="#3ca7e8" opacity="0.72"/>
+  <rect x="208" y="286" width="184" height="30" rx="12" fill="#b8d4e8" stroke="#5b8db8" stroke-width="7"/>
+  <line x1="236" y1="316" x2="236" y2="448" stroke="#9ca3af" stroke-width="10" stroke-linecap="round"/>
+  <line x1="280" y1="316" x2="280" y2="448" stroke="#9ca3af" stroke-width="10" stroke-linecap="round"/>
+  <line x1="324" y1="316" x2="324" y2="448" stroke="#9ca3af" stroke-width="10" stroke-linecap="round"/>
+  <line x1="368" y1="316" x2="368" y2="448" stroke="#9ca3af" stroke-width="10" stroke-linecap="round"/>
+  <text x="236" y="478" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#da315f">R</text>
+  <text x="280" y="478" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#41b653">G</text>
+  <text x="324" y="478" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#31a9e0">B</text>
+  <text x="368" y="478" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#37384d">-</text>
+  <circle cx="286" cy="208" r="13" fill="#ffffff" opacity="0.74"/>
+  <path d="M254 122c18-22 52-35 80-23" fill="none" stroke="#ffffff" stroke-width="11" stroke-linecap="round" opacity="0.9"/>
+</svg>
