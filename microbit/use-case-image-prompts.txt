@@ -173,6 +173,14 @@ Illustrate a micro:bit speaker egg timer. Show a micro:bit on a taped cardboard 
 Game point:
 Illustrate a micro:bit speaker game point alert. Show a micro:bit mounted on a cardboard tabletop game board, LED matrix showing a point icon, sound-wave arcs from the board, counters and wires nearby. Device-only, no people or hands.
 
+microbit/stepper
+
+Pointer dial:
+Illustrate a stepper motor pointer dial controlled by a micro:bit. Show a cardboard dial with a pointer attached to a stepper motor, a small driver board, battery pack, and micro:bit wired together on a rugged workbench. Device-only, no people or hands.
+
+Tiny lift:
+Illustrate a tiny lift driven by a stepper motor and micro:bit. Show a small cardboard lift frame with a platform moved by string or a screw, stepper motor and driver board wired to a micro:bit, tape and brackets visible. Device-only, no people or hands.
+
 microbit/spi
 
 Tiny game screen:
@@ -188,6 +196,22 @@ Illustrate a micro:bit temperature warning project. Show a micro:bit on a rough 
 
 Weather logger:
 Illustrate a micro:bit weather logger. Show a micro:bit connected to a small notebook-like cardboard data station or display stand, weather icons as props, wires and tape on the bench. Device-only, no people or hands.
+
+microbit/tilt-switch
+
+Shake to wake:
+Illustrate a tilt switch shake-to-wake project. Show a tilt switch module wired to a micro:bit mounted on a small taped cardboard gadget, with motion arrows and the micro:bit display waking up. Device-only, no people or hands.
+
+Tip-over alarm:
+Illustrate a tilt switch tip-over alarm. Show a small cardboard object tipped on its side with a tilt switch wired to a micro:bit, plus a piezo buzzer or red LED alert module. Device-only, no people or hands.
+
+microbit/toggle-switch
+
+Mode selector:
+Illustrate a toggle switch mode selector. Show a two-position toggle or slide switch mounted in a rough cardboard control panel, wired to a micro:bit, with two simple mode indicator LEDs or icons made from shapes. Device-only, no people or hands.
+
+Power lever:
+Illustrate a toggle switch power lever. Show a large lever-style switch mounted on a taped cardboard project box, wired to a micro:bit and a small output LED that turns on or off. Device-only, no people or hands.
 
 microbit/uart
 
