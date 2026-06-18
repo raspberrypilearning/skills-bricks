@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>micro:bit NeoPixel Skill Brick</title>
+  <link rel="stylesheet" href="../../skill-brick.css" />
+</head>
+<body class="microbit">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>micro:bit NeoPixel</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Output</span>
+          <span class="tag">Light</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>NeoPixels are colourful LEDs that your micro:bit can control one at a time.</p>
+        <p>A strip or ring uses one data pin, plus power and ground.</p>
+        <p>Use them for status lights, glowing signs, rainbow effects, or wearable sparkle.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <img src="./rainbow-light.png" alt="micro:bit controlling a rainbow NeoPixel jar light" />
+          </div>
+          <div class="use-content">
+            <div class="use-title">Rainbow light</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Button A is pressed</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Next colour pattern</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Update the LEDs</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <img src="./wearable-badge.png" alt="Child wearing a silly glowing NeoPixel badge controlled by a micro:bit" />
+          </div>
+          <div class="use-content">
+            <div class="use-title">Tiny disco badge</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>micro:bit is shaken</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Party mode begins</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Flash rainbow pixels</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <img src="./neopixel-strip.png" alt="NeoPixel strip connected to a micro:bit" />
+      </div>
+
+      <div class="part-strip" aria-label="NeoPixel parts">
+        <div class="part"><strong>DIN</strong><span>Data input pin</span></div>
+        <div class="part"><strong>RGB</strong><span>Red, green, blue</span></div>
+        <div class="part"><strong>Power</strong><span>Check voltage first</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>MakeCode</h2>
+        <div class="image-box blocks-image">
+          <div class="placeholder" role="img" aria-label="Placeholder for the MakeCode blocks">
+            <strong>Placeholder</strong>
+            <span>MakeCode blocks</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="code-block">
+        <h2>MicroPython</h2>
+        <pre><code>from microbit import *
+import neopixel
+
+strip = neopixel.NeoPixel(pin0, 8)
+
+strip[0] = (255, 0, 0)
+strip[1] = (0, 255, 0)
+strip[2] = (0, 0, 255)
+strip.show()</code></pre>
+      </section>
+
+      <section class="code-block">
+        <h2>JavaScript</h2>
+        <pre><code>let strip = neopixel.create(DigitalPin.P0, 8, NeoPixelMode.RGB)
+
+strip.setPixelColor(0, neopixel.colors(NeoPixelColors.Red))
+strip.setPixelColor(1, neopixel.colors(NeoPixelColors.Green))
+strip.setPixelColor(2, neopixel.colors(NeoPixelColors.Blue))
+strip.show()</code></pre>
+      </section>
+
+      <div class="note">In MakeCode, add the NeoPixel extension first. NeoPixels often need more power than the micro:bit can safely provide, so check the strip and share <code class="inline-code">GND</code>.</div>
+    </main>
+
+    <aside class="panel ref-panel">
+      <h1>Quick reference</h1>
+
+      <div class="ref-list">
+        <div class="ref-item"><strong>NeoPixel(pin0, 8)</strong><span>8 pixels on pin 0</span></div>
+        <div class="ref-item"><strong>(255, 0, 0)</strong><span>Red, green, blue values</span></div>
+        <div class="ref-item"><strong>strip.show()</strong><span>Send colours to the LEDs</span></div>
+        <div class="ref-item"><strong>GND</strong><span>Must be shared with the strip</span></div>
+      </div>
+    </aside>
+  </section>
+</body>
+</html>

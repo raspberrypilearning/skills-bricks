@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>micro:bit I2C Skill Brick</title>
+  <link rel="stylesheet" href="../../skill-brick.css" />
+</head>
+<body class="microbit">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>micro:bit I2C</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Connect</span>
+          <span class="tag">Data</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>I2C lets your micro:bit talk to smart modules using two data wires.</p>
+        <p>Lots of sensors and small displays use I2C. Each device has an address.</p>
+        <p>Use I2C when a module needs more than simple on/off pin control.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <img src="./oled-display.png" alt="micro:bit using I2C to control a tiny display module" />
+          </div>
+          <div class="use-content">
+            <div class="use-title">Tiny display</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Value changes</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>What to show</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Update the screen</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <img src="./environment-sensor.png" alt="micro:bit connected to an I2C environmental sensor as a tiny weather station" />
+          </div>
+          <div class="use-content">
+            <div class="use-title">Desk weather station</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Sensor sends data</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Desk weather mood</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Show an icon</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <img src="./i2c-module.png" alt="I2C module connected to a micro:bit with four wires" />
+      </div>
+
+      <div class="part-strip" aria-label="I2C parts">
+        <div class="part"><strong>SDA</strong><span>Data wire</span></div>
+        <div class="part"><strong>SCL</strong><span>Clock wire</span></div>
+        <div class="part"><strong>Address</strong><span>Device number</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>MakeCode</h2>
+        <div class="image-box blocks-image">
+          <div class="placeholder" role="img" aria-label="Placeholder for the MakeCode blocks">
+            <strong>Placeholder</strong>
+            <span>MakeCode blocks</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="code-block">
+        <h2>MicroPython</h2>
+        <pre><code>from microbit import *
+
+devices = i2c.scan()
+display.show(len(devices))
+
+if devices:
+    display.show(Image.YES)</code></pre>
+      </section>
+
+      <section class="code-block">
+        <h2>JavaScript</h2>
+        <pre><code>let value = pins.i2cReadNumber(32, NumberFormat.UInt8BE)
+basic.showNumber(value)</code></pre>
+      </section>
+
+      <div class="note"><code class="inline-code">i2c.scan()</code> is a handy first test in MicroPython. Check your module's address and voltage before sending commands.</div>
+    </main>
+
+    <aside class="panel ref-panel">
+      <h1>Quick reference</h1>
+
+      <div class="ref-list">
+        <div class="ref-item"><strong>i2c.scan()</strong><span>Find connected I2C devices</span></div>
+        <div class="ref-item"><strong>SDA + SCL</strong><span>The two I2C data wires</span></div>
+        <div class="ref-item"><strong>Address</strong><span>The device you are talking to</span></div>
+        <div class="ref-item"><strong>3V + GND</strong><span>Power for the module</span></div>
+      </div>
+    </aside>
+  </section>
+</body>
+</html>

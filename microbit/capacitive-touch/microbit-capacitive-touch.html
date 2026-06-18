@@ -29,7 +29,7 @@
 
         <article class="use-card">
           <div class="use-image">
-            <img src="./secret-reveal.png" alt="Child touching the micro:bit logo to reveal a hidden display pattern" />
+            <img src="./secret-reveal.png" alt="micro:bit revealing a hidden message when the logo is touched" />
           </div>
           <div class="use-content">
             <div class="use-title">Secret reveal</div>
@@ -45,7 +45,7 @@
 
         <article class="use-card">
           <div class="use-image">
-            <img src="./touch-piano.png" alt="Child using foil touch pads connected to a micro:bit as a piano" />
+            <img src="./touch-piano.png" alt="child touching micro:bit pins to play notes like a piano" />
           </div>
           <div class="use-content">
             <div class="use-title">Touch piano</div>
@@ -62,8 +62,20 @@
     </main>
 
     <aside class="panel component-panel">
-      <div class="image-box component-image">
-        <img src="./touch-logo.png" alt="micro:bit showing the touch-sensitive logo" />
+      <div class="board-views">
+        <figure class="board-view">
+          <svg viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="micro:bit front with the touch logo circled">
+            <image href="../microbit-front.jpg" x="0" y="0" width="700" height="700" />
+            <ellipse cx="355" cy="190" rx="90" ry="58" fill="none" stroke="#da315f" stroke-width="16" />
+          </svg>
+          <figcaption>A &middot; front</figcaption>
+        </figure>
+        <figure class="board-view">
+          <svg viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="micro:bit back">
+            <image href="../microbit-back.jpg" x="0" y="0" width="700" height="700" />
+          </svg>
+          <figcaption>B &middot; back</figcaption>
+        </figure>
       </div>
 
       <div class="part-strip" aria-label="micro:bit button parts">
@@ -80,6 +92,16 @@
       <h1>Code</h1>
 
       <section class="code-block">
+        <h2>MakeCode</h2>
+        <div class="image-box blocks-image">
+          <div class="placeholder" role="img" aria-label="Placeholder for the MakeCode blocks">
+            <strong>Placeholder</strong>
+            <span>MakeCode blocks</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="code-block">
         <h2>MicroPython</h2>
         <pre><code>from microbit import *
 
@@ -89,7 +111,7 @@ while True:
       </section>
 
       <section class="code-block">
-        <h2>MakeCode</h2>
+        <h2>JavaScript</h2>
         <pre><code>input.onLogoEvent(TouchButtonEvent.Touched, function () {
     basic.showIcon(IconNames.Yes)
 })</code></pre>

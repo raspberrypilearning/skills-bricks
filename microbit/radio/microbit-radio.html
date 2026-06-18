@@ -29,7 +29,7 @@
 
         <article class="use-card">
           <div class="use-image">
-            <img src="./wireless-hello.png" alt="Two children sending a wireless hello between micro:bits" />
+            <img src="./wireless-hello.png" alt="one micro:bit sending a hello message to another by radio" />
           </div>
           <div class="use-content">
             <div class="use-title">Wireless hello</div>
@@ -45,7 +45,7 @@
 
         <article class="use-card">
           <div class="use-image">
-            <img src="./remote-light.png" alt="One micro:bit remotely lighting another micro:bit display by radio" />
+            <img src="./remote-light.png" alt="micro:bit lighting its display when a radio message arrives" />
           </div>
           <div class="use-content">
             <div class="use-title">Remote light</div>
@@ -62,8 +62,20 @@
     </main>
 
     <aside class="panel component-panel">
-      <div class="image-box component-image">
-        <img src="./radio-microbits.png" alt="Two micro:bits communicating wirelessly by radio" />
+      <div class="board-views">
+        <figure class="board-view">
+          <svg viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="micro:bit front">
+            <image href="../microbit-front.jpg" x="0" y="0" width="700" height="700" />
+          </svg>
+          <figcaption>A &middot; front</figcaption>
+        </figure>
+        <figure class="board-view">
+          <svg viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="micro:bit back with the BLE radio antenna circled">
+            <image href="../microbit-back.jpg" x="0" y="0" width="700" height="700" />
+            <ellipse cx="140" cy="178" rx="90" ry="74" fill="none" stroke="#da315f" stroke-width="16" />
+          </svg>
+          <figcaption>B &middot; back</figcaption>
+        </figure>
       </div>
 
       <div class="part-strip" aria-label="micro:bit button parts">
@@ -80,6 +92,16 @@
       <h1>Code</h1>
 
       <section class="code-block">
+        <h2>MakeCode</h2>
+        <div class="image-box blocks-image">
+          <div class="placeholder" role="img" aria-label="Placeholder for the MakeCode blocks">
+            <strong>Placeholder</strong>
+            <span>MakeCode blocks</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="code-block">
         <h2>MicroPython</h2>
         <pre><code>import radio
 from microbit import *
@@ -94,7 +116,7 @@ while True:
       </section>
 
       <section class="code-block">
-        <h2>MakeCode</h2>
+        <h2>JavaScript</h2>
         <pre><code>radio.setGroup(23)
 input.onButtonPressed(Button.A, function () {
     radio.sendString("hello")

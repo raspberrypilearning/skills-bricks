@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>micro:bit SPI Skill Brick</title>
+  <link rel="stylesheet" href="../../skill-brick.css" />
+</head>
+<body class="microbit">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>micro:bit SPI</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Connect</span>
+          <span class="tag">Fast Data</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>SPI is a fast way for your micro:bit to send data to modules.</p>
+        <p>It uses a clock wire, data wires, and usually a chip select pin.</p>
+        <p>Use SPI with displays, memory modules, LED drivers, and other speedy parts.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <img src="./tiny-screen.png" alt="micro:bit using SPI to control a small colour screen" />
+          </div>
+          <div class="use-content">
+            <div class="use-title">Tiny game screen</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Player moves</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>New game picture</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Send screen data</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <img src="./snack-scoreboard.png" alt="Silly toy animal snack scoreboard controlled by a micro:bit and SPI screen" />
+          </div>
+          <div class="use-content">
+            <div class="use-title">Snack scoreboard</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Toy animal arrives</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Snack score changes</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Refresh the display</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <img src="./spi-module.png" alt="SPI module connected to a micro:bit with several signal wires" />
+      </div>
+
+      <div class="part-strip" aria-label="SPI parts">
+        <div class="part"><strong>SCK</strong><span>Clock wire</span></div>
+        <div class="part"><strong>MOSI/MISO</strong><span>Data wires</span></div>
+        <div class="part"><strong>CS</strong><span>Choose device</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>MakeCode</h2>
+        <div class="image-box blocks-image">
+          <div class="placeholder" role="img" aria-label="Placeholder for the MakeCode blocks">
+            <strong>Placeholder</strong>
+            <span>MakeCode blocks</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="code-block">
+        <h2>MicroPython</h2>
+        <pre><code>from microbit import *
+
+spi.init(baudrate=1000000)
+
+pin0.write_digital(0)
+spi.write(b'\x00')
+pin0.write_digital(1)</code></pre>
+      </section>
+
+      <section class="code-block">
+        <h2>JavaScript</h2>
+        <pre><code>pins.spiPins(DigitalPin.P15, DigitalPin.P14, DigitalPin.P13)
+
+pins.digitalWritePin(DigitalPin.P0, 0)
+pins.spiWrite(0)
+pins.digitalWritePin(DigitalPin.P0, 1)</code></pre>
+      </section>
+
+      <div class="note">SPI modules often need their own setup rules. Match the module's pins, speed, and chip select wiring before sending data.</div>
+    </main>
+
+    <aside class="panel ref-panel">
+      <h1>Quick reference</h1>
+
+      <div class="ref-list">
+        <div class="ref-item"><strong>spi.init()</strong><span>Set up SPI in MicroPython</span></div>
+        <div class="ref-item"><strong>spi.write()</strong><span>Send bytes to a module</span></div>
+        <div class="ref-item"><strong>SCK / MOSI / MISO</strong><span>Clock and data wires</span></div>
+        <div class="ref-item"><strong>CS</strong><span>Chip select pin</span></div>
+      </div>
+    </aside>
+  </section>
+</body>
+</html>

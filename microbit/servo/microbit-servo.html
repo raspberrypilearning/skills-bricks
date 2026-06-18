@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>micro:bit Servo Skill Brick</title>
+  <link rel="stylesheet" href="../../skill-brick.css" />
+</head>
+<body class="microbit">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>micro:bit Servo</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Output</span>
+          <span class="tag">Motion</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>A servo motor turns to a position you choose, instead of spinning forever.</p>
+        <p>Your micro:bit sends a timed signal to the servo using one pin.</p>
+        <p>Use servos for robot arms, pointers, locks, gates, flaps, and wobbly creatures.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <img src="./robot-arm.png" alt="micro:bit moving a simple cardboard robot arm with a servo" />
+          </div>
+          <div class="use-content">
+            <div class="use-title">Robot arm</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Button A is pressed</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Arm should lift</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Move the servo</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <img src="./automatic-gate.png" alt="Toy dinosaur waiting at a silly cardboard gate moved by a servo" />
+          </div>
+          <div class="use-content">
+            <div class="use-title">Dinosaur gate</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>A toy arrives</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Dino may pass</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Raise the barrier</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <img src="./servo-motor.png" alt="Small hobby servo motor connected to a micro:bit" />
+      </div>
+
+      <div class="part-strip" aria-label="Servo parts">
+        <div class="part"><strong>Signal</strong><span>One control pin</span></div>
+        <div class="part"><strong>Angle</strong><span>Usually 0 to 180</span></div>
+        <div class="part"><strong>Power</strong><span>Often external</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>MakeCode</h2>
+        <div class="image-box blocks-image">
+          <div class="placeholder" role="img" aria-label="Placeholder for the MakeCode blocks">
+            <strong>Placeholder</strong>
+            <span>MakeCode blocks</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="code-block">
+        <h2>MicroPython</h2>
+        <pre><code>from microbit import *
+
+pin0.set_analog_period(20)
+
+pin0.write_analog(51)
+sleep(1000)
+pin0.write_analog(77)
+sleep(1000)
+pin0.write_analog(102)</code></pre>
+      </section>
+
+      <section class="code-block">
+        <h2>JavaScript</h2>
+        <pre><code>pins.servoWritePin(AnalogPin.P0, 0)
+basic.pause(1000)
+pins.servoWritePin(AnalogPin.P0, 90)
+basic.pause(1000)
+pins.servoWritePin(AnalogPin.P0, 180)</code></pre>
+      </section>
+
+      <div class="note">Servos can pull more current than a micro:bit pin can provide. Use a suitable power supply for the servo and connect the servo <code class="inline-code">GND</code> to the micro:bit <code class="inline-code">GND</code>.</div>
+    </main>
+
+    <aside class="panel ref-panel">
+      <h1>Quick reference</h1>
+
+      <div class="ref-list">
+        <div class="ref-item"><strong>servoWritePin</strong><span>MakeCode servo angle command</span></div>
+        <div class="ref-item"><strong>set_analog_period(20)</strong><span>20 ms servo pulse timing</span></div>
+        <div class="ref-item"><strong>Signal wire</strong><span>Connects to a pin</span></div>
+        <div class="ref-item"><strong>Shared GND</strong><span>Needed with external power</span></div>
+      </div>
+    </aside>
+  </section>
+</body>
+</html>

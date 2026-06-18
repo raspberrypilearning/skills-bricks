@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>micro:bit Edge Connector Pins Skill Brick</title>
+  <link rel="stylesheet" href="../../skill-brick.css" />
+</head>
+<body class="microbit">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>micro:bit Edge Connector Pins</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Connect</span>
+          <span class="tag">Input / Output</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>The gold edge connector pins let your micro:bit talk to extra circuits and parts.</p>
+        <p>Some pins can read sensors, buttons, or dials. Pins can also turn things on and off.</p>
+        <p>Use the pins with LEDs, buzzers, motors, sensors, and your own strange inventions.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <img src="./external-led.png" alt="Child using a micro:bit edge pin to light an external LED" />
+          </div>
+          <div class="use-content">
+            <div class="use-title">External LED</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Button A is pressed</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Light should turn on</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Send power to a pin</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <img src="./analog-sensor.png" alt="micro:bit reading a sensor for a silly desk plant warning" />
+          </div>
+          <div class="use-content">
+            <div class="use-title">Grumpy desk plant</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Sensor value changes</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Plant is thirsty</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Show a warning face</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <img src="./edge-pins.png" alt="micro:bit edge connector pins with crocodile clip leads" />
+      </div>
+
+      <div class="part-strip" aria-label="micro:bit edge connector parts">
+        <div class="part"><strong>P0 P1 P2</strong><span>Large touch pins</span></div>
+        <div class="part"><strong>3V + GND</strong><span>Power for circuits</span></div>
+        <div class="part"><strong>Analog</strong><span>Read changing values</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>MakeCode</h2>
+        <div class="image-box blocks-image">
+          <div class="placeholder" role="img" aria-label="Placeholder for the MakeCode blocks">
+            <strong>Placeholder</strong>
+            <span>MakeCode blocks</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="code-block">
+        <h2>MicroPython</h2>
+        <pre><code>from microbit import *
+
+while True:
+    pin0.write_digital(button_a.is_pressed())
+
+    if pin1.read_analog() > 600:
+        display.show(Image.YES)</code></pre>
+      </section>
+
+      <section class="code-block">
+        <h2>JavaScript</h2>
+        <pre><code>basic.forever(function () {
+    if (input.buttonIsPressed(Button.A)) {
+        pins.digitalWritePin(DigitalPin.P0, 1)
+    } else {
+        pins.digitalWritePin(DigitalPin.P0, 0)
+    }
+
+    if (pins.analogReadPin(AnalogPin.P1) > 600) {
+        basic.showIcon(IconNames.Yes)
+    }
+})</code></pre>
+      </section>
+
+      <div class="note">Always connect <code class="inline-code">GND</code> too. Use <code class="inline-code">write_digital()</code> for on/off parts and <code class="inline-code">read_analog()</code> for sensors that give changing values.</div>
+    </main>
+
+    <aside class="panel ref-panel">
+      <h1>Quick reference</h1>
+
+      <div class="ref-list">
+        <div class="ref-item"><strong>pin0, pin1, pin2</strong><span>The big edge connector pins</span></div>
+        <div class="ref-item"><strong>write_digital(1)</strong><span>Turn a pin on</span></div>
+        <div class="ref-item"><strong>read_analog()</strong><span>Read a value from 0 to 1023</span></div>
+        <div class="ref-item"><strong>3V + GND</strong><span>Power and return path</span></div>
+      </div>
+    </aside>
+  </section>
+</body>
+</html>

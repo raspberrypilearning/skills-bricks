@@ -29,7 +29,7 @@
 
         <article class="use-card">
           <div class="use-image">
-            <img src="./night-light.png" alt="micro:bit glowing as a night light in a dark bedroom" />
+            <img src="./night-light.png" alt="micro:bit lighting up its display when the room is dark" />
           </div>
           <div class="use-content">
             <div class="use-title">Night light</div>
@@ -45,7 +45,7 @@
 
         <article class="use-card">
           <div class="use-image">
-            <img src="./shadow-alarm.png" alt="Shadow falling across a micro:bit to trigger an alarm" />
+            <img src="./shadow-alarm.png" alt="micro:bit sounding an alarm when a shadow falls over it" />
           </div>
           <div class="use-content">
             <div class="use-title">Shadow alarm</div>
@@ -62,8 +62,20 @@
     </main>
 
     <aside class="panel component-panel">
-      <div class="image-box component-image">
-        <img src="./light-sensor-display.png" alt="micro:bit LED display acting as a light sensor" />
+      <div class="board-views">
+        <figure class="board-view">
+          <svg viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="micro:bit front with the LED display light sensor circled">
+            <image href="../microbit-front.jpg" x="0" y="0" width="700" height="700" />
+            <ellipse cx="355" cy="370" rx="148" ry="148" fill="none" stroke="#da315f" stroke-width="16" />
+          </svg>
+          <figcaption>A &middot; front</figcaption>
+        </figure>
+        <figure class="board-view">
+          <svg viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="micro:bit back">
+            <image href="../microbit-back.jpg" x="0" y="0" width="700" height="700" />
+          </svg>
+          <figcaption>B &middot; back</figcaption>
+        </figure>
       </div>
 
       <div class="part-strip" aria-label="micro:bit button parts">
@@ -80,6 +92,16 @@
       <h1>Code</h1>
 
       <section class="code-block">
+        <h2>MakeCode</h2>
+        <div class="image-box blocks-image">
+          <div class="placeholder" role="img" aria-label="Placeholder for the MakeCode blocks">
+            <strong>Placeholder</strong>
+            <span>MakeCode blocks</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="code-block">
         <h2>MicroPython</h2>
         <pre><code>from microbit import *
 
@@ -89,7 +111,7 @@ while True:
       </section>
 
       <section class="code-block">
-        <h2>MakeCode</h2>
+        <h2>JavaScript</h2>
         <pre><code>basic.forever(function () {
     let level = input.lightLevel()
     basic.showNumber(level)

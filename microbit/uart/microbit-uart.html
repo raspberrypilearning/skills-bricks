@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>micro:bit UART Skill Brick</title>
+  <link rel="stylesheet" href="../../skill-brick.css" />
+</head>
+<body class="microbit">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>micro:bit UART</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Connect</span>
+          <span class="tag">Serial</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>UART is a simple serial link that sends messages one bit after another.</p>
+        <p>Your micro:bit can use a TX pin to send and an RX pin to listen.</p>
+        <p>Use UART with GPS receivers, other boards, serial modules, or computer messages.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card">
+          <div class="use-image">
+            <img src="./gps-receiver.png" alt="micro:bit connected by UART to a small GPS receiver for a treasure map project" />
+          </div>
+          <div class="use-content">
+            <div class="use-title">Treasure map tracker</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>GPS sends a line</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Position has changed</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Show a clue</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card">
+          <div class="use-image">
+            <img src="./serial-message.png" alt="Silly secret-agent UART message link with a micro:bit and blinking lights" />
+          </div>
+          <div class="use-content">
+            <div class="use-title">Secret hello wire</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Message arrives</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-decision"><strong>Decide</strong>Secret is received</div>
+              <div class="arrow">→</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Blink a spy signal</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel">
+      <div class="image-box component-image">
+        <img src="./uart-module.png" alt="UART serial module connected to a micro:bit with TX and RX wires" />
+      </div>
+
+      <div class="part-strip" aria-label="UART parts">
+        <div class="part"><strong>TX</strong><span>Sends data</span></div>
+        <div class="part"><strong>RX</strong><span>Receives data</span></div>
+        <div class="part"><strong>Baud</strong><span>Message speed</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Code</h1>
+
+      <section class="code-block">
+        <h2>MakeCode</h2>
+        <div class="image-box blocks-image">
+          <div class="placeholder" role="img" aria-label="Placeholder for the MakeCode blocks">
+            <strong>Placeholder</strong>
+            <span>MakeCode blocks</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="code-block">
+        <h2>MicroPython</h2>
+<pre><code>from microbit import *
+
+uart.init(baudrate=9600, tx=pin0, rx=pin1)
+uart.write('hello\n')
+
+if uart.any():
+    message = uart.readline()
+    display.show(Image.YES)</code></pre>
+      </section>
+
+      <section class="code-block">
+        <h2>JavaScript</h2>
+        <pre><code>serial.redirect(
+    SerialPin.P0,
+    SerialPin.P1,
+    BaudRate.BaudRate9600
+)
+serial.writeLine("hello")</code></pre>
+      </section>
+
+      <div class="note">For many serial modules, connect the module's <code class="inline-code">TX</code> to the micro:bit's <code class="inline-code">RX</code>, and the module's <code class="inline-code">RX</code> to the micro:bit's <code class="inline-code">TX</code>. Share <code class="inline-code">GND</code> too.</div>
+    </main>
+
+    <aside class="panel ref-panel">
+      <h1>Quick reference</h1>
+
+      <div class="ref-list">
+        <div class="ref-item"><strong>uart.init(..., tx, rx)</strong><span>Set speed and pins</span></div>
+        <div class="ref-item"><strong>uart.write()</strong><span>Send text or bytes</span></div>
+        <div class="ref-item"><strong>uart.readline()</strong><span>Read a line of data</span></div>
+        <div class="ref-item"><strong>TX + RX</strong><span>Transmit and receive pins</span></div>
+      </div>
+    </aside>
+  </section>
+</body>
+</html>

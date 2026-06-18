@@ -29,7 +29,7 @@
 
         <article class="use-card">
           <div class="use-image">
-            <img src="./too-hot-warning.png" alt="micro:bit showing a warning face when it gets too hot" />
+            <img src="./too-hot-warning.png" alt="micro:bit showing a warning face when it is too hot" />
           </div>
           <div class="use-content">
             <div class="use-title">Too hot warning</div>
@@ -45,7 +45,7 @@
 
         <article class="use-card">
           <div class="use-image">
-            <img src="./weather-logger.png" alt="micro:bit used as a simple temperature weather logger by a window" />
+            <img src="./weather-logger.png" alt="micro:bit logging temperature readings as a weather logger" />
           </div>
           <div class="use-content">
             <div class="use-title">Weather logger</div>
@@ -62,8 +62,20 @@
     </main>
 
     <aside class="panel component-panel">
-      <div class="image-box component-image">
-        <img src="./temperature-chip.png" alt="micro:bit showing temperature sensing on the main chip" />
+      <div class="board-views">
+        <figure class="board-view">
+          <svg viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="micro:bit front">
+            <image href="../microbit-front.jpg" x="0" y="0" width="700" height="700" />
+          </svg>
+          <figcaption>A &middot; front</figcaption>
+        </figure>
+        <figure class="board-view">
+          <svg viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="micro:bit back with the processor and temperature sensor circled">
+            <image href="../microbit-back.jpg" x="0" y="0" width="700" height="700" />
+            <ellipse cx="190" cy="300" rx="82" ry="78" fill="none" stroke="#da315f" stroke-width="16" />
+          </svg>
+          <figcaption>B &middot; back</figcaption>
+        </figure>
       </div>
 
       <div class="part-strip" aria-label="micro:bit temperature parts">
@@ -80,6 +92,16 @@
       <h1>Code</h1>
 
       <section class="code-block">
+        <h2>MakeCode</h2>
+        <div class="image-box blocks-image">
+          <div class="placeholder" role="img" aria-label="Placeholder for the MakeCode blocks">
+            <strong>Placeholder</strong>
+            <span>MakeCode blocks</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="code-block">
         <h2>MicroPython</h2>
         <pre><code>from microbit import *
 
@@ -89,7 +111,7 @@ while True:
       </section>
 
       <section class="code-block">
-        <h2>MakeCode</h2>
+        <h2>JavaScript</h2>
         <pre><code>basic.forever(function () {
     let temp = input.temperature()
     basic.showNumber(temp)

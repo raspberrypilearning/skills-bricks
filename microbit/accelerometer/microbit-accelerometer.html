@@ -29,7 +29,7 @@
 
         <article class="use-card">
           <div class="use-image">
-            <img src="./shake-dice.png" alt="Child shaking a micro:bit to roll a random dice number" />
+            <img src="./shake-dice.png" alt="child shaking a micro:bit to roll a random dice number" />
           </div>
           <div class="use-content">
             <div class="use-title">Shake dice</div>
@@ -45,7 +45,7 @@
 
         <article class="use-card">
           <div class="use-image">
-            <img src="./tilt-maze.png" alt="Child tilting a micro:bit to move a dot through a maze game" />
+            <img src="./tilt-maze.png" alt="child tilting a micro:bit to move a dot through a maze" />
           </div>
           <div class="use-content">
             <div class="use-title">Tilt maze</div>
@@ -62,8 +62,20 @@
     </main>
 
     <aside class="panel component-panel">
-      <div class="image-box component-image">
-        <img src="./accelerometer-axes.png" alt="micro:bit showing accelerometer movement on three axes" />
+      <div class="board-views">
+        <figure class="board-view">
+          <svg viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="micro:bit front">
+            <image href="../microbit-front.jpg" x="0" y="0" width="700" height="700" />
+          </svg>
+          <figcaption>A &middot; front</figcaption>
+        </figure>
+        <figure class="board-view">
+          <svg viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="micro:bit back with the motion sensor circled">
+            <image href="../microbit-back.jpg" x="0" y="0" width="700" height="700" />
+            <ellipse cx="160" cy="360" rx="58" ry="52" fill="none" stroke="#da315f" stroke-width="16" />
+          </svg>
+          <figcaption>B &middot; back</figcaption>
+        </figure>
       </div>
 
       <div class="part-strip" aria-label="micro:bit accelerometer parts">
@@ -80,6 +92,16 @@
       <h1>Code</h1>
 
       <section class="code-block">
+        <h2>MakeCode</h2>
+        <div class="image-box blocks-image">
+          <div class="placeholder" role="img" aria-label="Placeholder for the MakeCode blocks">
+            <strong>Placeholder</strong>
+            <span>MakeCode blocks</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="code-block">
         <h2>MicroPython</h2>
         <pre><code>from microbit import *
 
@@ -90,7 +112,7 @@ while True:
       </section>
 
       <section class="code-block">
-        <h2>MakeCode</h2>
+        <h2>JavaScript</h2>
         <pre><code>input.onGesture(Gesture.Shake, function () {
     basic.showIcon(IconNames.Surprised)
 })
