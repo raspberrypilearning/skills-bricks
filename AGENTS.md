@@ -3,7 +3,7 @@
 Use these notes when creating or updating skill brick HTML files in this repo.
 
 - Keep each brick consistent with `skill_brick_template.html`: two A5 landscape sides, a Discover side, and a Build side.
-- Put each brick in its own top-level folder, using Title_Case_With_Underscores for multi-word component names.
+- Put each brick in its own top-level folder, using the component name with a `-Pete` suffix, such as `Temp_Sensor-Pete`.
 - Use the shared `skill-brick.css` stylesheet for layout, print sizing, cards, placeholders, code blocks, and wiring sections.
 - Link component-folder HTML files to `../skill-brick.css`; link root-level files to `skill-brick.css`.
 - Use `theme-detect` for Detect bricks and `theme-do` for Do bricks. Do not create extra colour schemes unless the set needs a new category.
