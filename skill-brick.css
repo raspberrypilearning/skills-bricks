@@ -679,8 +679,9 @@ code {
 
 .brick-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 16px;
+  align-items: stretch;
 }
 
 .brick-card {
@@ -753,6 +754,7 @@ a.brick-card:focus-visible {
   margin-bottom: 8px;
   font-size: 16pt;
   line-height: 1.05;
+  overflow-wrap: break-word;
 }
 
 .brick-card p {
