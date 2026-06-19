@@ -1,0 +1,1017 @@
+platform,set,component,tags,description,use1_title,use1_detect,use1_decide,use1_do,use1_image_url,use2_title,use2_detect,use2_decide,use2_do,use2_image_url,parts,component_image_url,code1_label,code1,code2_label,code2,code3_label,code3,note,wiring,wiring_image_url,quick_reference,github_url
+"Raspberry Pi / Pico","Pete","Button","Detect, Press","A button lets your project notice when someone presses something.
+Inside the button are tiny metal contacts. Pressing the cap joins the contacts together, closing the circuit.
+Your projects can use a button to start actions, choose modes, confirm choices, or act like a simple controller.","Doorbell trigger","Button is pressed","Press is new","Play chime","https://github.com/raspberrypilearning/skills-bricks/blob/master/Button-Pete/images/doorbell-trigger.png","Pet rock applause","Applause button press","Rock needs praise","Play tiny applause","https://github.com/raspberrypilearning/skills-bricks/blob/master/Button-Pete/images/pet-rock-applause.png","Cap: Press here; Contacts: Close circuit; Legs: Four pins; Body: Sits on board","https://github.com/raspberrypilearning/skills-bricks/blob/master/Button-Pete/images/component-button.png","Raspberry Pi","from gpiozero import Button
+
+button = Button(17)
+
+pressed = button.is_pressed","Raspberry Pi Pico","from picozero import Button
+
+button = Button(2)
+
+pressed = button.is_pressed","","","Use button.is_pressed or button.when_pressed when your project needs to react to a press.","GPIO 17 -> one button leg | opposite leg -> GND | GP2 -> one button leg | opposite leg -> GND","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/Button-Pete/button-skill-brick.html"
+"Raspberry Pi / Pico","Pete","Buzzer","Do, Sound","A buzzer lets your project make a simple sound.
+Some buzzers just turn on and off, while others can make different tones.
+Your projects can use buzzers for alarms, timers, games, tiny celebrations, and noisy mistakes.","Countdown timer","Timer reaches zero","Time is up","Beep buzzer","https://github.com/raspberrypilearning/skills-bricks/blob/master/Buzzer-Pete/images/countdown-timer.png","Sock finder siren","Lost sock button pressed","Search mode begins","Buzz dramatically","https://github.com/raspberrypilearning/skills-bricks/blob/master/Buzzer-Pete/images/sock-finder-siren.png","+: Signal; -: Ground; Hole: Sound comes out; Case: Holds disc","https://github.com/raspberrypilearning/skills-bricks/blob/master/Buzzer-Pete/images/component-buzzer.png","Raspberry Pi","from gpiozero import Buzzer
+
+buzzer = Buzzer(17)
+
+buzzer.beep()","Raspberry Pi Pico","from picozero import Buzzer
+
+buzzer = Buzzer(2)
+
+buzzer.beep()","","","Use buzzer.on() , buzzer.off() , or buzzer.beep() after a Detect brick spots something.","+ pin -> GPIO 17 | - pin -> GND | + pin -> GP2 | - pin -> GND","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/Buzzer-Pete/buzzer-skill-brick.html"
+"Raspberry Pi / Pico","Pete","Capacitive Touch Sensor","Detect, Touch","A capacitive touch sensor lets your project detect a gentle finger touch.
+It senses a tiny change in electricity around its touch pad, a bit like the screen on a phone or tablet.
+Your projects can use touch to make hidden buttons, magic switches, musical pads, or secret controls.","Touch lamp switch","Finger touches pad","Lamp should change","Toggle light","https://github.com/raspberrypilearning/skills-bricks/blob/master/Capacitive_Touch-Pete/images/touch-lamp-switch.png","Secret banana piano","Banana key touched","Banana note chosen","Play squeaky tune","https://github.com/raspberrypilearning/skills-bricks/blob/master/Capacitive_Touch-Pete/images/secret-banana-piano.png","Pad: Touch area; OUT: Touch signal; VCC: Power; GND: Ground","https://github.com/raspberrypilearning/skills-bricks/blob/master/Capacitive_Touch-Pete/images/component-capacitive-touch.svg","Raspberry Pi","from gpiozero import DigitalInputDevice
+
+touch = DigitalInputDevice(
+    17,
+    pull_up=False
+)
+
+touched = touch.is_active","Raspberry Pi Pico","from picozero import TouchSensor
+
+touch = TouchSensor(2)
+
+touched = touch.is_touched","","","Use touch.is_active on Raspberry Pi or touch.is_touched on Pico when your project needs to react to touch.","VCC -> 3V3 | GND -> GND | OUT -> GPIO 17 | VCC -> 3V3 | GND -> GND | OUT -> GP2","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/Capacitive_Touch-Pete/capacitive-touch-skill-brick.html"
+"Raspberry Pi / Pico","Pete","LDR","Detect, Light","An LDR helps your project notice light and dark.
+LDR stands for light-dependent resistor. Its reading changes when more or less light hits it.
+Your projects can use an LDR to react to shadows, lamps, daylight, or secret hand waves.","Night light","Room gets dark","Light level is low","Turn lamp on","https://github.com/raspberrypilearning/skills-bricks/blob/master/LDR-Pete/images/night-light.png","Shadow snack machine","Hand shadow appears","Shadow trap triggered","Make crunch sound","https://github.com/raspberrypilearning/skills-bricks/blob/master/LDR-Pete/images/shadow-snack-machine.png","Face: Detects light; Track: Changes resistance; Leg 1: No polarity; Leg 2: No polarity","https://github.com/raspberrypilearning/skills-bricks/blob/master/LDR-Pete/images/component-ldr.png","Raspberry Pi","from gpiozero import LightSensor
+
+ldr = LightSensor(17)
+
+light = ldr.light_detected","Raspberry Pi Pico","from machine import ADC
+
+ldr = ADC(26)
+
+light_level = ldr.read_u16()","","","Use light or light_level when your project needs to react to light.","LDR and capacitor/resistor circuit -> GPIO 17 | other side -> 3V3/GND as drawn | Voltage divider signal -> ADC GP26 | ends -> 3V3 and GND","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/LDR-Pete/ldr-skill-brick.html"
+"Raspberry Pi / Pico","MrC","LDR","Detect, Level","An LDR is a light sensor that tells your project how bright or dark it is.
+LDR stands for light dependent resistor. Its resistance changes when more or less light falls on the sensor face.
+Your projects can use an LDR to react to sunshine, shadows, daylight, or darkness.","Automatic night light","Room light level","Room is dark","Turn on lamp","https://github.com/raspberrypilearning/skills-bricks/blob/master/LDR/automatic-night-light.png","Greenhouse grow light","Plant light level","Plants are too shaded","Turn on grow light","https://github.com/raspberrypilearning/skills-bricks/blob/master/LDR/greenhouse-grow-light.png","Sensor face: Detects light; Track: Changes resistance; Legs: Connect to circuit","https://github.com/raspberrypilearning/skills-bricks/blob/master/LDR/ldr.png","Raspberry Pi","from gpiozero import LightSensor
+
+ldr = LightSensor(18)
+
+brightness = ldr.value","Raspberry Pi Pico","from machine import ADC, Pin
+
+ldr = ADC(Pin(26))
+
+brightness = ldr.read_u16()","","","Use brightness later in your Decide code to react to light or darkness. On Raspberry Pi, LightSensor uses an LDR and a capacitor. On Pico, use the LDR in a voltage divider with a fixed resistor.","3V3 -> LDR -> GPIO 18 | GPIO 18 -> 1 uF capacitor -> GND | 3V3 -> LDR -> GP26 | GP26 -> 10k resistor -> GND","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/LDR/ldr-skill-brick.html"
+"Raspberry Pi / Pico","Pete","LED","Do, Light","An LED is a tiny light that your code can switch on, switch off, or blink.
+LED stands for light-emitting diode. It glows when electricity flows the right way through it, so the long leg and short leg matter.
+Your projects can use LEDs to show warnings, celebrate events, or tell people what is happening.","Mini traffic light","Timer reaches stop point","Cars must stop now","Turn on red LED","https://github.com/raspberrypilearning/skills-bricks/blob/master/LED-Pete/images/mini-traffic-light.png","Do not turn me off box","Light is off","Random wait is over","Turn LED back on","https://github.com/raspberrypilearning/skills-bricks/blob/master/LED-Pete/images/do-not-turn-me-off-box.png","Anode: Long leg; Cathode: Short leg; Lens: Glows here","https://github.com/raspberrypilearning/skills-bricks/blob/master/LED-Pete/images/component-led.png","Raspberry Pi","from gpiozero import LED
+
+led = LED(17)
+
+led.on()","Raspberry Pi Pico","from picozero import LED
+
+led = LED(2)
+
+led.on()","","","Use led.on() , led.off() , or led.blink() after a Detect brick spots something.","GPIO 17 -> resistor -> LED anode | LED cathode -> GND | GP2 -> resistor -> LED anode | LED cathode -> GND","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/LED-Pete/led-skill-brick.html"
+"Raspberry Pi / Pico","MrC","LED","Do, Light","An LED is a tiny light that your code can switch on, switch off, or blink.
+LED stands for light-emitting diode. It glows when electricity flows the right way through it, so the long leg and short leg matter.
+Your projects can use LEDs to show warnings, celebrate events, or tell people what is happening.","Mini traffic light","Timer reaches stop point","Cars must stop now","Turn on red LED","","Motion sensor light","Movement near the sensor","Someone has arrived","Turn on the LED","","Anode: Long leg; Cathode: Short leg; Lens: Glows here","https://github.com/raspberrypilearning/skills-bricks/blob/master/LED/component-led.png","Raspberry Pi","from gpiozero import LED
+
+led = LED(17)
+
+led.on()","Raspberry Pi Pico","from picozero import LED
+
+led = LED(2)
+
+led.on()","","","Use led.on() , led.off() , or led.blink() later in your Do code.","GPIO 17 -> resistor -> LED anode | LED cathode -> GND | GP2 -> resistor -> LED anode | LED cathode -> GND","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/LED/led-skill-brick.html"
+"Raspberry Pi / Pico","Pete","Line Sensor","Detect, Line","A line sensor helps your project notice dark and light marks underneath it.
+It shines infrared light down and checks how much bounces back from the surface.
+Your projects can use line sensors for robots, edge finding, counters, and secret floor maps.","Line-following robot","Sensor sees line","Line is under robot","Steer robot","https://github.com/raspberrypilearning/skills-bricks/blob/master/Line_Sensor-Pete/images/line-following-robot.png","Secret floor rune","Dark mark appears","Mark has been found","Unlock secret route","https://github.com/raspberrypilearning/skills-bricks/blob/master/Line_Sensor-Pete/images/secret-floor-rune.png","Emitter: Sends IR; Receiver: Reads reflection; OUT: Signal pin; VCC/GND: Power pins","https://github.com/raspberrypilearning/skills-bricks/blob/master/Line_Sensor-Pete/images/component-line-sensor.svg","Raspberry Pi","from gpiozero import LineSensor
+
+sensor = LineSensor(17)
+
+line_value = sensor.value","Raspberry Pi Pico","from picozero import DigitalInputDevice
+
+sensor = DigitalInputDevice(2)
+
+line_seen = sensor.is_active","","","Use line_value or line_seen when your project needs to react to a line.","VCC -> 3V3 | OUT -> GPIO 17 | GND -> GND | VCC -> 3V3 | OUT -> GP2 | GND -> GND","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/Line_Sensor-Pete/line-sensor-skill-brick.html"
+"Raspberry Pi / Pico","Pete","Motor/Driver","Do, Move","A motor driver lets your code safely control a motor.
+The driver handles the bigger motor power, while the computer sends small control signals.
+Your projects can use motors to move wheels, fans, arms, signs, and tiny machines.","Robot wheel","Go command received","Path is clear","Drive motor forward","https://github.com/raspberrypilearning/skills-bricks/blob/master/Motor_Driver-Pete/images/robot-wheel.png","Tiny flag waver","Celebration starts","Victory is official","Wave flag wildly","https://github.com/raspberrypilearning/skills-bricks/blob/master/Motor_Driver-Pete/images/tiny-flag-waver.png","Control: Signal pins; Motor: Terminals; Power: Motor supply; Driver: Switches current","https://github.com/raspberrypilearning/skills-bricks/blob/master/Motor_Driver-Pete/images/component-motor-driver.png","Raspberry Pi","from gpiozero import Motor
+
+motor = Motor(forward=17, backward=18)
+
+motor.forward()","Raspberry Pi Pico","from picozero import Motor
+
+motor = Motor(forward=2, backward=3)
+
+motor.forward()","","","Use motor.forward() , motor.backward() , or motor.stop() after a Detect brick spots something.","IN1 -> GPIO 17 | IN2 -> GPIO 18 | motor power -> driver VM/GND | IN1 -> GP2 | IN2 -> GP3 | motor power -> driver VM/GND","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/Motor_Driver-Pete/motor-driver-skill-brick.html"
+"Raspberry Pi / Pico","Pete","NeoPixels","Do, Pixels","NeoPixels are colourful lights that can be controlled one by one from a single data wire.
+Each pixel remembers its own colour, so a strip can become a sign, meter, clock, or rainbow trail.
+Your projects can use NeoPixels for badges, reactions, animations, and unnecessary sparkle.","Progress bar","Task gets further","Progress level increased","Light more pixels","https://github.com/raspberrypilearning/skills-bricks/blob/master/NeoPixels-Pete/images/progress-bar.png","Disco shoelace meter","Magic level changes","Shoelace needs sparkle","Run rainbow wave","https://github.com/raspberrypilearning/skills-bricks/blob/master/NeoPixels-Pete/images/disco-shoelace-meter.png","DIN: Data in; 5V: Power; GND: Ground; Pixel: RGB LED","https://github.com/raspberrypilearning/skills-bricks/blob/master/NeoPixels-Pete/images/component-neopixel.png","Raspberry Pi","from rpi_ws281x import PixelStrip, Color
+
+pixels = PixelStrip(8, 18)
+pixels.begin()
+
+pixels.setPixelColor(0, Color(255, 0, 80))
+pixels.show()","Raspberry Pi Pico","from machine import Pin
+from neopixel import NeoPixel
+
+pixels = NeoPixel(Pin(2), 8)
+
+pixels[0] = (255, 0, 80)
+pixels.write()","","","Use pixels.setPixelColor() and pixels.show() on Raspberry Pi, or pixels[0] and pixels.write() on Pico.","DIN -> GPIO 18 | 5V -> external 5V | GND -> shared GND | DIN -> GP2 | VCC -> 3V3 or 5V strip supply | GND -> shared GND","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/NeoPixels-Pete/neopixels-skill-brick.html"
+"Raspberry Pi / Pico","Pete","PIR","Detect, Motion","A PIR sensor helps your project notice movement from people or warm things nearby.
+PIR stands for passive infrared. It watches for changes in heat moving across its view.
+Your projects can use PIR sensors for lights, alarms, counters, and dramatic entrances.","Room light","Someone walks in","Room is occupied","Turn light on","https://github.com/raspberrypilearning/skills-bricks/blob/master/PIR-Pete/images/room-light.png","Sneaky snack guard","Hand approaches biscuits","Snack raid detected","Sound alarm","https://github.com/raspberrypilearning/skills-bricks/blob/master/PIR-Pete/images/sneaky-snack-guard.png","VCC: Power; OUT: Motion signal; GND: Ground; Lens: Wide view","https://github.com/raspberrypilearning/skills-bricks/blob/master/PIR-Pete/images/component-pir.png","Raspberry Pi","from gpiozero import MotionSensor
+
+pir = MotionSensor(17)
+
+motion = pir.motion_detected","Raspberry Pi Pico","from picozero import MotionSensor
+
+pir = MotionSensor(2)
+
+motion = pir.motion_detected","","","Use motion when your project needs to react to movement.","VCC -> 5V | OUT -> GPIO 17 | GND -> GND | VCC -> 3V3 or 5V module supply | OUT -> GP2 | GND -> GND","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/PIR-Pete/pir-skill-brick.html"
+"Raspberry Pi / Pico","MrC","PIR Sensor","Detect, Motion","A PIR sensor tells your project when something warm moves nearby.
+PIR stands for passive infrared. It detects changes in infrared energy, so it is very good at noticing people moving through its view.
+Your projects can use a PIR sensor for automatic lights, security alarms, or movement-triggered actions.","Automatic hallway light","Person moving past sensor","Someone has arrived","Turn on light","https://github.com/raspberrypilearning/skills-bricks/blob/master/PIR/hallway-light.png","Security alarm","Movement in protected room","Alarm should trigger","Sound warning","https://github.com/raspberrypilearning/skills-bricks/blob/master/PIR/security-alarm.png","Dome: Senses movement; Pins: VCC OUT GND; Adjusters: Time and range","https://github.com/raspberrypilearning/skills-bricks/blob/master/PIR/pir-module.png","Raspberry Pi","from gpiozero import MotionSensor
+
+pir = MotionSensor(4)
+
+motion = pir.motion_detected","Raspberry Pi Pico","from machine import Pin
+
+pir = Pin(2, Pin.IN)
+
+motion = pir.value()","","","Use motion later in your Decide code to react when someone moves. Many PIR modules need a short warm-up time after power is connected before their readings settle.","5V -> VCC | GPIO 4 GND | 5V -> VCC | GP2 GND","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/PIR/pir-skill-brick.html"
+"Raspberry Pi / Pico","MrC","Piezo Buzzer","Do, Sound","A piezo buzzer is a small part that makes a buzz or beep when your code turns it on.
+It changes electrical energy into vibration, which creates a sound you can hear without needing a screen or lights.
+Your projects can use a buzzer for alarms, countdowns, warnings, or fun sound effects.","Sound alert","Program needs to alert","User must hear it now","Beep the buzzer","https://github.com/raspberrypilearning/skills-bricks/blob/master/Piezo_Buzzer/buzzer_sound.png","Safety warning alarm","Unsafe machine state","People must stay back","Sound the buzzer","https://github.com/raspberrypilearning/skills-bricks/blob/master/Piezo_Buzzer/buzzerimage2.png","Positive: Signal side; Negative: Ground side; Sound hole: Lets sound out","https://github.com/raspberrypilearning/skills-bricks/blob/master/Piezo_Buzzer/buzzer.png","Raspberry Pi","from gpiozero import Buzzer
+
+buzzer = Buzzer(17)
+
+buzzer.on()","Raspberry Pi Pico","from picozero import Buzzer
+
+buzzer = Buzzer(2)
+
+buzzer.on()","","","Use an active buzzer for the simplest setup. Try buzzer.on() , buzzer.off() , or buzzer.beep() later in your Do code.","GPIO 17 -> buzzer positive | buzzer negative -> GND | GP2 -> buzzer positive | buzzer negative -> GND","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/Piezo_Buzzer/piezo-buzzer-skill-brick.html"
+"Raspberry Pi / Pico","Pete","Potentiometer","Detect, Turn","A potentiometer is a knob your project can read.
+Turning the shaft changes the voltage on the middle pin, giving your code a value from low to high.
+Your projects can use a potentiometer for volume, speed, brightness, choices, and silly dials.","Volume knob","Knob is turned","New level chosen","Set volume","https://github.com/raspberrypilearning/skills-bricks/blob/master/Potentiometer-Pete/images/volume-knob.png","Ridiculousness dial","Dial turns upward","Dial is silly enough","Add more sparkle","https://github.com/raspberrypilearning/skills-bricks/blob/master/Potentiometer-Pete/images/ridiculousness-dial.png","End pin: One side; Wiper: Middle pin; End pin: Other side; Shaft: Turn here","https://github.com/raspberrypilearning/skills-bricks/blob/master/Potentiometer-Pete/images/component-potentiometer.svg","Raspberry Pi","from gpiozero import MCP3008
+
+pot = MCP3008(channel=0)
+
+level = pot.value","Raspberry Pi Pico","from picozero import Potentiometer
+
+pot = Potentiometer(26)
+
+level = pot.value","","","Use level when your project needs to react to the knob.","SIG -> ADC channel 0 | outer pins -> 3V3 and GND | SIG -> ADC GP26 | outer pins -> 3V3 and GND","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/Potentiometer-Pete/potentiometer-skill-brick.html"
+"Raspberry Pi / Pico","Pete","RGB LED","Do, Colour","An RGB LED combines red, green, and blue lights in one part.
+By changing the brightness of each colour, your code can mix lots of different colours.
+Your projects can use RGB LEDs for moods, warnings, game states, and small light shows.","Status light","Project mode changes","Mode has a colour","Show colour","https://github.com/raspberrypilearning/skills-bricks/blob/master/RGB_LED-Pete/images/status-light.png","Mood crystal","Button is pressed","Mystery mood chosen","Glow weirdly","https://github.com/raspberrypilearning/skills-bricks/blob/master/RGB_LED-Pete/images/mood-crystal.png","Red: Red pin; Green: Green pin; Blue: Blue pin; Common: GND or 3V3","https://github.com/raspberrypilearning/skills-bricks/blob/master/RGB_LED-Pete/images/component-rgb-led.svg","Raspberry Pi","from gpiozero import RGBLED
+
+led = RGBLED(red=17, green=27, blue=22)
+
+led.color = (1, 0, 1)","Raspberry Pi Pico","from picozero import RGBLED
+
+led = RGBLED(red=2, green=3, blue=4)
+
+led.color = (1, 0, 1)","","","Use led.color after a Detect brick spots something.","Red -> GPIO 17 | Green -> GPIO 27 | Blue -> GPIO 22 | common -> GND | Red -> GP2 | Green -> GP3 | Blue -> GP4 | common -> GND","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/RGB_LED-Pete/rgb-led-skill-brick.html"
+"Raspberry Pi / Pico","Pete (example)","Ultrasonic Distance Sensor","Detect, Level","A distance sensor measures how far away something is without touching it.
+It works a bit like a bat, sending out sounds and listening for the echo bouncing back to understand how far away things are.
+Your projects can use the distance to react when something moves closer or further away.","Car reversing sensor","Car distance to wall","Wall is closer than 0.5 m","Turn on beeper","https://github.com/raspberrypilearning/skills-bricks/blob/master/Skills_Brick_Example-Pete/images/car-sensors.png","Magic treasure chest","Hand distance to chest","Hand is close enough","Light LED and open lid","https://github.com/raspberrypilearning/skills-bricks/blob/master/Skills_Brick_Example-Pete/images/magic-chest.png","VCC: Power; Trig: Sends pulse; Echo: Gets echo; GND: Ground","https://github.com/raspberrypilearning/skills-bricks/blob/master/Skills_Brick_Example-Pete/images/component-ultrasonic-distance-sensor.png","Raspberry Pi","from gpiozero import DistanceSensor
+
+sensor = DistanceSensor(
+    echo=18,
+    trigger=17
+)
+
+distance = sensor.distance","Raspberry Pi Pico","from picozero import DistanceSensor
+
+sensor = DistanceSensor(
+    echo=3,
+    trigger=2
+)
+
+distance = sensor.distance","","","Use distance when your project needs to react to nearby things.","Trigger: GPIO 17 Echo: GPIO 18 | Trigger: GP2 Echo: GP3","https://github.com/raspberrypilearning/skills-bricks/blob/master/Skills_Brick_Example-Pete/images/HC-SR04P-pi.png | https://github.com/raspberrypilearning/skills-bricks/blob/master/Skills_Brick_Example-Pete/images/HC-SR04P-pico.png","","https://github.com/raspberrypilearning/skills-bricks/blob/master/Skills_Brick_Example-Pete/ultrasonic-distance-sensor.html"
+"Raspberry Pi / Pico","Pete","Speaker","Do, Sound","A speaker lets your project play tones and simple tunes.
+Code changes the signal quickly to make the speaker vibrate at different pitches.
+Your projects can use speakers for melodies, warnings, secret jingles, and dramatic noises.","Door chime","Door opens","Visitor arrived","Play tune","https://github.com/raspberrypilearning/skills-bricks/blob/master/Speaker-Pete/images/door-chime.png","Tiny fanfare machine","Excellent thing happens","Celebration required","Play fanfare","https://github.com/raspberrypilearning/skills-bricks/blob/master/Speaker-Pete/images/tiny-fanfare-machine.png","+: Signal; -: Ground; Cone: Vibrates; Magnet: Moves cone","https://github.com/raspberrypilearning/skills-bricks/blob/master/Speaker-Pete/images/component-speaker.png","Raspberry Pi","from gpiozero import TonalBuzzer
+from gpiozero.tones import Tone
+
+speaker = TonalBuzzer(17)
+
+speaker.play(Tone('A4'))","Raspberry Pi Pico","from picozero import Speaker
+
+speaker = Speaker(2)
+
+speaker.play('E4', duration=1)","","","Use speaker.play() after a Detect brick spots something.","+ pin -> GPIO 17 | - pin -> GND | + pin -> GP2 | - pin -> GND","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/Speaker-Pete/speaker-skill-brick.html"
+"Raspberry Pi / Pico","Pete","Stepper","Do, Steps","A stepper motor moves in small controlled steps.
+A driver board switches its coils in order, so code can choose direction and position more carefully.
+Your projects can use steppers for dials, pointers, lifts, tiny plotters, and slow dramatic reveals.","Pointer dial","New value appears","Pointer must move","Step to angle","https://github.com/raspberrypilearning/skills-bricks/blob/master/Stepper-Pete/images/pointer-dial.png","Snack lift","Treat is requested","Treat can be lifted","Raise tiny elevator","https://github.com/raspberrypilearning/skills-bricks/blob/master/Stepper-Pete/images/snack-lift.png","Shaft: Turns in steps; Coils: Inside motor; Wires: To driver; Mounts: Screw holes","https://github.com/raspberrypilearning/skills-bricks/blob/master/Stepper-Pete/images/component-stepper.svg","Raspberry Pi","from gpiozero import OutputDevice
+
+coils = [OutputDevice(pin) for pin in (17, 18, 27, 22)]
+
+coils[0].on()","Raspberry Pi Pico","from picozero import Stepper
+
+stepper = Stepper((2, 3, 4, 5))
+
+stepper.step(100)","","","Use coils[0].on() on Raspberry Pi or stepper.step(100) on Pico after a Detect brick spots something.","IN1-IN4 -> GPIO 17, 18, 27, 22 | driver power -> motor supply and GND | IN1-IN4 -> GP2, GP3, GP4, GP5 | driver power -> motor supply and GND","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/Stepper-Pete/stepper-skill-brick.html"
+"Raspberry Pi / Pico","Pete","Temp Sensor","Detect, Heat","A temperature sensor helps your project notice how warm or cold something is.
+Many temperature sensors send a changing voltage or digital reading that code can turn into a temperature.
+Your projects can use temperature to warn, log, cool, heat, or complain about soup.","Plant propagator","Air gets too cold","Seedlings need warmth","Turn heater on","https://github.com/raspberrypilearning/skills-bricks/blob/master/Temp_Sensor-Pete/images/plant-propagator.png","Soup drama meter","Soup is too hot","Tongue danger detected","Flash panic light","https://github.com/raspberrypilearning/skills-bricks/blob/master/Temp_Sensor-Pete/images/soup-drama-meter.png","VCC: Power; DATA: Reading; GND: Ground; Probe: Sensing tip","https://github.com/raspberrypilearning/skills-bricks/blob/master/Temp_Sensor-Pete/images/component-temperature-sensor.png","Raspberry Pi","from gpiozero import MCP3008
+
+sensor = MCP3008(channel=0)
+
+reading = sensor.value","Raspberry Pi Pico","from picozero import TemperatureSensor
+
+def tmp36(voltage):
+    return (voltage - 0.5) * 100
+
+sensor = TemperatureSensor(26, conversion=tmp36)
+
+temp = sensor.temp","","","Use reading or temp when your project needs to react to temperature.","Sensor OUT -> ADC channel 0 | sensor VCC -> 3V3 | sensor GND -> GND | Sensor OUT -> ADC GP26 | sensor VCC -> 3V3 | sensor GND -> GND","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/Temp_Sensor-Pete/temp-sensor-skill-brick.html"
+"Raspberry Pi / Pico","Pete","Tilt Switch","Detect, Tilt","A tilt switch lets your project notice when something tips or changes angle.
+Inside, a tiny moving contact opens or closes the circuit when the switch tilts.
+Your projects can use tilt to spot bumps, flips, lids opening, or things being picked up.","Box lid sensor","Box is tilted open","Lid has moved","Start surprise","https://github.com/raspberrypilearning/skills-bricks/blob/master/Tilt_Switch-Pete/images/box-lid-sensor.png","Grumpy pencil case","Case is shaken","Shake is big enough","Complain loudly","https://github.com/raspberrypilearning/skills-bricks/blob/master/Tilt_Switch-Pete/images/grumpy-pencil-case.png","Leg 1: Signal; Leg 2: Ground; Tube: Tilt body; Ball: Moves inside","https://github.com/raspberrypilearning/skills-bricks/blob/master/Tilt_Switch-Pete/images/component-tilt-switch.svg","Raspberry Pi","from gpiozero import Button
+
+tilt = Button(17)
+
+tilted = tilt.is_pressed","Raspberry Pi Pico","from picozero import Switch
+
+tilt = Switch(2)
+
+tilted = tilt.is_closed","","","Use tilted when your project needs to react to being tipped.","One leg -> GPIO 17 | other leg -> GND | One leg -> GP2 | other leg -> GND","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/Tilt_Switch-Pete/tilt-switch-skill-brick.html"
+"Raspberry Pi / Pico","Pete","Toggle Switch","Detect, Switch","A toggle switch stays in one position until someone flips it back.
+That makes it useful for modes, power choices, and settings that should not disappear when you let go.
+Your projects can use toggle switches for arming, choosing, locking, and secret control panels.","Mode selector","Switch is flipped","New mode selected","Change behaviour","https://github.com/raspberrypilearning/skills-bricks/blob/master/Toggle_Switch-Pete/images/mode-selector.png","Serious business lever","Lever flips up","Important mode begins","Play dramatic sound","https://github.com/raspberrypilearning/skills-bricks/blob/master/Toggle_Switch-Pete/images/serious-business-lever.png","COM: Common; NO: On side; NC: Off side; Lever: Flip here","https://github.com/raspberrypilearning/skills-bricks/blob/master/Toggle_Switch-Pete/images/component-toggle-switch.svg","Raspberry Pi","from gpiozero import Button
+
+switch = Button(17)
+
+on = switch.is_pressed","Raspberry Pi Pico","from picozero import Switch
+
+switch = Switch(2)
+
+on = switch.is_closed","","","Use on when your project needs to react to the switch position.","COM -> GND | NO -> GPIO 17 | COM -> GND | NO -> GP2","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/Toggle_Switch-Pete/toggle-switch-skill-brick.html"
+"Raspberry Pi / Pico","MrC","Ultrasonic Distance Sensor","Detect, Level","A distance sensor measures how far away something is without touching it.
+It works a bit like a bat, sending out sounds and listening for the echo bouncing back to understand how far away things are.
+Your projects can use the distance to react when something moves closer or further away.","Car reversing sensor","Car distance to wall","Wall is closer than 0.5 m","Turn on beeper","https://github.com/raspberrypilearning/skills-bricks/blob/master/UDS/images/car-sensors.png","Magic treasure chest","Hand distance to chest","Hand is close enough","Light LED and open lid","https://github.com/raspberrypilearning/skills-bricks/blob/master/UDS/images/magic-chest.png","VCC: Power; Trig: Sends pulse; Echo: Gets echo; GND: Ground","https://github.com/raspberrypilearning/skills-bricks/blob/master/UDS/images/HC-SR04P.png","Raspberry Pi","from gpiozero import DistanceSensor
+
+sensor = DistanceSensor(
+    echo=18,
+    trigger=17
+)
+
+distance = sensor.distance","Raspberry Pi Pico","from picozero import DistanceSensor
+
+sensor = DistanceSensor(
+    echo=3,
+    trigger=2
+)
+
+distance = sensor.distance","","","Use distance later in your Decide code to make your project react.","Trigger: GPIO 17 Echo: GPIO 18 | Trigger: GP2 Echo: GP3","https://github.com/raspberrypilearning/skills-bricks/blob/master/UDS/images/HC-SR04P-pi.png | https://github.com/raspberrypilearning/skills-bricks/blob/master/UDS/images/HC-SR04P-pico.png","","https://github.com/raspberrypilearning/skills-bricks/blob/master/UDS/ultrasonic-distance-sensor.html"
+"Raspberry Pi / Pico","Pete","Ultrasonic Distance Sensor","Detect, Distance","An ultrasonic distance sensor measures how far away something is without touching it.
+It sends out a tiny burst of sound and listens for the echo bouncing back.
+Your projects can use distance to react when hands, walls, boxes, or mysterious objects move closer.","Car reversing sensor","Car distance to wall","Wall is too close","Beep faster","https://github.com/raspberrypilearning/skills-bricks/blob/master/Ultrasonic_Distance_Sensor-Pete/images/car-reversing-sensor.png","Wobbly trophy alarm","Someone sneaks near","Trophy zone is crossed","Flash warning lights","https://github.com/raspberrypilearning/skills-bricks/blob/master/Ultrasonic_Distance_Sensor-Pete/images/wobbly-trophy-alarm.png","VCC: Power; Trig: Send pulse; Echo: Hear echo; GND: Ground","https://github.com/raspberrypilearning/skills-bricks/blob/master/Ultrasonic_Distance_Sensor-Pete/images/component-ultrasonic-distance-sensor.png","Raspberry Pi","from gpiozero import DistanceSensor
+
+sensor = DistanceSensor(
+    echo=18,
+    trigger=17
+)
+
+distance = sensor.distance","Raspberry Pi Pico","from picozero import DistanceSensor
+
+sensor = DistanceSensor(
+    echo=3,
+    trigger=2
+)
+
+distance = sensor.distance","","","Use distance when your project needs to react to nearby things.","VCC -> 3V3 or 5V module supply | Trig -> GPIO 17 | Echo -> GPIO 18 | GND -> GND | VCC -> 3V3 | Trig -> GP2 | Echo -> GP3 | GND -> GND","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/Ultrasonic_Distance_Sensor-Pete/ultrasonic-distance-sensor-skill-brick.html"
+"Arduino","","Accelerometer","Detect, Motion","An accelerometer senses movement, tilt, and how it is being held.
+It measures force on three axes — x, y and z.
+With an Arduino, an analog accelerometer is read on three analog pins.","Shake dice","A shake","It was shaken","Show a random number","","Tilt maze","Tilt on the x axis","Which way it leans","Move the dot","","X, Y, Z: Three axes; Analog out: To analog pins; VCC: 3.3V power","https://github.com/raspberrypilearning/skills-bricks/blob/master/arduino/accelerometer/adafruit-compass-accelerometer.png","Arduino","const int xPin = A0;
+const int yPin = A1;
+const int zPin = A2;
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  int x = analogRead(xPin);
+  int y = analogRead(yPin);
+  int z = analogRead(zPin);
+  Serial.println(x);
+}","","","","","An analog accelerometer (like the ADXL335) gives a voltage per axis that you read with analogRead() .","X → A0 | Y → A1 | Z → A2 | VCC → 3.3V, GND → GND","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/arduino/accelerometer/arduino-accelerometer.html"
+"Arduino","","Button / Switch","Detect, Press","A button or switch lets your project take input when someone presses or flips it.
+When pressed it connects a pin to GND, which your code reads as a digital value.
+With an Arduino, you use the internal pull-up resistor and read the pin as digital.","Arcade button","Button pressed","Player took a turn","Show the next clue","","Door switch","Switch state","Door is open","Sound an alert","","Two legs: Pin and GND; Pull-up: Set in code; digitalRead(): 0 or 1","https://github.com/raspberrypilearning/skills-bricks/blob/master/arduino/button-switch/tactile-push-button.png","Arduino","const int button = 2;
+
+void setup() {
+  pinMode(button, INPUT_PULLUP);
+  Serial.begin(9600);
+}
+
+void loop() {
+  if (digitalRead(button) == LOW) {
+    Serial.println(""Pressed"");
+  }
+}","","","","","With INPUT_PULLUP the pin reads HIGH normally and LOW when pressed (button wired to GND).","pin 2 → one leg | other leg → GND","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/arduino/button-switch/arduino-button-switch.html"
+"Arduino","","Capacitive Touch","Detect, Touch","A capacitive touch sensor reacts to your finger, just like a phone screen.
+It senses the tiny electrical change your skin makes when you touch the pad.
+With an Arduino, a touch module gives a digital HIGH when it is touched.","Secret reveal","Pad is touched","Someone touched it","Show a hidden message","","Touch lamp","Pad is touched","Toggle the light","Turn the lamp on or off","","Pad: Touch area; OUT: To a pin; Power: 3.3–5V","","Arduino","const int touch = 2;
+
+void setup() {
+  pinMode(touch, INPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  if (digitalRead(touch) == HIGH) {
+    Serial.println(""Touched"");
+  }
+}","","","","","A TTP223 touch module outputs HIGH while the pad is touched — read it like a button.","OUT → pin 2 | VCC → 3.3V | GND → GND","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/arduino/capacitive-touch/arduino-capacitive-touch.html"
+"Arduino","","I2C","Connect, Data","I²C is a way to connect modules like displays and sensors using just two shared wires.
+Many devices can share the same two lines, each with its own address.
+With an Arduino, the Wire library talks to I²C devices on A4 and A5.","OLED display","New data","What to show","Send it to the display","","Sensor reading","Time to read","Which sensor","Request its data","","SDA: Data line (A4); SCL: Clock line (A5); Address: Per device","","Arduino","#include <Wire.h>
+
+void setup() {
+  Wire.begin();
+  Serial.begin(9600);
+}
+
+void loop() {
+  Wire.requestFrom(0x68, 1);
+  if (Wire.available()) {
+    int data = Wire.read();
+    Serial.println(data);
+  }
+}","","","","","The Wire library uses A4 (SDA) and A5 (SCL) on an Uno. Each device has its own address.","SDA → A4 | SCL → A5 | VCC → power | GND → GND","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/arduino/i2c/arduino-i2c.html"
+"Arduino","","LDR","Detect, Level","An LDR is a light sensor that tells your project how bright or dark it is.
+LDR stands for light dependent resistor. Its resistance changes when more or less light falls on the sensor face.
+With an Arduino, you read the LDR on an analog pin to get a light level.","Automatic night light","Pin light reading","Room is dark","Turn on a light","","Greenhouse grow light","Plant light level","Plants are too shaded","Turn on a grow light","","Sensor face: Detects light; Track: Changes resistance; Legs: Connect to circuit","https://github.com/raspberrypilearning/skills-bricks/blob/master/arduino/ldr/ldr.png","Arduino","const int ldr = A0;
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  int light = analogRead(ldr);
+  Serial.println(light);
+}","","","","","analogRead() returns 0–1023. Wire the LDR with a 10kΩ resistor as a voltage divider into A0.","5V → LDR → A0 | A0 → 10kΩ resistor → GND","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/arduino/ldr/arduino-ldr.html"
+"Arduino","","LED","Do, Light","An LED is a tiny light that your code can switch on, switch off, or blink.
+LED stands for light-emitting diode. It glows when electricity flows the right way through it, so the long leg and short leg matter.
+With an Arduino, you connect an LED to a pin through a resistor and switch it on and off in your sketch.","Mini traffic light","Timer reaches stop point","Cars must stop now","Turn on red LED","","Motion sensor light","Movement near the sensor","Someone has arrived","Turn on the LED","","Anode: Long leg; Cathode: Short leg; Resistor: Protects LED","https://github.com/raspberrypilearning/skills-bricks/blob/master/arduino/led/led.png","Arduino","const int led = 13;
+
+void setup() {
+  pinMode(led, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(led, HIGH);
+  delay(500);
+  digitalWrite(led, LOW);
+  delay(500);
+}","","","","","Use digitalWrite(led, HIGH) to turn the LED on and LOW to turn it off. Always put a 220 Ω resistor in series with the LED.","Pin 13 → resistor → LED + (long leg) | LED − (short leg) → GND","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/arduino/led/arduino-led.html"
+"Arduino","","Line Sensor","Detect, Surface","A line sensor shines infrared light down and measures how much bounces back.
+A dark line reflects little light and a pale surface reflects a lot, so the sensor can tell them apart.
+With an Arduino, you read the sensor on a pin to follow lines or spot edges.","Line-following buggy","Surface under the sensor","On the line or off it","Steer back to the line","","Edge stopper","Surface ahead","Table edge reached","Stop the motors","","IR LED: Shines light; Detector: Reads reflection; OUT: To a pin","","Arduino","const int line = 2;
+
+void setup() {
+  pinMode(line, INPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  int onLine = digitalRead(line);
+  Serial.println(onLine);
+}","","","","","Most modules output digital (1 and 0 for line and no line). Analog versions use analogRead() . Adjust the sensitivity screw.","VCC → 5V | OUT → pin 2 | GND → GND","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/arduino/line-sensor/arduino-line-sensor.html"
+"Arduino","","Magnetometer","Detect, Direction","A magnetometer measures magnetic fields, which lets the Arduino work as a compass.
+It can give a heading in degrees where 0 means north.
+With an Arduino, a compass module is read over I²C using a library.","Digital compass","The heading","Which way is north","Point an arrow north","","Magnet detector","Field strength","A magnet is close","Light an LED","","SDA: I²C data (A4); SCL: I²C clock (A5); VCC: 3.3V power; GND: Ground","https://github.com/raspberrypilearning/skills-bricks/blob/master/arduino/magnetometer/adafruit-compass-accelerometer.png","Arduino","#include <Wire.h>
+#include <QMC5883LCompass.h>
+
+QMC5883LCompass compass;
+
+void setup() {
+  Serial.begin(9600);
+  compass.init();
+}
+
+void loop() {
+  compass.read();
+  Serial.println(compass.getAzimuth());
+}","","","","","Install a compass library. The module connects over I²C (SDA/SCL); getAzimuth() returns the heading.","SDA → A4 | SCL → A5 | VCC → 3.3V | GND → GND","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/arduino/magnetometer/arduino-magnetometer.html"
+"Arduino","","LED Matrix","Do, Light","An LED matrix is a grid of LEDs you can light up to show numbers, letters and pictures.
+A common module is an 8×8 grid driven by a MAX7219 chip.
+With an Arduino, the LedControl library lights any LED in the grid.","Mood badge","A button press","Which face to show","Show a happy or sad face","","Dice roll","A shake or press","Pick a number 1 to 6","Show the number","","DIN: Data; CLK: Clock; CS: Chip select; VCC: 5V","","Arduino","#include <LedControl.h>
+
+LedControl lc(12, 11, 10, 1);
+
+void setup() {
+  lc.shutdown(0, false);
+  lc.setIntensity(0, 8);
+  lc.clearDisplay(0);
+}
+
+void loop() {
+  lc.setLed(0, 2, 3, true);
+}","","","","","Install the LedControl library. lc(DIN, CLK, CS, devices) ; setLed() lights one LED by row and column.","DIN → pin 12 | CLK → pin 11 | CS → pin 10 | VCC → 5V, GND → GND","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/arduino/matrix/arduino-matrix.html"
+"Arduino","","Motor Driver","Do, Motor","A motor driver board lets your Arduino control motors that need more power than a pin can supply.
+The Arduino sends low-power signals and the driver switches the larger motor current from its own supply.
+You set direction with digital pins and speed with a PWM pin.","Robot buggy","Start button pressed","Time to move","Drive the motors forward","","Spinning display","Timer tick","Turntable should turn","Run the motor","","IN1, IN2: Direction; ENA: Speed (PWM); Motor A/B: To the motors; VS / GND: Motor power","https://github.com/raspberrypilearning/skills-bricks/blob/master/arduino/motor-driver/motor-controller.png","Arduino","const int in1 = 5;
+const int in2 = 6;
+const int ena = 9;
+
+void setup() {
+  pinMode(in1, OUTPUT);
+  pinMode(in2, OUTPUT);
+  pinMode(ena, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(in1, HIGH);
+  digitalWrite(in2, LOW);
+  analogWrite(ena, 180);
+}","","","","","Power the motors from the driver board's own battery, not the Arduino. analogWrite() on ENA sets the speed.","pin 5 → IN1 | pin 6 → IN2 | pin 9 → ENA | battery → VS, GND → GND","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/arduino/motor-driver/arduino-motor-driver.html"
+"Arduino","","NeoPixel","Do, Light","NeoPixels are addressable RGB LEDs you can chain together on a single data pin.
+Each pixel can be a different colour and brightness.
+With an Arduino, the Adafruit NeoPixel library sets each pixel's colour.","Progress bar","Task progress","How many pixels to light","Light that many","","Rainbow badge","Button press","Next colour","Show the colours","","DIN: Data pin; 5V: Power; GND: Ground","https://github.com/raspberrypilearning/skills-bricks/blob/master/arduino/neopixel/adafruit-neopixel.png","Arduino","#include <Adafruit_NeoPixel.h>
+
+Adafruit_NeoPixel strip(8, 6, NEO_GRB + NEO_KHZ800);
+
+void setup() {
+  strip.begin();
+  strip.show();
+}
+
+void loop() {
+  strip.setPixelColor(0, strip.Color(255, 0, 0));
+  strip.show();
+}","","","","","Install the Adafruit NeoPixel library. The first number is the pixel count, the second is the data pin.","DIN → pin 6 | 5V → 5V | GND → GND","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/arduino/neopixel/arduino-neopixel.html"
+"Arduino","","Piezo Buzzer","Do, Sound","A piezo buzzer is a small part that makes a buzz or beep when your code turns it on.
+It turns electrical energy into vibration, which makes a sound you can hear.
+With an Arduino, you play tones through a pin using the tone() function.","Sound alert","Program needs to alert","User must hear it now","Beep the buzzer","","Safety warning alarm","Unsafe machine state","People must stay back","Sound the buzzer","","Positive: Signal side; Negative: Ground side; Sound hole: Lets sound out","https://github.com/raspberrypilearning/skills-bricks/blob/master/arduino/piezo-buzzer/piezo-buzzer.png","Arduino","const int buzzer = 8;
+
+void setup() {
+  pinMode(buzzer, OUTPUT);
+}
+
+void loop() {
+  tone(buzzer, 440, 500);
+  delay(1000);
+}","","","","","tone(pin, frequency, duration) plays a note. Use noTone() to stop it early.","pin 8 → buzzer + | buzzer − → GND","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/arduino/piezo-buzzer/arduino-piezo-buzzer.html"
+"Arduino","","Arduino Pins","Connect, Reference","The Arduino's pins are how it connects to the outside world.
+Digital pins read or write HIGH and LOW, analog pins (A0–A5) read voltages, and PWM pins (marked ~) can fake an analog output.
+Power pins give 5V, 3.3V and GND for your components.","Read a sensor","Analog pin voltage","What it means","React in code","","Drive an output","A condition","On or off","Set a digital pin","","Digital: HIGH or LOW; Analog: A0–A5; PWM: ~ pins; Power: 5V 3.3V GND","","Arduino","const int digitalPin = 2;
+const int analogPin = A0;
+const int pwmPin = 9;
+
+void setup() {
+  pinMode(digitalPin, INPUT);
+  pinMode(pwmPin, OUTPUT);
+}
+
+void loop() {
+  int sensor = analogRead(analogPin);
+  analogWrite(pwmPin, sensor / 4);
+}","","","","","Digital pins use digitalRead/Write , analog pins use analogRead (0–1023), and ~ pins use analogWrite (0–255).","digital pins 0–13 | analog A0–A5 | power 5V, 3.3V, GND","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/arduino/pins/arduino-pins.html"
+"Arduino","","PIR Sensor","Detect, Motion","A PIR sensor tells your project when something warm moves nearby.
+PIR stands for passive infrared. It detects changes in infrared energy, so it is good at noticing people moving.
+With an Arduino, you read the sensor's output on a digital pin.","Automatic hallway light","Person moving past","Someone has arrived","Turn on a light","","Security alarm","Movement in the room","Alarm should trigger","Sound a warning","","Dome: Senses movement; Pins: VCC OUT GND; Adjusters: Time and range","https://github.com/raspberrypilearning/skills-bricks/blob/master/arduino/pir/pir.png","Arduino","const int pir = 2;
+
+void setup() {
+  pinMode(pir, INPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  if (digitalRead(pir) == HIGH) {
+    Serial.println(""Motion!"");
+  }
+}","","","","","digitalRead() is HIGH when movement is detected. Most PIR modules run on 5V and need a short warm-up.","VCC → 5V | OUT → pin 2 | GND → GND","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/arduino/pir/arduino-pir.html"
+"Arduino","","Potentiometer","Detect, Level","A potentiometer is a knob that changes its resistance as you turn it.
+Wired as a voltage divider, it gives the Arduino a value that rises and falls as you turn it.
+With an Arduino, you read it on an analog pin to get a number from 0 to 1023.","Volume dial","Knob position","How loud it should be","Set the buzzer pitch","","Brightness slider","Knob position","How bright it should be","Set the LED brightness","","Two ends: 5V and GND; Wiper: To analog pin; 0–1023: Value range","","Arduino","const int pot = A0;
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  int value = analogRead(pot);
+  Serial.println(value);
+}","","","","","analogRead() gives 0 at one end and 1023 at the other.","5V → one end | wiper → A0 | GND → other end","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/arduino/potentiometer/arduino-potentiometer.html"
+"Arduino","","Radio","Connect, Receive","A radio module lets two or more Arduinos talk to each other wirelessly.
+Modules on the same channel and address can send and receive messages.
+With an Arduino, the RF24 library sends and receives over SPI.","Wireless hello","Button pressed","Time to send","Send a message","","Remote light","A message arrives","Message says on","Light an LED","","CE: Pin 7; CSN: Pin 8; SPI: SCK MISO MOSI; 3.3V: Power","","Arduino","#include <SPI.h>
+#include <RF24.h>
+
+RF24 radio(7, 8);
+const byte address[6] = ""00001"";
+
+void setup() {
+  radio.begin();
+  radio.openWritingPipe(address);
+  radio.stopListening();
+}
+
+void loop() {
+  const char text[] = ""hello"";
+  radio.write(&text, sizeof(text));
+}","","","","","Install the RF24 library. The module uses SPI plus CE and CSN pins, and must run on 3.3V.","CE → pin 7 | CSN → pin 8 | SCK/MISO/MOSI → SPI pins | VCC → 3.3V, GND → GND","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/arduino/radio/arduino-radio.html"
+"Arduino","","RGB LED","Do, Colour","An RGB LED is three coloured lights — red, green and blue — built into one part.
+By mixing how bright each colour is, your code can make almost any colour.
+With an Arduino, you connect the three colour legs to PWM pins and set each level.","Mood lamp","Button is pressed","Which colour to show","Mix red, green and blue","","Status light","System state","OK, warning or error","Show green, amber or red","","Red leg: Pin 9; Green leg: Pin 10; Blue leg: Pin 11; Common: 5V or GND","","Arduino","const int r = 9;
+const int g = 10;
+const int b = 11;
+
+void setup() {
+  pinMode(r, OUTPUT);
+  pinMode(g, OUTPUT);
+  pinMode(b, OUTPUT);
+}
+
+void loop() {
+  analogWrite(r, 255);
+  analogWrite(g, 100);
+  analogWrite(b, 0);
+}","","","","","Use PWM pins (marked ~) and analogWrite() 0–255 per colour. Add a resistor on each leg.","pin 9 → R | pin 10 → G | pin 11 → B | common → GND or 5V","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/arduino/rgb-led/arduino-rgb-led.html"
+"Arduino","","Servo","Do, Motion","A servo motor turns to an exact angle and holds it there.
+It is great for arms, gates, dials, and steering.
+With an Arduino, the Servo library moves it to an angle between 0 and 180 degrees.","Automatic gate","Visitor arrives","Gate should open","Turn the servo to 90°","","Robot arm","Command received","Where to move","Set the servo angle","","Signal: To a pin; Power: 5V; GND: Ground","https://github.com/raspberrypilearning/skills-bricks/blob/master/arduino/servo/servo.png","Arduino","#include <Servo.h>
+
+Servo myServo;
+
+void setup() {
+  myServo.attach(9);
+}
+
+void loop() {
+  myServo.write(0);
+  delay(1000);
+  myServo.write(90);
+  delay(1000);
+}","","","","","Include the Servo library. write() takes an angle from 0 to 180 degrees.","signal → pin 9 | power → 5V | GND → GND","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/arduino/servo/arduino-servo.html"
+"Arduino","","Speaker","Do, Sound","A speaker turns electrical signals into sound you can hear.
+On an Arduino you can drive a small speaker with the tone() function to play notes and tunes.
+A speaker can play richer sound than a simple buzzer.","Door chime","The door opens","Play a chime","Sound the tune","","Tiny fanfare","The player wins","Time to celebrate","Play a fanfare","","Cone: Makes the sound; Terminals: Signal and GND; 8 Ω: Typical speaker","https://github.com/raspberrypilearning/skills-bricks/blob/master/arduino/speaker/speaker.png","Arduino","const int speaker = 8;
+int tune[] = {262, 294, 330, 349};
+
+void setup() {
+  pinMode(speaker, OUTPUT);
+}
+
+void loop() {
+  for (int i = 0; i < 4; i++) {
+    tone(speaker, tune[i], 300);
+    delay(350);
+  }
+}","","","","","tone() plays square-wave notes through the speaker. For louder, cleaner sound, drive it through a small transistor or amplifier.","pin 8 → speaker + (via a resistor) | speaker − → GND","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/arduino/speaker/arduino-speaker.html"
+"Arduino","","SPI","Connect, Fast Data","SPI is a fast way to connect modules like screens, card readers and radios.
+It uses separate data-in, data-out and clock lines, plus a select pin for each device.
+With an Arduino, the SPI library handles the timing for you.","SD card","Data to save","Time to write","Send it to the card","","TFT screen","New image","What to draw","Stream it over SPI","","SCK: Clock; MOSI: Data out; MISO: Data in; SS: Select","","Arduino","#include <SPI.h>
+
+void setup() {
+  SPI.begin();
+  pinMode(SS, OUTPUT);
+}
+
+void loop() {
+  SPI.beginTransaction(SPISettings(4000000, MSBFIRST, SPI_MODE0));
+  digitalWrite(SS, LOW);
+  SPI.transfer(0x42);
+  digitalWrite(SS, HIGH);
+  SPI.endTransaction();
+}","","","","","SPI uses pins 13 (SCK), 12 (MISO) and 11 (MOSI) on an Uno, plus a select pin for each device.","SCK → pin 13 | MISO → pin 12 | MOSI → pin 11 | SS → pin 10","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/arduino/spi/arduino-spi.html"
+"Arduino","","Stepper Motor","Do, Motion","A stepper motor moves in small exact steps instead of spinning freely.
+This lets your project turn something to a precise position, like a dial or a pointer.
+With an Arduino, the Stepper library drives it through a board such as a ULN2003.","Pointer dial","A new value","Where the pointer goes","Step the motor there","","Tiny lift","Button press","Which floor","Step the lift up or down","","Coils: Four windings; Driver: ULN2003 board; Steps: 2048 per turn; Power: Motor supply","","Arduino","#include <Stepper.h>
+
+Stepper motor(2048, 8, 10, 9, 11);
+
+void setup() {
+  motor.setSpeed(10);
+}
+
+void loop() {
+  motor.step(2048);
+  delay(1000);
+}","","","","","A 28BYJ-48 motor has 2048 steps per turn. The ULN2003 driver board needs its own power supply.","pins 8, 9, 10, 11 → ULN2003 IN1–IN4 | battery → driver power","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/arduino/stepper/arduino-stepper.html"
+"Arduino","","Temperature","Detect, Level","A temperature sensor lets your project measure how warm or cold it is.
+An analog sensor like the TMP36 gives a voltage that rises with temperature.
+With an Arduino, you read it on an analog pin and convert the value to °C.","Too hot warning","The temperature","It is above 30°C","Show a warning","","Weather logger","Temperature each minute","Time to record","Save the reading","","Signal: To analog pin; Power: 5V; GND: Ground","","Arduino","const int tmp = A0;
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  int reading = analogRead(tmp);
+  float volts = reading * 5.0 / 1024.0;
+  float tempC = (volts - 0.5) * 100;
+  Serial.println(tempC);
+}","","","","","A TMP36 gives 10 mV per °C with a 0.5V offset. Convert the analog reading to volts, then to °C.","signal → A0 | power → 5V | GND → GND","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/arduino/temperature/arduino-temperature.html"
+"Arduino","","Tilt Switch","Detect, Motion","A tilt switch is a small switch that turns on or off when it is tipped.
+Inside is usually a tiny ball that rolls to make or break the connection.
+With an Arduino, you read it on a digital pin, just like a button.","Shake to wake","Tilt changes","It has been moved","Wake up the display","","Tip-over alarm","Tilt state","It tipped over","Sound an alarm","","Ball: Rolls inside; Contacts: Open or closed; Legs: Pin and GND","","Arduino","const int tilt = 2;
+
+void setup() {
+  pinMode(tilt, INPUT_PULLUP);
+  Serial.begin(9600);
+}
+
+void loop() {
+  if (digitalRead(tilt) == LOW) {
+    Serial.println(""Tilted"");
+  }
+}","","","","","With INPUT_PULLUP the pin reads HIGH normally and LOW when the ball closes the contacts. Read it like a button.","pin 2 → one leg | other leg → GND","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/arduino/tilt-switch/arduino-tilt-switch.html"
+"Arduino","","Toggle Switch","Detect, State","A toggle or slide switch stays in the position you leave it — on or off.
+Unlike a button, it does not spring back, so it remembers its setting.
+With an Arduino, you read it on a digital pin to choose a mode or turn things on and off.","Mode selector","Switch position","Which mode","Run that mode","","Power lever","Switch state","On or off","Start or stop the project","","Two positions: On and off; Stays put: No spring back; Legs: Pin and GND","","Arduino","const int sw = 2;
+
+void setup() {
+  pinMode(sw, INPUT_PULLUP);
+  Serial.begin(9600);
+}
+
+void loop() {
+  if (digitalRead(sw) == LOW) {
+    Serial.println(""ON"");
+  } else {
+    Serial.println(""OFF"");
+  }
+}","","","","","A toggle switch holds its state, so the pin stays HIGH or LOW until you flip it. INPUT_PULLUP gives a clean reading.","pin 2 → one leg | other leg → GND","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/arduino/toggle-switch/arduino-toggle-switch.html"
+"Arduino","","UART","Connect, Serial","UART is serial communication — sending text and data one bit at a time.
+The Arduino uses it to talk to your computer and to modules like GPS or Bluetooth.
+With an Arduino, the Serial library sends and receives over USB or pins 0 and 1.","Talk to a computer","A reading","Time to report","Print it to Serial","","GPS receiver","A GPS sentence","New position","Read it in","","TX: Sends (pin 1); RX: Receives (pin 0); Serial: The library","","Arduino","void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  Serial.println(""Hello"");
+  if (Serial.available()) {
+    char c = Serial.read();
+    Serial.println(c);
+  }
+}","","","","","Serial.begin() sets the speed. TX (pin 1) sends and RX (pin 0) receives — these are also used by the USB connection.","TX → RX of device | RX → TX of device | GND → GND","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/arduino/uart/arduino-uart.html"
+"Arduino","","Ultrasonic Distance Sensor","Detect, Level","A distance sensor measures how far away something is without touching it.
+It works a bit like a bat, sending out sound and timing the echo that bounces back.
+With an Arduino, you send a pulse on one pin and time the echo on another.","Car reversing sensor","Distance to the wall","Wall is closer than 30 cm","Turn on a beeper","","Magic treasure chest","Hand distance","Hand is close enough","Light an LED","","VCC: Power; Trig: Sends pulse; Echo: Gets echo; GND: Ground","https://github.com/raspberrypilearning/skills-bricks/blob/master/arduino/uds/ultrasonic-distance-sensor.png","Arduino","const int trig = 9;
+const int echo = 10;
+
+void setup() {
+  pinMode(trig, OUTPUT);
+  pinMode(echo, INPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  digitalWrite(trig, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trig, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trig, LOW);
+  long us = pulseIn(echo, HIGH);
+  float cm = us * 0.0343 / 2;
+  Serial.println(cm);
+}","","","","","pulseIn() times the echo; multiply by the speed of sound to get the distance in cm.","Trig → pin 9 | Echo → pin 10 | VCC → 5V | GND → GND","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/arduino/uds/arduino-uds.html"
+"micro:bit","","micro:bit Accelerometer","Detect, Motion","The accelerometer senses movement, tilt, and how the micro:bit is being held.
+It measures force on three axes — x (left to right), y (forward and back), and z (up and down).
+It can also spot gestures like shake, tilt, and free fall.","Shake dice","A shake gesture","The micro:bit was shaken","Show a random number","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/accelerometer/shake-dice.png","Tilt maze","Tilt on the x axis","Which way it leans","Move the dot left or right","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/accelerometer/tilt-maze.png","x, y, z: Three axes; Gestures: Shake, tilt; milli-g: Force units","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/microbit-front.jpg | https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/microbit-back.jpg","MicroPython","from microbit import *
+
+while True:
+    if accelerometer.was_gesture('shake'):
+        display.show(Image.SURPRISED)
+    x = accelerometer.get_x()","JavaScript","input.onGesture(Gesture.Shake, function () {
+    basic.showIcon(IconNames.Surprised)
+})
+let x = input.acceleration(Dimension.X)","","","Use get_x() , get_y() and get_z() for raw force, or was_gesture('shake') for movements.","","","get_x() get_y() get_z(): Force on each axis; was_gesture('shake'): Detect a movement; Gestures: shake, tilt, face up, freefall; Built in: No wiring needed","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/accelerometer/microbit-accelerometer.html"
+"micro:bit","","Button / Switch","Detect, Press","An external button or switch lets your project take input from anywhere, not just the two on-board buttons.
+When pressed it connects a pin to GND (or 3V), which your code reads as a digital value.
+With a micro:bit, you set the pin's pull resistor and read it as digital.","Arcade button","Button pressed","Player took a turn","Show the next clue","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/button-switch/arcade-button.png","Door switch","Switch state","Door is open","Sound an alert","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/button-switch/door-switch.png","Two legs: Pin and GND; Pull resistor: Set in code; read_digital(): 0 or 1","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/button-switch/tactile-push-button.png","MicroPython","from microbit import *
+
+pin0.set_pull(pin0.PULL_UP)
+while True:
+    if pin0.read_digital() == 0:
+        display.show(Image.HAPPY)","JavaScript","pins.setPull(DigitalPin.P0, PinPullMode.PullUp)
+basic.forever(function () {
+    if (pins.digitalReadPin(DigitalPin.P0) == 0) {
+        basic.showIcon(IconNames.Happy)
+    }
+})","","","With a pull-up the pin reads 1 normally and 0 when pressed (button wired to GND). Set pin0.set_pull() before you call pin0.read_digital() .","P0 → one leg | other leg → GND | pull-up set in code","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/button-switch/microbit-button-switch.html"
+"micro:bit","","micro:bit Buttons","Detect, Press","The micro:bit has two buttons, A and B, that your code can react to when they are pressed.
+They are built into the board, so there is nothing to wire up. Button A is on the left and Button B is on the right.
+Your projects can use the buttons to choose options, control characters, or trigger actions.","Yes / no quiz","Which button is pressed","Answer is A or B","Show a tick or cross","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/buttons/yes-no-quiz.png","Jumping game","Button A is pressed","Player wants to jump","Make the sprite jump","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/buttons/jumping-game.png","Button A: Left button; Button B: Right button; A + B: Press both together","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/microbit-front.jpg | https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/microbit-back.jpg","MicroPython","from microbit import *
+
+while True:
+    if button_a.was_pressed():
+        display.show(""A"")
+    if button_b.was_pressed():
+        display.show(""B"")","JavaScript","input.onButtonPressed(Button.A, function () {
+    basic.showString(""A"")
+})
+input.onButtonPressed(Button.B, function () {
+    basic.showString(""B"")
+})","","","Use is_pressed() to check if a button is held down right now, or was_pressed() to catch a press that already happened.","","","button_a, button_b: The two named buttons; is_pressed(): True while the button is held down; was_pressed(): True once after a press; Built in: No wiring needed — both buttons are on the board","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/buttons/microbit-buttons.html"
+"micro:bit","","micro:bit Capacitive Touch","Detect, Touch","The micro:bit V2 has a touch-sensitive logo at the top that senses your finger.
+Capacitive touch reacts to the tiny electrical change your skin makes, just like a phone screen.
+Pins 0, 1, and 2 can also be set up to sense touch.","Secret reveal","The logo is touched","Someone touched it","Show a hidden message","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/capacitive-touch/secret-reveal.png","Touch piano","A pin is touched","Which pin it was","Play that note","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/capacitive-touch/touch-piano.png","Logo (V2): Touch sensor; Pins 0,1,2: Touch inputs; Capacitive: Senses skin","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/microbit-front.jpg | https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/microbit-back.jpg","MicroPython","from microbit import *
+
+while True:
+    if pin_logo.is_touched():
+        display.show(Image.YES)","JavaScript","input.onLogoEvent(TouchButtonEvent.Touched, function () {
+    basic.showIcon(IconNames.Yes)
+})","","","pin_logo.is_touched() works on the micro:bit V2. For pins, set the mode first, e.g. pin0.set_touch_mode(pin0.CAPACITIVE) .","","","pin_logo.is_touched(): V2 logo touch; pin0 pin1 pin2: Touch-capable pins; set_touch_mode(CAPACITIVE): Sense skin, not wires; Logo touch: V2 only","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/capacitive-touch/microbit-capacitive-touch.html"
+"micro:bit","","micro:bit Edge Connector Pins","Connect, Detect / Do","The gold edge connector pins let your micro:bit talk to extra circuits and parts.
+Some pins can read sensors, buttons, or dials. Pins can also turn things on and off.
+Use the pins with LEDs, buzzers, motors, sensors, and your own strange inventions.","External LED","Button A is pressed","Light should turn on","Send power to a pin","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/edge-connector-pins/external-led.png","Grumpy desk plant","Sensor value changes","Plant is thirsty","Show a warning face","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/edge-connector-pins/analog-sensor.png","P0 P1 P2: Large touch pins; 3V + GND: Power for circuits; Analog: Read changing values","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/edge-connector-pins/edge-pins.png","MicroPython","from microbit import *
+
+while True:
+    pin0.write_digital(button_a.is_pressed())
+
+    if pin1.read_analog() > 600:
+        display.show(Image.YES)","JavaScript","basic.forever(function () {
+    if (input.buttonIsPressed(Button.A)) {
+        pins.digitalWritePin(DigitalPin.P0, 1)
+    } else {
+        pins.digitalWritePin(DigitalPin.P0, 0)
+    }
+
+    if (pins.analogReadPin(AnalogPin.P1) > 600) {
+        basic.showIcon(IconNames.Yes)
+    }
+})","","","Always connect GND too. Use write_digital() for on/off parts and read_analog() for sensors that give changing values.","","","pin0, pin1, pin2: The big edge connector pins; write_digital(1): Turn a pin on; read_analog(): Read a value from 0 to 1023; 3V + GND: Power and return path","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/edge-connector-pins/microbit-edge-connector-pins.html"
+"micro:bit","","micro:bit I2C","Connect, Data","I2C lets your micro:bit talk to smart modules using two data wires.
+Lots of sensors and small displays use I2C. Each device has an address.
+Use I2C when a module needs more than simple on/off pin control.","Tiny display","Value changes","What to show","Update the screen","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/i2c/oled-display.png","Desk weather station","Sensor sends data","Desk weather mood","Show an icon","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/i2c/environment-sensor.png","SDA: Data wire; SCL: Clock wire; Address: Device number","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/i2c/i2c-module.png","MicroPython","from microbit import *
+
+devices = i2c.scan()
+display.show(len(devices))
+
+if devices:
+    display.show(Image.YES)","JavaScript","let value = pins.i2cReadNumber(32, NumberFormat.UInt8BE)
+basic.showNumber(value)","","","i2c.scan() is a handy first test in MicroPython. Check your module's address and voltage before sending commands.","","","i2c.scan(): Find connected I2C devices; SDA + SCL: The two I2C data wires; Address: The device you are talking to; 3V + GND: Power for the module","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/i2c/microbit-i2c.html"
+"micro:bit","","LDR","Detect, Level","An LDR is a light sensor that tells your project how bright or dark it is.
+LDR stands for light dependent resistor. Its resistance changes when more or less light falls on the sensor face.
+With a micro:bit, you read the LDR on an analog pin to get a light level.","Automatic night light","Pin light reading","Room is dark","Turn on a light","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/ldr/automatic-night-light.png","Greenhouse grow light","Plant light level","Plants are too shaded","Turn on a grow light","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/ldr/greenhouse-grow-light.png","Sensor face: Detects light; Track: Changes resistance; Legs: Connect to circuit","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/ldr/ldr.png","MicroPython","from microbit import *
+
+while True:
+    brightness = pin0.read_analog()
+    display.scroll(brightness)","JavaScript","basic.forever(function () {
+    let brightness = pins.analogReadPin(AnalogPin.P0)
+    basic.showNumber(brightness)
+})","","","pin0.read_analog() returns a value from 0 to 1023. Use brightness in your Decide code to react to light or dark.","3V → LDR → P0 | P0 → 10k resistor → GND","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/ldr/microbit-ldr.html"
+"micro:bit","","LED","Do, Light","An LED is a tiny light that your code can switch on, switch off, or blink.
+LED stands for light-emitting diode. It glows when electricity flows the right way through it, so the long leg and short leg matter.
+With a micro:bit, you connect an LED to a pin and switch it on and off in your code.","Mini traffic light","Timer reaches stop point","Cars must stop now","Turn on red LED","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/led/mini-traffic-light.png","Motion sensor light","Movement near the sensor","Someone has arrived","Turn on the LED","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/led/motion-sensor-light.png","Anode: Long leg; Cathode: Short leg; Resistor: Protects LED","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/led/led.png","MicroPython","from microbit import *
+
+pin0.write_digital(1)
+sleep(500)
+pin0.write_digital(0)","JavaScript","pins.digitalWritePin(DigitalPin.P0, 1)
+basic.pause(500)
+pins.digitalWritePin(DigitalPin.P0, 0)","","","Use pin0.write_digital(1) to turn the LED on and pin0.write_digital(0) to turn it off.","P0 → resistor → LED + (long leg) | LED − (short leg) → GND","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/led/microbit-led.html"
+"micro:bit","","micro:bit Light Sensor","Detect, Level","The micro:bit can sense light using its LED display as a light sensor.
+It gives a light level from 0 (dark) up to 255 (bright).
+Your projects can react to daylight, shadows, or a torch shining on the screen.","Night light","Room light level","The room is dark","Light up the display","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/light-sensor/night-light.png","Shadow alarm","Light level","A shadow falls over it","Play a sound","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/light-sensor/shadow-alarm.png","LED display: Senses light; Range: 0 to 255; No extra parts: Built in","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/microbit-front.jpg | https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/microbit-back.jpg","MicroPython","from microbit import *
+
+while True:
+    level = display.read_light_level()
+    display.scroll(level)","JavaScript","basic.forever(function () {
+    let level = input.lightLevel()
+    basic.showNumber(level)
+})","","","Use display.read_light_level() to briefly use the LEDs to measure light and return a value from 0 to 255. Point the front of the micro:bit at the light.","","","read_light_level(): Light level 0 to 255; 0 = dark: 255 = bright; Uses the display: The 25 LEDs sense the light; Built in: No wiring needed","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/light-sensor/microbit-light-sensor.html"
+"micro:bit","","Line Sensor","Detect, Surface","A line sensor shines infrared light down and measures how much bounces back.
+A dark line reflects little light and a pale surface reflects a lot, so the sensor can tell them apart.
+With a micro:bit, you read the sensor on a pin to follow lines or spot edges.","Line-following buggy","Surface under the sensor","On the line or off it","Steer back to the line","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/line-sensor/line-following-buggy.png","Edge stopper","Surface ahead","Table edge reached","Stop the motors","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/line-sensor/edge-stopper.png","IR LED: Shines light; Detector: Reads reflection; OUT: To a pin","","MicroPython","from microbit import *
+
+while True:
+    on_line = pin0.read_digital()
+    display.scroll(on_line)","JavaScript","basic.forever(function () {
+    let onLine = pins.digitalReadPin(DigitalPin.P0)
+    basic.showNumber(onLine)
+})","","","Most modules output digital (1 and 0 for line and no line). Some have an analog output — read it with read_analog() instead. Adjust the module's sensitivity screw.","VCC → 3V | OUT → P0 | GND → GND","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/line-sensor/microbit-line-sensor.html"
+"micro:bit","","micro:bit Magnetometer","Detect, Direction","The magnetometer measures magnetic fields, which lets the micro:bit work as a compass.
+It can tell you the heading in degrees, where 0 means north.
+It also senses strong magnets that are held nearby.","Digital compass","The compass heading","Which way is north","Point an arrow north","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/magnetometer/digital-compass.png","Magnet detector","Magnetic field strength","A magnet is close","Light the display","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/magnetometer/magnet-detector.png","Heading: 0 to 359°; Compass: 0 is north; Calibrate: Tilt to start","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/microbit-front.jpg | https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/microbit-back.jpg","MicroPython","from microbit import *
+
+compass.calibrate()
+while True:
+    heading = compass.heading()
+    display.scroll(heading)","JavaScript","basic.forever(function () {
+    let heading = input.compassHeading()
+    basic.showNumber(heading)
+})","","","Call compass.calibrate() first and tilt the micro:bit to fill the screen. compass.heading() returns 0 to 359 degrees.","","","compass.heading(): Direction 0 to 359°; compass.calibrate(): Do this first; get_field_strength(): How strong the field is; 0° = north: Built in","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/magnetometer/microbit-magnetometer.html"
+"micro:bit","","micro:bit LED Matrix","Do, Light","The micro:bit has a 5×5 grid of 25 red LEDs on the front, called the display.
+Your code can show numbers, letters, pictures, or scroll messages across it.
+Each LED can be set to a brightness from 0 (off) to 9 (brightest).","Mood badge","A button is pressed","Which mood to show","Show a happy or sad face","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/matrix/mood-badge.png","Dice roll","The micro:bit is shaken","Pick a number 1 to 6","Show the number","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/matrix/dice-roll.png","25 LEDs: Red lights; 5 × 5 grid: Rows and columns; Brightness: 0 to 9","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/microbit-front.jpg | https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/microbit-back.jpg","MicroPython","from microbit import *
+
+display.show(Image.HEART)
+sleep(1000)
+display.scroll(""Hi!"")","JavaScript","basic.showIcon(IconNames.Heart)
+basic.pause(1000)
+basic.showString(""Hi!"")","","","Use set_pixel(x, y, b) to light one LED, where x and y are 0 to 4 and b is the brightness 0 to 9.","","","display.show(Image.HEART): Show a built-in picture; display.scroll(""Hi!""): Scroll text across the grid; set_pixel(x, y, 0-9): Light a single LED; 25 LEDs: A 5 × 5 grid, brightness 0–9","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/matrix/microbit-matrix.html"
+"micro:bit","","Motor Driver","Do, Motor","A motor driver board lets your micro:bit control motors that need more power than a pin can supply.
+The micro:bit sends low-power signals and the driver switches the larger motor current from its own battery.
+With a micro:bit, you set direction with digital pins and speed with a PWM (analog) pin.","Robot buggy","Start button pressed","Time to move","Drive the motors forward","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/motor-driver/robot-buggy.png","Spinning display","Timer tick","Turntable should turn","Run the motor","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/motor-driver/spinning-display.png","IN1, IN2: Direction; Motor A/B: To the motors; VM: Motor power in; GND: Shared ground","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/motor-driver/motor-controller.png","MicroPython","from microbit import *
+
+# motor forward at about 70% speed
+pin0.write_analog(700)
+pin1.write_digital(0)","JavaScript","// motor forward at about 70% speed
+pins.analogWritePin(AnalogPin.P0, 700)
+pins.digitalWritePin(DigitalPin.P1, 0)","","","Power the motors from the driver board's own battery, never from the micro:bit. Many driver boards have a MakeCode extension with ready-made motor blocks. Use pin0.write_analog() to set the motor speed.","P0 → IN1 (PWM) | P1 → IN2 | battery → VM | GND → GND","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/motor-driver/microbit-motor-driver.html"
+"micro:bit","","micro:bit NeoPixel","Do, Light","NeoPixels are colourful LEDs that your micro:bit can control one at a time.
+A strip or ring uses one data pin, plus power and ground.
+Use them for status lights, glowing signs, rainbow effects, or wearable sparkle.","Rainbow light","Button A is pressed","Next colour pattern","Update the LEDs","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/neopixel/rainbow-light.png","Tiny disco badge","micro:bit is shaken","Party mode begins","Flash rainbow pixels","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/neopixel/wearable-badge.png","DIN: Data input pin; RGB: Red, green, blue; Power: Check voltage first","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/neopixel/neopixel-strip.png","MicroPython","from microbit import *
+import neopixel
+
+strip = neopixel.NeoPixel(pin0, 8)
+
+strip[0] = (255, 0, 0)
+strip[1] = (0, 255, 0)
+strip[2] = (0, 0, 255)
+strip.show()","JavaScript","let strip = neopixel.create(DigitalPin.P0, 8, NeoPixelMode.RGB)
+
+strip.setPixelColor(0, neopixel.colors(NeoPixelColors.Red))
+strip.setPixelColor(1, neopixel.colors(NeoPixelColors.Green))
+strip.setPixelColor(2, neopixel.colors(NeoPixelColors.Blue))
+strip.show()","","","In MakeCode, add the NeoPixel extension first. NeoPixels often need more power than the micro:bit can safely provide, so check the strip and share GND .","","","NeoPixel(pin0, 8): 8 pixels on pin 0; (255, 0, 0): Red, green, blue values; strip.show(): Send colours to the LEDs; GND: Must be shared with the strip","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/neopixel/microbit-neopixel.html"
+"micro:bit","","Piezo Buzzer","Do, Sound","A piezo buzzer is a small part that makes a buzz or beep when your code turns it on.
+It turns electrical energy into vibration, which makes a sound you can hear without a screen or lights.
+With a micro:bit, you play tones through a pin connected to the buzzer.","Sound alert","Program needs to alert","User must hear it now","Beep the buzzer","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/piezo-buzzer/sound-alert.png","Safety warning alarm","Unsafe machine state","People must stay back","Sound the buzzer","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/piezo-buzzer/safety-warning-alarm.png","Positive: Signal side; Negative: Ground side; Sound hole: Lets sound out","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/piezo-buzzer/piezo-buzzer.png","MicroPython","import music
+from microbit import *
+
+music.pitch(440, 500, pin0)","JavaScript","pins.analogSetPitchPin(AnalogPin.P0)
+music.playTone(262, music.beat(BeatFraction.Whole))","","","Set the pitch pin to P0 so tones play through the external buzzer, then use music.pitch() or music.play() for tunes.","P0 → buzzer + | buzzer − → GND","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/piezo-buzzer/microbit-piezo-buzzer.html"
+"micro:bit","","PIR Sensor","Detect, Motion","A PIR sensor tells your project when something warm moves nearby.
+PIR stands for passive infrared. It detects changes in infrared energy, so it is good at noticing people moving.
+With a micro:bit, you read the sensor's output on a digital pin.","Automatic hallway light","Person moving past","Someone has arrived","Turn on a light","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/pir/automatic-hallway-light.png","Security alarm","Movement in the room","Alarm should trigger","Sound a warning","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/pir/security-alarm.png","Dome: Senses movement; Pins: VCC OUT GND; Adjusters: Time and range","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/pir/pir.png","MicroPython","from microbit import *
+
+while True:
+    if pin0.read_digital():
+        display.show(Image.YES)","JavaScript","basic.forever(function () {
+    if (pins.digitalReadPin(DigitalPin.P0) == 1) {
+        basic.showIcon(IconNames.Yes)
+    }
+})","","","pin0.read_digital() is 1 when movement is detected. Many PIR modules need 5V power and a short warm-up after switching on.","VCC → 3V | OUT → P0 | GND → GND","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/pir/microbit-pir.html"
+"micro:bit","","Potentiometer","Detect, Level","A potentiometer is a knob that changes its resistance as you turn it.
+Wired as a voltage divider, it gives the micro:bit a value that rises and falls as you turn it.
+With a micro:bit, you read it on an analog pin to get a number from 0 to 1023.","Volume dial","Knob position","How loud it should be","Set the buzzer pitch","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/potentiometer/volume-dial.png","Brightness slider","Knob position","How bright it should be","Set the LED brightness","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/potentiometer/brightness-slider.png","Two ends: 3V and GND; Wiper: To analog pin; Range: 0 to 1023","","MicroPython","from microbit import *
+
+while True:
+    value = pin0.read_analog()
+    display.scroll(value)","JavaScript","basic.forever(function () {
+    let value = pins.analogReadPin(AnalogPin.P0)
+    basic.showNumber(value)
+})","","","pin0.read_analog() returns 0 at one end and 1023 at the other. Only P0, P1 and P2 can read analog values.","3V → one end | wiper → P0 | GND → other end","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/potentiometer/microbit-potentiometer.html"
+"micro:bit","","micro:bit Radio","Connect, Receive","The radio lets two or more micro:bits talk to each other wirelessly.
+micro:bits set to the same group number can send and receive short messages.
+Your projects can build chat tools, remote controls, or multiplayer games.","Wireless hello","Button A is pressed","Time to send","Send hello to others","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/radio/wireless-hello.png","Remote light","A radio message arrives","Message says on","Light the display","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/radio/remote-light.png","Group: Channel 0–255; send(): Transmit; receive(): Listen","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/microbit-front.jpg | https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/microbit-back.jpg","MicroPython","import radio
+from microbit import *
+
+radio.on()
+radio.config(group=23)
+
+while True:
+    if button_a.was_pressed():
+        radio.send(""hello"")
+    msg = radio.receive()","JavaScript","radio.setGroup(23)
+input.onButtonPressed(Button.A, function () {
+    radio.sendString(""hello"")
+})
+radio.onReceivedString(function (receivedString) {
+    basic.showString(receivedString)
+})","","","All micro:bits must use the same group number to hear each other. Call radio.on() before sending or receiving.","","","radio.on(): Turn the radio on; radio.config(group=23): Same group to connect; send() / receive(): Talk wirelessly; Built in: No wiring needed","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/radio/microbit-radio.html"
+"micro:bit","","RGB LED","Do, Colour","An RGB LED is three coloured lights — red, green and blue — built into one part.
+By mixing how bright each colour is, your code can make almost any colour.
+With a micro:bit, you connect the three colour legs to the three PWM pins and set each level.","Mood lamp","Button is pressed","Which colour to show","Mix red, green and blue","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/rgb-led/mood-lamp.png","Status light","System state","OK, warning or error","Show green, amber or red","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/rgb-led/status-light.png","Red leg: P0; Green leg: P1; Blue leg: P2; Common: 3V or GND","","MicroPython","from microbit import *
+
+pin0.write_analog(1023)  # red
+pin1.write_analog(400)   # green
+pin2.write_analog(0)     # blue","JavaScript","pins.analogWritePin(AnalogPin.P0, 1023)
+pins.analogWritePin(AnalogPin.P1, 400)
+pins.analogWritePin(AnalogPin.P2, 0)","","","Each colour uses a PWM pin (P0, P1, P2) — that is all three of the micro:bit's analog outputs. Add a resistor on each leg; for a common-anode LED, pin0.write_analog() with 0 is brightest.","P0 → R | P1 → G | P2 → B | common → GND or 3V","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/rgb-led/microbit-rgb-led.html"
+"micro:bit","","micro:bit Servo","Do, Motion","A servo motor turns to a position you choose, instead of spinning forever.
+Your micro:bit sends a timed signal to the servo using one pin.
+Use servos for robot arms, pointers, locks, gates, flaps, and wobbly creatures.","Robot arm","Button A is pressed","Arm should lift","Move the servo","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/servo/robot-arm.png","Dinosaur gate","A toy arrives","Dino may pass","Raise the barrier","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/servo/automatic-gate.png","Signal: One control pin; Angle: Usually 0 to 180; Power: Often external","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/servo/servo-motor.png","MicroPython","from microbit import *
+
+pin0.set_analog_period(20)
+
+pin0.write_analog(51)
+sleep(1000)
+pin0.write_analog(77)
+sleep(1000)
+pin0.write_analog(102)","JavaScript","pins.servoWritePin(AnalogPin.P0, 0)
+basic.pause(1000)
+pins.servoWritePin(AnalogPin.P0, 90)
+basic.pause(1000)
+pins.servoWritePin(AnalogPin.P0, 180)","","","Servos can pull more current than a micro:bit pin can provide. Use a suitable power supply for the servo and connect the servo GND to the micro:bit GND .","","","servoWritePin: MakeCode servo angle command; set_analog_period(20): 20 ms servo pulse timing; Signal wire: Connects to a pin; Shared GND: Needed with external power","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/servo/microbit-servo.html"
+"micro:bit","","micro:bit Speaker","Do, Sound","The micro:bit V2 has a tiny speaker built in, so it can make sounds and play tunes with no extra parts.
+Your code can play built-in melodies, single notes, or fun sound effects.
+Your projects can use sound for alarms, music, games, or feedback.","Egg timer","A countdown reaches zero","The time is up","Play an alarm tune","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/speaker/egg-timer.png","Game point","The player scores","A point was won","Play a happy sound","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/speaker/game-point.png","Speaker (V2): Built-in buzzer; music: Tunes and notes; Pin 0: Headphones on V1","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/microbit-front.jpg | https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/microbit-back.jpg","MicroPython","import music
+from microbit import *
+
+music.play(music.POWER_UP)
+sleep(500)
+music.pitch(440, 500)","JavaScript","music.playTone(262, music.beat(BeatFraction.Whole))
+music.startMelody(music.builtInMelody(Melodies.PowerUp), MelodyOptions.Once)","","","The built-in speaker is on the micro:bit V2. On a V1, connect a buzzer or headphones to pin0 and GND .","","","import music: Sounds and tunes; music.play(music.POWER_UP): Play a built-in melody; music.pitch(440, 500): A note for a number of ms; Speaker: Built in on V2, pin 0 on V1","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/speaker/microbit-speaker.html"
+"micro:bit","","micro:bit SPI","Connect, Fast Data","SPI is a fast way for your micro:bit to send data to modules.
+It uses a clock wire, data wires, and usually a chip select pin.
+Use SPI with displays, memory modules, LED drivers, and other speedy parts.","Tiny game screen","Player moves","New game picture","Send screen data","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/spi/tiny-screen.png","Snack scoreboard","Toy animal arrives","Snack score changes","Refresh the display","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/spi/snack-scoreboard.png","SCK: Clock wire; MOSI/MISO: Data wires; CS: Choose device","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/spi/spi-module.png","MicroPython","from microbit import *
+
+spi.init(baudrate=1000000)
+
+pin0.write_digital(0)
+spi.write(b'\x00')
+pin0.write_digital(1)","JavaScript","pins.spiPins(DigitalPin.P15, DigitalPin.P14, DigitalPin.P13)
+
+pins.digitalWritePin(DigitalPin.P0, 0)
+pins.spiWrite(0)
+pins.digitalWritePin(DigitalPin.P0, 1)","","","SPI modules often need their own setup rules. Match the module's pins, speed, and chip select wiring before sending data.","","","spi.init(): Set up SPI in MicroPython; spi.write(): Send bytes to a module; SCK / MOSI / MISO: Clock and data wires; CS: Chip select pin","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/spi/microbit-spi.html"
+"micro:bit","","Stepper Motor","Do, Motion","A stepper motor moves in small exact steps instead of spinning freely.
+This lets your project turn something to a precise position, like a dial or a pointer.
+With a micro:bit, you drive it through a small driver board such as a ULN2003.","Pointer dial","A new value","Where the pointer goes","Step the motor there","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/stepper/pointer-dial.png","Tiny lift","Button press","Which floor","Step the lift up or down","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/stepper/tiny-lift.png","Coils: Four windings; Driver: ULN2003 board; Steps: Exact moves; Power: Motor supply","","MicroPython","from microbit import *
+
+coils = [pin0, pin1, pin2, pin8]
+seq = [(1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0, 1)]
+
+while True:
+    for step in seq:
+        for i in range(4):
+            coils[i].write_digital(step[i])
+        sleep(3)","JavaScript","let coils = [DigitalPin.P0, DigitalPin.P1, DigitalPin.P2, DigitalPin.P8]
+let seq = [[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]
+basic.forever(function () {
+    for (let s = 0; s < 4; s++) {
+        for (let i = 0; i < 4; i++) {
+            pins.digitalWritePin(coils[i], seq[s][i])
+        }
+        basic.pause(3)
+    }
+})","","","Step through the four coils in order to turn the motor. A ULN2003 driver board and its own power supply do the heavy lifting.","P0–P2, P8 → ULN2003 IN1–IN4 | driver → motor | battery → driver power","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/stepper/microbit-stepper.html"
+"micro:bit","","micro:bit Temperature","Detect, Level","The micro:bit can measure temperature in degrees Celsius using a sensor on its main chip.
+It reads the temperature of the board, which is usually close to the room temperature.
+Your projects can react to warm or cold, log readings, or warn about heat.","Too hot warning","The temperature","It is above 30°C","Show a warning face","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/temperature/too-hot-warning.png","Weather logger","Temperature each minute","Time to record","Save the reading","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/temperature/weather-logger.png","°C: Degrees Celsius; On the chip: Senses board heat; No extra parts: Built in","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/microbit-front.jpg | https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/microbit-back.jpg","MicroPython","from microbit import *
+
+while True:
+    temp = temperature()
+    display.scroll(temp)","JavaScript","basic.forever(function () {
+    let temp = input.temperature()
+    basic.showNumber(temp)
+})","","","temperature() returns the chip temperature in °C. It can read a little high because it senses the board, not the air.","","","temperature(): Degrees Celsius; On the chip: Reads the board's heat; Reads a bit high: Board is warmer than air; Built in: No wiring needed","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/temperature/microbit-temperature.html"
+"micro:bit","","Tilt Switch","Detect, Motion","A tilt switch is a small switch that turns on or off when it is tipped.
+Inside is usually a tiny ball that rolls to make or break the connection.
+With a micro:bit, you read it on a pin, just like a button.","Shake to wake","Tilt changes","It has been moved","Wake up the display","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/tilt-switch/shake-to-wake.png","Tip-over alarm","Tilt state","It tipped over","Sound an alarm","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/tilt-switch/tip-over-alarm.png","Ball: Rolls inside; Contacts: Open or closed; Legs: To a pin and GND","","MicroPython","from microbit import *
+
+pin0.set_pull(pin0.PULL_UP)
+while True:
+    if pin0.read_digital() == 0:
+        display.show(Image.ANGRY)","JavaScript","pins.setPull(DigitalPin.P0, PinPullMode.PullUp)
+basic.forever(function () {
+    if (pins.digitalReadPin(DigitalPin.P0) == 0) {
+        basic.showIcon(IconNames.Angry)
+    }
+})","","","A tilt switch reads like a button: set a pull-up and watch the contact open and close as it tips.","P0 → one leg | other leg → GND | pull-up set in code","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/tilt-switch/microbit-tilt-switch.html"
+"micro:bit","","Toggle Switch","Detect, State","A toggle or slide switch stays in the position you leave it — on or off.
+Unlike a button, it does not spring back, so it remembers its setting.
+With a micro:bit, you read it on a pin to choose a mode or turn things on and off.","Mode selector","Switch position","Which mode","Run that mode","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/toggle-switch/mode-selector.png","Power lever","Switch state","On or off","Start or stop the project","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/toggle-switch/power-lever.png","Two positions: On and off; Stays put: No spring back; Legs: To a pin and GND","","MicroPython","from microbit import *
+
+pin0.set_pull(pin0.PULL_UP)
+while True:
+    if pin0.read_digital() == 1:
+        display.show(""1"")
+    else:
+        display.show(""0"")","JavaScript","pins.setPull(DigitalPin.P0, PinPullMode.PullUp)
+basic.forever(function () {
+    if (pins.digitalReadPin(DigitalPin.P0) == 1) {
+        basic.showString(""1"")
+    } else {
+        basic.showString(""0"")
+    }
+})","","","A toggle switch holds its state, so the pin stays HIGH or LOW until you flip it. Set a pull-up and read it as digital.","P0 → one leg | other leg → GND | pull-up set in code","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/toggle-switch/microbit-toggle-switch.html"
+"micro:bit","","micro:bit UART","Connect, Serial","UART is a simple serial link that sends messages one bit after another.
+Your micro:bit can use a TX pin to send and an RX pin to listen.
+Use UART with GPS receivers, other boards, serial modules, or computer messages.","Treasure map tracker","GPS sends a line","Position has changed","Show a clue","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/uart/gps-receiver.png","Secret hello wire","Message arrives","Secret is received","Blink a spy signal","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/uart/serial-message.png","TX: Sends data; RX: Receives data; Baud: Message speed","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/uart/uart-module.png","MicroPython","from microbit import *
+
+uart.init(baudrate=9600, tx=pin0, rx=pin1)
+uart.write('hello\n')
+
+if uart.any():
+    message = uart.readline()
+    display.show(Image.YES)","JavaScript","serial.redirect(
+    SerialPin.P0,
+    SerialPin.P1,
+    BaudRate.BaudRate9600
+)
+serial.writeLine(""hello"")","","","For many serial modules, connect the module's TX to the micro:bit's RX , and the module's RX to the micro:bit's TX . Share GND too.","","","uart.init(..., tx, rx): Set speed and pins; uart.write(): Send text or bytes; uart.readline(): Read a line of data; TX + RX: Transmit and receive pins","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/uart/microbit-uart.html"
+"micro:bit","","Ultrasonic Distance Sensor","Detect, Level","A distance sensor measures how far away something is without touching it.
+It works a bit like a bat, sending out sound and listening for the echo to bounce back.
+With a micro:bit, the MakeCode sonar extension reads the distance from a trigger and an echo pin.","Car reversing sensor","Distance to the wall","Wall is closer than 0.5 m","Turn on a beeper","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/uds/car-reversing-sensor.png","Magic treasure chest","Hand distance to chest","Hand is close enough","Light an LED","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/uds/magic-treasure-chest.png","VCC: Power; Trig: Sends pulse; Echo: Gets echo; GND: Ground","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/uds/ultrasonic-distance-sensor.png","MicroPython","from microbit import *
+from machine import time_pulse_us
+
+pin0.write_digital(0)
+pin0.write_digital(1)
+pin0.write_digital(0)
+duration = time_pulse_us(pin1, 1)
+distance = duration / 58","JavaScript","basic.forever(function () {
+    let distance = sonar.ping(
+        DigitalPin.P0,
+        DigitalPin.P1,
+        PingUnit.Centimeters
+    )
+    basic.showNumber(distance)
+})","","","In MakeCode, add the sonar extension first. Use distance in your Decide code to make the project react.","Trig → P0 | Echo → P1 | VCC → 3V | GND → GND","","","https://github.com/raspberrypilearning/skills-bricks/blob/master/microbit/uds/microbit-uds.html"
