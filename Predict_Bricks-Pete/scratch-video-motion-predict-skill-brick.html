@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scratch Video Motion Predict Skill Brick</title>
+  <link rel="stylesheet" href="../skill-brick.css" />
+</head>
+<body class="theme-predict">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>Scratch Video Motion</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Predict</span>
+          <span class="tag">Webcam</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>Scratch Video Motion lets a Scratch project watch movement through the webcam.</p>
+        <p>It does not know what the moving thing is. It gives a motion score your project can treat as a prediction.</p>
+        <p>Your projects can use motion to react to waving, jumping, speedy hands, or a very dramatic entrance.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card predict-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for wave-to-start game image">
+              <strong>Placeholder</strong>
+              <span>Wave-to-start game image</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Wave-to-start game</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Webcam movement</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-predict"><strong>Predict</strong>Motion is high</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Start sprite game</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card predict-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for invisible dance judge image">
+              <strong>Placeholder</strong>
+              <span>Invisible dance judge image</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Invisible dance judge</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Wild arm wave</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-predict"><strong>Predict</strong>Motion is huge</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Add sparkle points</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel predict-model-panel">
+      <div class="model-window" aria-label="Scratch Video Motion model">
+        <div class="model-screen">
+          <div class="model-screen-title">Motion: high</div>
+          <div class="confidence-meter" aria-label="82 percent confidence">
+            <span style="width: 82%;"></span>
+          </div>
+          <div class="prediction-output">
+            <span>Confidence</span>
+            <strong>82%</strong>
+          </div>
+        </div>
+
+        <div class="part-strip" aria-label="Scratch Video Motion parts">
+          <div class="part"><strong>Detect</strong><span>Webcam</span></div>
+          <div class="part"><strong>Predict</strong><span>Motion level</span></div>
+          <div class="part"><strong>Check</strong><span>Confidence</span></div>
+          <div class="part"><strong>Do</strong><span>Sprite reacts</span></div>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Build</h1>
+
+      <section class="code-block">
+        <h2>Try</h2>
+        <ul class="model-steps">
+          <li><strong>Turn on</strong>Add the video sensing blocks and let the webcam see you.</li>
+          <li><strong>Test</strong>Move slowly, then quickly. Watch the motion score change.</li>
+          <li><strong>Trigger</strong>Pick a score that only fires when the movement feels big enough.</li>
+        </ul>
+      </section>
+
+      <section class="code-block">
+        <h2>Block pattern</h2>
+        <pre><code>DETECT webcam motion
+PREDICT high or low motion
+IF confidence &gt; 70%
+DO make sprite react</code></pre>
+      </section>
+
+      <div class="note">Start around 70%. Lower it if nothing fires; raise it if every tiny wiggle sets it off.</div>
+    </main>
+
+    <aside class="panel wiring-panel">
+      <h1>Check</h1>
+
+      <div class="threshold-grid">
+        <section class="threshold-card">
+          <h2>What is it detecting?</h2>
+          <p>Motion scores change with movement, light, background, and how close you are to the camera.</p>
+        </section>
+
+        <section class="threshold-card">
+          <h2>Project sparks</h2>
+          <div class="mini-flow">
+            <span>Doodle detector</span>
+            <span>Fish food controller</span>
+            <span>Chomp-the-cheese sprite chase</span>
+          </div>
+        </section>
+      </div>
+    </aside>
+  </section>
+</body>
+</html>

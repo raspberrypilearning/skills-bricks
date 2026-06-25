@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teachable Machine Image Predict Skill Brick</title>
+  <link rel="stylesheet" href="../skill-brick.css" />
+</head>
+<body class="theme-predict">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>Teachable Machine Image</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Predict</span>
+          <span class="tag">Image</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>Teachable Machine Image lets you train image classes in the browser.</p>
+        <p>It looks through the webcam and predicts a class with a confidence score.</p>
+        <p>Your projects can use that class to trigger an exported project, a webpage, or a Scratch-style action.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card predict-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for fruit checker image">
+              <strong>Placeholder</strong>
+              <span>Fruit checker image</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Fruit checker</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Webcam fruit</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-predict"><strong>Predict</strong>Apple or tomato</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Show label</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card predict-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for spoon or spaceship image">
+              <strong>Placeholder</strong>
+              <span>Spoon or spaceship image</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Spoon or spaceship</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Object close-up</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-predict"><strong>Predict</strong>Tool or toy</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Announce drama</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel predict-model-panel">
+      <div class="model-window" aria-label="Teachable Machine Image model">
+        <div class="model-screen">
+          <div class="model-screen-title">Class: tomato</div>
+          <div class="confidence-meter" aria-label="73 percent confidence">
+            <span style="width: 73%;"></span>
+          </div>
+          <div class="prediction-output">
+            <span>Confidence</span>
+            <strong>73%</strong>
+          </div>
+        </div>
+
+        <div class="part-strip" aria-label="Teachable Machine Image parts">
+          <div class="part"><strong>Detect</strong><span>Webcam</span></div>
+          <div class="part"><strong>Predict</strong><span>Class</span></div>
+          <div class="part"><strong>Check</strong><span>Percent</span></div>
+          <div class="part"><strong>Do</strong><span>Trigger</span></div>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Build</h1>
+
+      <section class="code-block">
+        <h2>Try</h2>
+        <ul class="model-steps">
+          <li><strong>Classes</strong>Make two or three image classes with clear names.</li>
+          <li><strong>Examples</strong>Record examples from different angles and distances.</li>
+          <li><strong>Test</strong>Move the object and background, then watch the confidence move too.</li>
+        </ul>
+      </section>
+
+      <section class="code-block">
+        <h2>Block pattern</h2>
+        <pre><code>DETECT webcam image
+PREDICT class + confidence
+IF confidence &gt; 75%
+DO exported trigger</code></pre>
+      </section>
+
+      <div class="note">A good model should handle normal messiness, not only the exact pose you used for examples.</div>
+    </main>
+
+    <aside class="panel wiring-panel">
+      <h1>Check</h1>
+
+      <div class="threshold-grid">
+        <section class="threshold-card">
+          <h2>Class balance</h2>
+          <p>Try giving each class a similar number of examples so one label does not win too easily.</p>
+        </section>
+
+        <section class="threshold-card">
+          <h2>Make it happen</h2>
+          <div class="mini-flow">
+            <span>Label changes a sprite</span>
+            <span>Confidence lights a meter</span>
+            <span>Export triggers code</span>
+          </div>
+        </section>
+      </div>
+    </aside>
+  </section>
+</body>
+</html>

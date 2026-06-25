@@ -24,8 +24,9 @@
 - Updated `index.html` to link all non-`microbit` brick pages, with a `Current Set` section and an `Other Versions To Compare` section.
 - Added shared index section styling to `skill-brick.css` so the catalogue can show current and comparison cards clearly.
 - Checked the `Decide` boxes and tightened the ones that did not clearly state the choice needed for the example.
+- Created Fritzing source files for each non-`microbit` wiring diagram.
 
 ## What Needs To Happen Next
 
-- Create Fritzing files for each wiring diagram, then use those files to create screenshots for the bricks.
+- Pete: use the Fritzing files to create screenshots for the wiring diagrams.
 - Check through any duplicates with the team to decide which alternate approaches should stay, change, or be removed.

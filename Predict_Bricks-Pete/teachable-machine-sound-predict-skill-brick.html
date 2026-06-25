@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teachable Machine Sound Predict Skill Brick</title>
+  <link rel="stylesheet" href="../skill-brick.css" />
+</head>
+<body class="theme-predict">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>Teachable Machine Sound</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Predict</span>
+          <span class="tag">Sound</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>Teachable Machine Sound learns from short microphone samples.</p>
+        <p>It predicts a sound class, such as clap, hello, knock, or background noise.</p>
+        <p>Your projects can use sound predictions to start actions without touching anything.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card predict-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for voice doorbell image">
+              <strong>Placeholder</strong>
+              <span>Voice doorbell image</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Voice doorbell</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Microphone</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-predict"><strong>Predict</strong>Hello or knock</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Play chime</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card predict-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for sneeze powered scoreboard image">
+              <strong>Placeholder</strong>
+              <span>Sneeze scoreboard image</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Sneeze powered scoreboard</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Weird sound</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-predict"><strong>Predict</strong>Achoo label</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Add point</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel predict-model-panel">
+      <div class="model-window" aria-label="Teachable Machine Sound model">
+        <div class="model-screen">
+          <div class="model-screen-title">Sound: hello</div>
+          <div class="confidence-meter" aria-label="84 percent confidence">
+            <span style="width: 84%;"></span>
+          </div>
+          <div class="prediction-output">
+            <span>Confidence</span>
+            <strong>84%</strong>
+          </div>
+        </div>
+
+        <div class="part-strip" aria-label="Teachable Machine Sound parts">
+          <div class="part"><strong>Detect</strong><span>Mic</span></div>
+          <div class="part"><strong>Predict</strong><span>Sound class</span></div>
+          <div class="part"><strong>Check</strong><span>Percent</span></div>
+          <div class="part"><strong>Do</strong><span>Trigger</span></div>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Build</h1>
+
+      <section class="code-block">
+        <h2>Try</h2>
+        <ul class="model-steps">
+          <li><strong>Noise</strong>Record background noise as its own class.</li>
+          <li><strong>Samples</strong>Record each sound a few different ways.</li>
+          <li><strong>Live test</strong>Try the model while people talk, laugh, and move around.</li>
+        </ul>
+      </section>
+
+      <section class="code-block">
+        <h2>Block pattern</h2>
+        <pre><code>DETECT microphone sound
+PREDICT sound class + confidence
+IF confidence &gt; 75%
+DO exported trigger</code></pre>
+      </section>
+
+      <div class="note">Background noise is not empty. It is a real sound class the model needs to understand.</div>
+    </main>
+
+    <aside class="panel wiring-panel">
+      <h1>Check</h1>
+
+      <div class="threshold-grid">
+        <section class="threshold-card">
+          <h2>Room test</h2>
+          <p>Try the same model in a quiet corner and in the middle of the room. Compare the confidence.</p>
+        </section>
+
+        <section class="threshold-card">
+          <h2>Make it happen</h2>
+          <div class="mini-flow">
+            <span>Clap changes scene</span>
+            <span>Word plays a note</span>
+            <span>Noise class does nothing</span>
+          </div>
+        </section>
+      </div>
+    </aside>
+  </section>
+</body>
+</html>

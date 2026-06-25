@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>micro:bit CreateAI Predict Skill Brick</title>
+  <link rel="stylesheet" href="../skill-brick.css" />
+</head>
+<body class="theme-predict">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>micro:bit CreateAI</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Predict</span>
+          <span class="tag">Movement</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>CreateAI uses micro:bit accelerometer examples to train movement labels.</p>
+        <p>It predicts the movement type, such as shake, tilt, spin, or still, with a confidence score.</p>
+        <p>Your projects can use the prediction to light LEDs, play sound, send radio, or control a pin.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card predict-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for gesture remote image">
+              <strong>Placeholder</strong>
+              <span>Gesture remote image</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Gesture remote</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Accelerometer</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-predict"><strong>Predict</strong>Shake or tilt</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>micro:bit output</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card predict-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for secret dance lock image">
+              <strong>Placeholder</strong>
+              <span>Secret dance lock image</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Secret dance lock</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Wiggle pattern</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-predict"><strong>Predict</strong>Magic wiggle</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Play unlock tune</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel predict-model-panel">
+      <div class="model-window" aria-label="micro:bit CreateAI model">
+        <div class="model-screen">
+          <div class="model-screen-title">Move: shake</div>
+          <div class="confidence-meter" aria-label="88 percent confidence">
+            <span style="width: 88%;"></span>
+          </div>
+          <div class="prediction-output">
+            <span>Confidence</span>
+            <strong>88%</strong>
+          </div>
+        </div>
+
+        <div class="part-strip" aria-label="micro:bit CreateAI parts">
+          <div class="part"><strong>Detect</strong><span>Accelerometer</span></div>
+          <div class="part"><strong>Predict</strong><span>Movement</span></div>
+          <div class="part"><strong>Check</strong><span>Percent</span></div>
+          <div class="part"><strong>Do</strong><span>Output</span></div>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Build</h1>
+
+      <section class="code-block">
+        <h2>Try</h2>
+        <ul class="model-steps">
+          <li><strong>Record</strong>Choose three distinct movements and record examples for each one.</li>
+          <li><strong>Train</strong>Test the model with new movements, not only your neat examples.</li>
+          <li><strong>Wire</strong>Connect the prediction to LEDs, sounds, radio, or a buzzer.</li>
+        </ul>
+      </section>
+
+      <section class="code-block">
+        <h2>Block pattern</h2>
+        <pre><code>DETECT accelerometer
+PREDICT movement type + confidence
+IF confidence &gt; 70%
+DO micro:bit output</code></pre>
+      </section>
+
+      <div class="note">Make the movements really different at first. Tiny differences are harder for the model to separate.</div>
+    </main>
+
+    <aside class="panel wiring-panel">
+      <h1>Check</h1>
+
+      <div class="threshold-grid">
+        <section class="threshold-card">
+          <h2>Physical output</h2>
+          <p>A printed confidence score counts. An LED, buzzer, or radio message makes it feel real.</p>
+        </section>
+
+        <section class="threshold-card">
+          <h2>Make it happen</h2>
+          <div class="mini-flow">
+            <span>Shake lights LEDs</span>
+            <span>Tilt sends radio</span>
+            <span>Spin plays sound</span>
+          </div>
+        </section>
+      </div>
+    </aside>
+  </section>
+</body>
+</html>

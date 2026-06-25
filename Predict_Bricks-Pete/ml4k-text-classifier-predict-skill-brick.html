@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ML4K Text Classifier Predict Skill Brick</title>
+  <link rel="stylesheet" href="../skill-brick.css" />
+</head>
+<body class="theme-predict">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>ML4K Text Classifier</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Predict</span>
+          <span class="tag">Text</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>Machine Learning for Kids can learn from sentences you type.</p>
+        <p>It predicts a trained label, such as happy or sad, and gives a confidence score.</p>
+        <p>Your projects can use it when the meaning of a message is too fuzzy for one simple rule.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card predict-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for mood message helper image">
+              <strong>Placeholder</strong>
+              <span>Mood message helper image</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Mood message helper</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Typed message</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-predict"><strong>Predict</strong>Happy or sad</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Choose reply</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card predict-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for compliment-o-meter image">
+              <strong>Placeholder</strong>
+              <span>Compliment-o-meter image</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Compliment-o-meter</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Silly sentence</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-predict"><strong>Predict</strong>Praise or grumble</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Launch confetti</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel predict-model-panel">
+      <div class="model-window" aria-label="ML4K Text Classifier model">
+        <div class="model-screen">
+          <div class="model-screen-title">Label: happy</div>
+          <div class="confidence-meter" aria-label="81 percent confidence">
+            <span style="width: 81%;"></span>
+          </div>
+          <div class="prediction-output">
+            <span>Confidence</span>
+            <strong>81%</strong>
+          </div>
+        </div>
+
+        <div class="part-strip" aria-label="ML4K Text Classifier parts">
+          <div class="part"><strong>Detect</strong><span>Text input</span></div>
+          <div class="part"><strong>Predict</strong><span>Label</span></div>
+          <div class="part"><strong>Check</strong><span>Percent</span></div>
+          <div class="part"><strong>Do</strong><span>Scratch block</span></div>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Build</h1>
+
+      <section class="code-block">
+        <h2>Try</h2>
+        <ul class="model-steps">
+          <li><strong>Label</strong>Pick two classes, such as happy and sad messages.</li>
+          <li><strong>Examples</strong>Add 5 to 10 short sentences for each class.</li>
+          <li><strong>Test</strong>Try brand new sentences, not just the ones you typed before.</li>
+        </ul>
+      </section>
+
+      <section class="code-block">
+        <h2>Block pattern</h2>
+        <pre><code>DETECT typed text
+PREDICT trained label + confidence
+IF confidence &gt; 70%
+DO Scratch block fires</code></pre>
+      </section>
+
+      <div class="note">You cannot write rules for every happy sentence, but you can train a model to learn the pattern.</div>
+    </main>
+
+    <aside class="panel wiring-panel">
+      <h1>Check</h1>
+
+      <div class="threshold-grid">
+        <section class="threshold-card">
+          <h2>Tricky text</h2>
+          <p>Watch out for a model that only learns one word, such as happy, sad, yes, or no.</p>
+        </section>
+
+        <section class="threshold-card">
+          <h2>Better examples</h2>
+          <div class="mini-flow">
+            <span>Long and short sentences</span>
+            <span>Different words</span>
+            <span>A few confusing tests</span>
+          </div>
+        </section>
+      </div>
+    </aside>
+  </section>
+</body>
+</html>

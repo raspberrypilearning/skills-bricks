@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TensorFlow Python Predict Skill Brick</title>
+  <link rel="stylesheet" href="../skill-brick.css" />
+</head>
+<body class="theme-predict">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>TensorFlow Python</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Predict</span>
+          <span class="tag">Python</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>TensorFlow Python can use a camera, image, or sound model on a computer or Raspberry Pi.</p>
+        <p>It predicts an object, scene, or sound label with a confidence score.</p>
+        <p>Your projects can print the result, control GPIO, or send the prediction into another program.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card predict-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for AI camera light image">
+              <strong>Placeholder</strong>
+              <span>AI camera light image</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">AI camera light</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Camera image</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-predict"><strong>Predict</strong>Person label</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Turn LED on</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card predict-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for toast inspector image">
+              <strong>Placeholder</strong>
+              <span>Toast inspector image</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Toast inspector</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Camera toast</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-predict"><strong>Predict</strong>Burnt or okay</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Print toast drama</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel predict-model-panel">
+      <div class="model-window" aria-label="TensorFlow Python model">
+        <div class="model-screen">
+          <div class="model-screen-title">Object: person</div>
+          <div class="confidence-meter" aria-label="91 percent confidence">
+            <span style="width: 91%;"></span>
+          </div>
+          <div class="prediction-output">
+            <span>Confidence</span>
+            <strong>91%</strong>
+          </div>
+        </div>
+
+        <div class="part-strip" aria-label="TensorFlow Python parts">
+          <div class="part"><strong>Detect</strong><span>Camera</span></div>
+          <div class="part"><strong>Predict</strong><span>Object</span></div>
+          <div class="part"><strong>Check</strong><span>Percent</span></div>
+          <div class="part"><strong>Do</strong><span>GPIO / print</span></div>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Build</h1>
+
+      <section class="code-block">
+        <h2>Try</h2>
+        <ul class="model-steps">
+          <li><strong>Start</strong>Use a ready-made model first so the loop works quickly.</li>
+          <li><strong>Print</strong>Show the top label and confidence before connecting hardware.</li>
+          <li><strong>Trigger</strong>Only run the output when the confidence is high enough.</li>
+        </ul>
+      </section>
+
+      <section class="code-block">
+        <h2>Python pattern</h2>
+        <pre><code>DETECT camera frame
+PREDICT object label + confidence
+IF confidence &gt; 70%
+DO GPIO or print output</code></pre>
+      </section>
+
+      <div class="note">Printing the label is already a useful output. Add LEDs, buzzers, or GPIO once the prediction loop behaves.</div>
+    </main>
+
+    <aside class="panel wiring-panel">
+      <h1>Check</h1>
+
+      <div class="threshold-grid">
+        <section class="threshold-card">
+          <h2>Start simple</h2>
+          <p>A pre-trained camera model is a fast way to see Detect, Predict, Do in Python.</p>
+        </section>
+
+        <section class="threshold-card">
+          <h2>Make it happen</h2>
+          <div class="mini-flow">
+            <span>Person turns on LED</span>
+            <span>Dog prints a message</span>
+            <span>Low confidence waits</span>
+          </div>
+        </section>
+      </div>
+    </aside>
+  </section>
+</body>
+</html>

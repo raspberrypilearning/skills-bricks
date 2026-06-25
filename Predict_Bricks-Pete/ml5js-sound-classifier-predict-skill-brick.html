@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ml5.js Sound Classifier Predict Skill Brick</title>
+  <link rel="stylesheet" href="../skill-brick.css" />
+</head>
+<body class="theme-predict">
+  <!-- SIDE 1: DISCOVER -->
+  <section class="page side-1">
+    <main class="panel">
+      <section class="description">
+        <h1>ml5.js Sound Classifier</h1>
+
+        <div class="tags" aria-label="Skill Brick tags">
+          <span class="tag">Predict</span>
+          <span class="tag">p5.js</span>
+        </div>
+
+        <h2>What does it do?</h2>
+        <p>ml5.js can run a sound classifier inside a webpage.</p>
+        <p>It listens through the microphone and predicts a word or sound label with confidence.</p>
+        <p>Your p5.js sketches can use the prediction to draw, move, colour, or change a game.</p>
+      </section>
+
+      <section class="uses-section">
+        <h2>Uses</h2>
+
+        <article class="use-card predict-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for voice drawing brush image">
+              <strong>Placeholder</strong>
+              <span>Voice drawing brush image</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Voice drawing brush</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Microphone word</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-predict"><strong>Predict</strong>Colour word</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>p5.js draws</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-card predict-card">
+          <div class="use-image">
+            <div class="placeholder compact" role="img" aria-label="Placeholder for giggle powered weather image">
+              <strong>Placeholder</strong>
+              <span>Giggle weather image</span>
+            </div>
+          </div>
+          <div class="use-content">
+            <div class="use-title">Giggle powered weather</div>
+            <div class="flow-line">
+              <div class="flow-step flow-terminator"><strong>Detect</strong>Funny sound</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-predict"><strong>Predict</strong>Laugh label</div>
+              <div class="arrow">-&gt;</div>
+              <div class="flow-step flow-terminator"><strong>Do</strong>Rain shapes</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="panel component-panel predict-model-panel">
+      <div class="model-window" aria-label="ml5.js Sound Classifier model">
+        <div class="model-screen">
+          <div class="model-screen-title">Word: red</div>
+          <div class="confidence-meter" aria-label="72 percent confidence">
+            <span style="width: 72%;"></span>
+          </div>
+          <div class="prediction-output">
+            <span>Confidence</span>
+            <strong>72%</strong>
+          </div>
+        </div>
+
+        <div class="part-strip" aria-label="ml5.js Sound Classifier parts">
+          <div class="part"><strong>Detect</strong><span>Mic</span></div>
+          <div class="part"><strong>Predict</strong><span>Word</span></div>
+          <div class="part"><strong>Check</strong><span>Percent</span></div>
+          <div class="part"><strong>Do</strong><span>p5.js response</span></div>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- SIDE 2: BUILD -->
+  <section class="page side-2">
+    <main class="panel code-panel">
+      <h1>Build</h1>
+
+      <section class="code-block">
+        <h2>Try</h2>
+        <ul class="model-steps">
+          <li><strong>Load</strong>Use a sound model and allow the browser to use the microphone.</li>
+          <li><strong>Show</strong>Print the current label and confidence on the canvas.</li>
+          <li><strong>React</strong>Only change the sketch when the confidence is high enough.</li>
+        </ul>
+      </section>
+
+      <section class="code-block">
+        <h2>Code pattern</h2>
+        <pre><code>DETECT microphone
+PREDICT spoken word + confidence
+IF confidence &gt; 70%
+DO p5.js response</code></pre>
+      </section>
+
+      <div class="note">Keep the label visible while building. It helps you spot when the model is guessing wildly.</div>
+    </main>
+
+    <aside class="panel wiring-panel">
+      <h1>Check</h1>
+
+      <div class="threshold-grid">
+        <section class="threshold-card">
+          <h2>Live sketch</h2>
+          <p>The prediction can change colour, size, speed, sprites, sound, or any other p5.js variable.</p>
+        </section>
+
+        <section class="threshold-card">
+          <h2>Make it happen</h2>
+          <div class="mini-flow">
+            <span>Red changes brush colour</span>
+            <span>Go starts animation</span>
+            <span>Stop freezes the canvas</span>
+          </div>
+        </section>
+      </div>
+    </aside>
+  </section>
+</body>
+</html>
