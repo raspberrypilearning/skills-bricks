@@ -600,6 +600,23 @@ body.theme-predict .part strong {
   padding: 1.5mm 2mm;
 }
 
+.example-link {
+  display: block;
+  border-left: 1mm solid var(--cc-green);
+  background: #f4fbf7;
+  border-radius: 0 2mm 2mm 0;
+  padding: 1.5mm 2mm;
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.example-link:hover,
+.example-link:focus-visible {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
 /* Code side */
 .code-panel {
   padding-right: 7mm;

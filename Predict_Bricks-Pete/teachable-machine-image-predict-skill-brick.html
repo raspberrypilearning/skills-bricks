@@ -98,9 +98,9 @@
       <section class="code-block">
         <h2>Try</h2>
         <ul class="model-steps">
-          <li><strong>Classes</strong>Make two or three image classes with clear names.</li>
-          <li><strong>Examples</strong>Record examples from different angles and distances.</li>
-          <li><strong>Test</strong>Move the object and background, then watch the confidence move too.</li>
+          <li><strong>Classes</strong>Name the things clearly, like red, green, blue, and background.</li>
+          <li><strong>Examples</strong>Record each class from different angles, distances, and lighting.</li>
+          <li><strong>Export</strong>Use TensorFlow.js for a webpage, or TensorFlow/Keras for Python.</li>
         </ul>
       </section>
 
@@ -112,7 +112,7 @@ IF confidence &gt; 75%
 DO exported trigger</code></pre>
       </section>
 
-      <div class="note">A good model should handle normal messiness, not only the exact pose you used for examples.</div>
+      <div class="note">Train with the same camera view you will use later. The background is part of what the model sees.</div>
     </main>
 
     <aside class="panel wiring-panel">
@@ -121,15 +121,15 @@ DO exported trigger</code></pre>
       <div class="threshold-grid">
         <section class="threshold-card">
           <h2>Class balance</h2>
-          <p>Try giving each class a similar number of examples so one label does not win too easily.</p>
+          <p>Give each class a similar number of examples so one label does not win too easily.</p>
         </section>
 
         <section class="threshold-card">
-          <h2>Make it happen</h2>
+          <h2>Build order</h2>
           <div class="mini-flow">
-            <span>Label changes a sprite</span>
-            <span>Confidence lights a meter</span>
-            <span>Export triggers code</span>
+            <span>Show the label</span>
+            <span>Check confidence</span>
+            <span>Trigger the output</span>
           </div>
         </section>
       </div>

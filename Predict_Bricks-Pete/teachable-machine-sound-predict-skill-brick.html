@@ -98,9 +98,9 @@
       <section class="code-block">
         <h2>Try</h2>
         <ul class="model-steps">
-          <li><strong>Noise</strong>Record background noise as its own class.</li>
-          <li><strong>Samples</strong>Record each sound a few different ways.</li>
-          <li><strong>Live test</strong>Try the model while people talk, laugh, and move around.</li>
+          <li><strong>Classes</strong>Name the sounds clearly, like red, green, blue, and background noise.</li>
+          <li><strong>Record</strong>Add examples for each class, including normal room noise.</li>
+          <li><strong>Export</strong>For a webpage, choose TensorFlow.js, upload, then copy the model link.</li>
         </ul>
       </section>
 
@@ -112,7 +112,7 @@ IF confidence &gt; 75%
 DO exported trigger</code></pre>
       </section>
 
-      <div class="note">Background noise is not empty. It is a real sound class the model needs to understand.</div>
+      <div class="note">Background noise is not empty. Train it as its own class so it does not pretend to be a command.</div>
     </main>
 
     <aside class="panel wiring-panel">
@@ -121,15 +121,15 @@ DO exported trigger</code></pre>
       <div class="threshold-grid">
         <section class="threshold-card">
           <h2>Room test</h2>
-          <p>Try the same model in a quiet corner and in the middle of the room. Compare the confidence.</p>
+          <p>Try the model in the real workshop room. If it gets confused, add examples from that room.</p>
         </section>
 
         <section class="threshold-card">
-          <h2>Make it happen</h2>
+          <h2>Build order</h2>
           <div class="mini-flow">
-            <span>Clap changes scene</span>
-            <span>Word plays a note</span>
-            <span>Noise class does nothing</span>
+            <span>Show the label</span>
+            <span>Check confidence</span>
+            <span>Trigger the output</span>
           </div>
         </section>
       </div>

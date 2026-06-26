@@ -98,9 +98,9 @@
       <section class="code-block">
         <h2>Try</h2>
         <ul class="model-steps">
-          <li><strong>Load</strong>Use a sound model and allow the browser to use the microphone.</li>
-          <li><strong>Show</strong>Print the current label and confidence on the canvas.</li>
-          <li><strong>React</strong>Only change the sketch when the confidence is high enough.</li>
+          <li><strong>Train</strong>In Teachable Machine Audio, make red, green, blue, and background classes.</li>
+          <li><strong>Export</strong>Choose TensorFlow.js, upload the model, then copy the shareable link.</li>
+          <li><strong>Paste</strong>Put the link in <code class="inline-code">soundModel</code>, then let the browser use the microphone.</li>
         </ul>
       </section>
 
@@ -112,7 +112,7 @@ IF confidence &gt; 70%
 DO p5.js response</code></pre>
       </section>
 
-      <div class="note">Keep the label visible while building. It helps you spot when the model is guessing wildly.</div>
+      <div class="note">Keep the label and confidence visible while building. If background noise looks like a colour, add more background examples.</div>
     </main>
 
     <aside class="panel wiring-panel">
@@ -120,16 +120,15 @@ DO p5.js response</code></pre>
 
       <div class="threshold-grid">
         <section class="threshold-card">
-          <h2>Live sketch</h2>
-          <p>The prediction can change colour, size, speed, sprites, sound, or any other p5.js variable.</p>
+          <h2>Build order</h2>
+          <p>First make it print the label. Then change the background. Then add points, sound, sprites, or hardware.</p>
         </section>
 
         <section class="threshold-card">
-          <h2>Make it happen</h2>
+          <h2>Try examples</h2>
           <div class="mini-flow">
-            <span>Red changes brush colour</span>
-            <span>Go starts animation</span>
-            <span>Stop freezes the canvas</span>
+            <a class="example-link" href="../examples/ml5-speech-commands-example/">Audio colour sketch</a>
+            <a class="example-link" href="../examples/ml5-colour-reactor-game/">Colour Reactor game</a>
           </div>
         </section>
       </div>

@@ -98,9 +98,9 @@
       <section class="code-block">
         <h2>Try</h2>
         <ul class="model-steps">
-          <li><strong>Start</strong>Use a ready-made model first so the loop works quickly.</li>
-          <li><strong>Print</strong>Show the top label and confidence before connecting hardware.</li>
-          <li><strong>Trigger</strong>Only run the output when the confidence is high enough.</li>
+          <li><strong>Train</strong>In Teachable Machine Image, make pencil, cup, book, and background classes.</li>
+          <li><strong>Export</strong>Download TensorFlow/Keras or TensorFlow Lite files for Python.</li>
+          <li><strong>Put</strong>Drop the model files into the example <code class="inline-code">model</code> folder.</li>
         </ul>
       </section>
 
@@ -112,7 +112,7 @@ IF confidence &gt; 70%
 DO GPIO or print output</code></pre>
       </section>
 
-      <div class="note">Printing the label is already a useful output. Add LEDs, buzzers, or GPIO once the prediction loop behaves.</div>
+      <div class="note">Printing the label is the first win. Add LEDs, buzzers, or GPIO once the model spots the right thing.</div>
     </main>
 
     <aside class="panel wiring-panel">
@@ -120,16 +120,15 @@ DO GPIO or print output</code></pre>
 
       <div class="threshold-grid">
         <section class="threshold-card">
-          <h2>Start simple</h2>
-          <p>A pre-trained camera model is a fast way to see Detect, Predict, Do in Python.</p>
+          <h2>Model files</h2>
+          <p>Use <strong>keras_model.h5</strong> or <strong>model.tflite</strong> with <strong>labels.txt</strong>. Keep the class names simple.</p>
         </section>
 
         <section class="threshold-card">
-          <h2>Make it happen</h2>
+          <h2>Try examples</h2>
           <div class="mini-flow">
-            <span>Person turns on LED</span>
-            <span>Dog prints a message</span>
-            <span>Low confidence waits</span>
+            <a class="example-link" href="../examples/tensorflow-python-predict-examples/">Image predict scripts</a>
+            <a class="example-link" href="../examples/tensorflow-python-predict-examples/object_quest_game.py">Object Quest Python</a>
           </div>
         </section>
       </div>
